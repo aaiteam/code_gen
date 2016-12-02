@@ -3,7 +3,7 @@ import chainer
 import copy
 import gym
 import random
-# random.seed(42) # for reproducibility
+random.seed(42) # for reproducibility
 
 
 class DQN:
@@ -22,11 +22,8 @@ class DQNAgent:
 
     class State:
 
-        # maybe only observation?
-        # observation - code output
-        def __init__(self, code="", observation=""):
+        def __init__(self, code=""):
             self.code = code
-            self.observation = observation
 
 
     # Action is a string ~ codeword
@@ -37,9 +34,9 @@ class DQNAgent:
         self.epsilon = 1.0  # Initial exploratoin rate
         self.dqn = DQN(actions)
 
-    def start(self, observation):
+    def start(self, code):
         print "Starting agent..."
-        self.reset_state(observation)
+        self.reset_state(code)
 
         # Generate an Action e-greedy
         action, Q_now = self.dqn.action_sample_e_greedy(self.state, self.epsilon)
@@ -48,9 +45,9 @@ class DQNAgent:
 
         return action
 
-    def act(self, observation, reward):
+    def act(self, code, reward):
         print "Agent is acting..."
-        self.set_state(observation)
+        self.set_state(code)
 
         # Exploration should decay along the time sequence
         action, Q_now = self.dqn.action_sample_e_greedy(self.state, self.epsilon)
@@ -59,18 +56,18 @@ class DQNAgent:
 
         return action
 
-    def reset_state(self, observation):
+    def reset_state(self, code):
         print "Resetting state..."
-        self.last_observation = observation
+        self.last_code = code
         self.state = []
-        self.state.append(self.State(code="", observation=observation))
+        self.state.append(self.State(code=code))
 
-    def set_state(self, observation):
+    def set_state(self, code):
         print "Setting state..."
-        self.last_observation = observation
+        self.last_code = code
         if (len(self.state) >= self.dqn.n_history):
             self.state = [s for s in self.state[1:]]
-        self.state.append(self.State(code="", observation=observation))
+        self.state.append(self.State(code=code))
 
     def end(self, reward):
         print "End in agent, episode terminated"

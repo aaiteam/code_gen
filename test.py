@@ -14,21 +14,21 @@ def main():
     agent = DQNAgent(env=env)
 
     # 1 iteration
-    observation = env.reset()
+    code = env.reset()
     step_in_episode = 0
     total_score = 0.0
     reward = 0.0
 
-    max_steps = 3
+    max_steps = 7
     # while True:
     while step_in_episode < max_steps:
 
         env.render()
 
         if step_in_episode == 0:
-            observation, reward, terminal, info = env.step(agent.start(observation))
+            code, reward, terminal, info = env.step(agent.start(code))
         else:
-            observation, reward, terminal, info = env.step(agent.act(observation, reward))
+            code, reward, terminal, info = env.step(agent.act(code, reward))
 
         total_score += reward
         step_in_episode += 1

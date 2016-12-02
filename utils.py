@@ -1,4 +1,4 @@
-class Observation:
+class ExecutionResult:
 
     def __init__(self, output="", raised_exception=False, exception_type=None):
         self.output = output
