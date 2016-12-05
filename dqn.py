@@ -65,10 +65,10 @@ class DQN:
 
 
         # History Data :  D=[s, a, r, s_dash, end_episode_flag]
-        self.replay_buffer = [np.zeros((self.data_size, self.code_idx_size), dtype=np.uint8),
-                  np.zeros(self.data_size, dtype=np.uint8),
+        self.replay_buffer = [np.zeros((self.data_size, self.code_idx_size), dtype=np.float32),
+                  np.zeros(self.data_size, dtype=np.float32),
                   np.zeros((self.data_size, 1), dtype=np.float32),
-                  np.zeros((self.data_size, self.code_idx_size), dtype=np.uint8),
+                  np.zeros((self.data_size, self.code_idx_size), dtype=np.float32),
                   np.zeros((self.data_size, 1), dtype=np.bool)]
 
 

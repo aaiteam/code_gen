@@ -55,7 +55,7 @@ for arg in sys.argv[1:]:
             reward = 1.0
             terminal = True
         elif ex_res.raised_exception:
-             if len(self.code_index_list) == 5:
+             if len(self.code_index_list) == 3:
                 reward = -1.0
              elif ex_res.exception_type == 'IndentationError':
 	         reward = -1.0
@@ -70,14 +70,10 @@ for arg in sys.argv[1:]:
 		     reward = 0.0
 	     else:
                  reward = 0.0
-        else:
-	    if self.code_index_list[0] == 0:
-		reward = -1.0
-		#terminal = True
-	    elif len(self.code_index_list) == 5:
-                reward = -0.0
-	    else:
-                reward = -0.0
+        else:	
+            #terminal = True
+            reward = -1.0
+
         self.last_reward = reward
         if len(self.code) > 255:
             terminal = True 
