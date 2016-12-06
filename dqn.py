@@ -126,12 +126,12 @@ class DQN:
             episode_end_replay = np.ndarray(shape=(rs, 1), dtype=np.bool)
 
 
-            for i in range(rs_t):
-                s_replay[i] = np.asarray(self.replay_buffer[0][replay_index[i]], dtype=np.float32)
-                a_replay[i] = self.replay_buffer[1][replay_index[i]]
-                r_replay[i] = self.replay_buffer[2][replay_index[i]]
-                s_dash_replay[i] = np.array(self.replay_buffer[3][replay_index[i]], dtype=np.float32)
-                episode_end_replay[i] = self.replay_buffer[4][replay_index[i]]
+#            for i in range(rs_t):
+#                s_replay[i] = np.asarray(self.replay_buffer[0][replay_index[i]], dtype=np.float32)
+#                a_replay[i] = self.replay_buffer[1][replay_index[i]]
+#                r_replay[i] = self.replay_buffer[2][replay_index[i]]
+#                s_dash_replay[i] = np.array(self.replay_buffer[3][replay_index[i]], dtype=np.float32)
+#                episode_end_replay[i] = self.replay_buffer[4][replay_index[i]]
 
             for i in range(rs_t, rs):
                 s_replay[i] = np.asarray(self.replay_buffer[0][self.goal_idx[i-rs_t]], dtype=np.float32)
