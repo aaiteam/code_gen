@@ -43,16 +43,14 @@ class DQN:
     target_model_update_freq = 10  # Target update frequancy. original: 10^4
     data_size = 10**7  # Data size of history. original: 10^6
     code_idx_size = 3
-    n_history = 1
     n_act = 3
 
     goal_idx = []
     #img_size = 84  # 84x84 image input (fixed)
 
-    def __init__(self, actions, n_history=4):
+    def __init__(self, actions, n_history=1):
         print "Initializing DQN..."
         self.actions = actions
-        self.n_history = n_history
 	self.time_stamp = 0;
 
         print("Model Building")
