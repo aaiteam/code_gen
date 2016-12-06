@@ -1,6 +1,6 @@
 .idea*
 *.pyc
 gym-codegen/gym_codegen.egg-info/*
-temp.pyc
+temp.py*
 .ipynb*
 network/*
