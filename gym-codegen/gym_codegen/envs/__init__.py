@@ -1,2 +1,0 @@
-from gym_codegen.envs.codegen_env import CodegenEnv
-from gym_codegen.envs.codegen_extrahard_env import CodegenExtraHardEnv
