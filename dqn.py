@@ -43,16 +43,14 @@ class DQN:
     target_model_update_freq = 10  # Target update frequancy. original: 10^4
     data_size = 10**7  # Data size of history. original: 10^6
     code_idx_size = 3
-    n_history = 1
     n_act = 3
 
     goal_idx = []
     #img_size = 84  # 84x84 image input (fixed)
 
-    def __init__(self, actions, n_history=4):
+    def __init__(self, actions, n_history=1):
         print "Initializing DQN..."
         self.actions = actions
-        self.n_history = n_history
 	self.time_stamp = 0;
 
         print("Model Building")
@@ -128,12 +126,12 @@ class DQN:
             episode_end_replay = np.ndarray(shape=(rs, 1), dtype=np.bool)
 
 
-            for i in range(rs_t):
-                s_replay[i] = np.asarray(self.replay_buffer[0][replay_index[i]], dtype=np.float32)
-                a_replay[i] = self.replay_buffer[1][replay_index[i]]
-                r_replay[i] = self.replay_buffer[2][replay_index[i]]
-                s_dash_replay[i] = np.array(self.replay_buffer[3][replay_index[i]], dtype=np.float32)
-                episode_end_replay[i] = self.replay_buffer[4][replay_index[i]]
+#            for i in range(rs_t):
+#                s_replay[i] = np.asarray(self.replay_buffer[0][replay_index[i]], dtype=np.float32)
+#                a_replay[i] = self.replay_buffer[1][replay_index[i]]
+#                r_replay[i] = self.replay_buffer[2][replay_index[i]]
+#                s_dash_replay[i] = np.array(self.replay_buffer[3][replay_index[i]], dtype=np.float32)
+#                episode_end_replay[i] = self.replay_buffer[4][replay_index[i]]
 
             for i in range(rs_t, rs):
                 s_replay[i] = np.asarray(self.replay_buffer[0][self.goal_idx[i-rs_t]], dtype=np.float32)
