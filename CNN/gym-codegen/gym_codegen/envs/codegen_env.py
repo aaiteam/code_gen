@@ -25,9 +25,10 @@ class CodegenEnv(gym.Env):
     INITIAL_CODE = """
 import sys
 
-x = []
-for arg in sys.argv[1:]:
-    x.append(arg)
+#x = []
+#for arg in sys.argv[1:]:
+#    x.append(arg)
+x = sys.argv[1]
 
 # desired code starts here
 """
@@ -38,7 +39,7 @@ for arg in sys.argv[1:]:
         self.code = self.INITIAL_CODE
         self.my_input = program_input
         self.goal = goal
-	self.code_index_list = []
+        self.code_index_list = []
 
     # received an action to make from environment
     def _step(self, action_idx, actions):
@@ -47,9 +48,9 @@ for arg in sys.argv[1:]:
         self.code += actions[action_idx]
 
         action_st = np.zeros(len(actions), dtype=int).tolist()
-	action_st[action_idx] = 1;
-	self.code_index_list+= [action_st]
-	print "self.code_index_list = ", self.code_index_list
+        action_st[action_idx] = 1;
+        self.code_index_list+= [action_st]
+        print "self.code_index_list = ", self.code_index_list
 
         ex_res = self.get_execution_result()
         reward = 0.
@@ -60,24 +61,26 @@ for arg in sys.argv[1:]:
             reward = 1.0
             terminal = True
         elif ex_res.raised_exception:
-             if len(self.code_index_list) == 5:
+             if len(self.code_index_list) == 1000:
                 reward = -1.0
+             elif ex_res.exception_type == 'TypeError':
+                 reward = -1.0             
              elif ex_res.exception_type == 'IndentationError':
-	         reward = -1.0
-		 #terminal = True
+                 reward = -1.0
+                #terminal = True
              elif ex_res.exception_type == 'SyntaxError':
-	         reward = 0.0
-		 #terminal = True
-	     elif ex_res.exception_type == 'NameError':
-		 if self.code_index_list[0]==2:
-		     reward = 0.0
-		 else : 
-		     reward = 0.0
-	     else:
+                 reward = 0.0
+                 #terminal = True
+             elif ex_res.exception_type == 'NameError':
+                if self.code_index_list[0]==2:
+                    reward = -1.0
+                else : 
+                    reward = -1.0
+             else:
                  reward = 0.0
         else:	
             #terminal = True
-            reward = -1.0
+            reward = 0.0
 
         self.last_reward = reward
         if len(self.code) > 255:
@@ -94,11 +97,11 @@ for arg in sys.argv[1:]:
 
         with stdoutIO() as s:
             try:
-		sys.argv[1:] = []
-		#print "len = ", len(sys.argv)
-		sys.argv.append(self.my_input)
+                sys.argv[1:] = []
+                #print "len = ", len(sys.argv)
+                sys.argv.append(self.my_input)
                 
-		execfile(self.FILENAME)
+                execfile(self.FILENAME)
                 del sys.argv[-1]
             except Exception as e:
                 ex_res.raised_exception = True
