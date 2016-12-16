@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 class ActionValue(Chain):
     def __init__(self, n_history, n_act):
         #print "n_history = ", n_history
-	super(ActionValue, self).__init__(
+        super(ActionValue, self).__init__(
             l1=F.Convolution2D(n_history, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
             l2=F.Convolution2D(9, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
             l3=F.Convolution2D(9, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
@@ -58,12 +58,12 @@ class DQN:
         print "Initializing DQN..."
         self.actions = actions
         self.n_history = n_history
-	self.max_steps = max_steps
-	#print "n_history = ", n_history
-	self.time_stamp = 0
+        self.max_steps = max_steps
+        #print "n_history = ", n_history
+        self.time_stamp = 0
 
         print("Model Building")
-	self.model = ActionValue(self.n_history, self.n_act)
+        self.model = ActionValue(self.n_history, self.n_act)
         self.model_target = copy.deepcopy(self.model)
 
         print("Initizlizing Optimizer")
@@ -82,8 +82,8 @@ class DQN:
 
     # TODO: implement, for now some stupid output
     def action_sample_e_greedy(self, state, epsilon):      
-	#print state
-	s = Variable(state)
+        print state
+        s = Variable(state)
         q = self.model.q_function(s)
         q = q.data[0]
 
@@ -97,8 +97,8 @@ class DQN:
             print(q)
         return action, q
 
-	#idx = random.randint(0, len(self.actions) - 1)
-	#return idx, 0.5
+    #idx = random.randint(0, len(self.actions) - 1)
+    #return idx, 0.5
 
     def stock_experience(self, time,
                         state, action_idx, reward, state_prime,
@@ -120,8 +120,8 @@ class DQN:
     def experience_replay(self, time):
 
         if self.initial_exploration < time:
-	    
-	    rs_t = max(self.replay_size-len(self.goal_idx),self.replay_size/2)
+
+            rs_t = max(self.replay_size-len(self.goal_idx),self.replay_size/2)
             # Pick up replay_size number of samples from the Data
             if time < self.data_size:  # during the first sweep of the History Data
                 replay_index = np.random.randint(0, time, (rs_t, 1))
@@ -129,10 +129,10 @@ class DQN:
                 replay_index = np.random.randint(0, self.data_size, (rs_t, 1))
 
 
-	    #print replay_index
-	    #print rs_t
-	    #print time
-	    #raw_input()
+        #print replay_index
+        #print rs_t
+        #print time
+        #raw_input()
 
             hs = self.n_history
             rs = self.replay_size
@@ -177,16 +177,16 @@ class DQN:
 
         for i in range(self.replay_size):
             
-	    rw = np.sign(reward[i])
-	    if episode_end[i][0] is True:
-                tmp_ = rw
+            rw = np.sign(reward[i])
+            if episode_end[i][0] is True:
+                    tmp_ = rw
             else:
                 #  The sign of reward is used as the reward of DQN!
                 tmp_ = rw + self.gamma * max_q_prime[i]
 
             target[i, action[i]] = tmp_
             #print(tmp_)
-	    #raw_input('pause!!')
+        #raw_input('pause!!')
 
         #print(target)
         # TD-error clipping
@@ -222,7 +222,7 @@ class DQNAgent:
 
         def __init__(self, code=""):
             self.code = code
-	    #self.idx = [];
+        #self.idx = [];
 
 
     # Action is a string ~ codeword
@@ -238,13 +238,13 @@ class DQNAgent:
         self.reset_state(code)
 
         # Generate an Action e-greedy
-	#print s_state
-	#raw_input()
-	state = np.asanyarray(s_state, dtype=np.float32).reshape(1, self.dqn.n_history, self.dqn.max_steps, self.dqn.n_act)
- 	#print state
-	#raw_input()
+        #print s_state
+        #raw_input()
+        state = np.asanyarray(s_state, dtype=np.float32).reshape(1, self.dqn.n_history, self.dqn.max_steps, self.dqn.n_act)
+        #print state
+        #raw_input()
         # Exploration decays along the time sequence
-	self.policyFrozen = False
+        self.policyFrozen = False
         if self.policyFrozen is False:  # Learning ON/OFF
             if self.dqn.initial_exploration < self.dqn.time_stamp:
                 self.epsilon -= 1.0/10**2
@@ -269,7 +269,7 @@ class DQNAgent:
         self.set_state(code)
 
         # Exploration should decay along the time sequence
-	state = np.asanyarray(s_state, dtype=np.float32).reshape(1, self.dqn.n_history, self.dqn.max_steps, self.dqn.n_act)
+        state = np.asanyarray(s_state, dtype=np.float32).reshape(1, self.dqn.n_history, self.dqn.max_steps, self.dqn.n_act)
         action_idx, Q_now = self.dqn.action_sample_e_greedy(state, self.epsilon)
 
         # Place for learning
