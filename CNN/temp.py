@@ -7,4 +7,4 @@ import sys
 x = sys.argv[1]
 
 # desired code starts here
-print   x
+print x 

@@ -22,10 +22,10 @@ class ActionValue(Chain):
     def __init__(self, n_history, n_act):
         #print "n_history = ", n_history
         super(ActionValue, self).__init__(
-            l1=F.Convolution2D(n_history, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
-            l2=F.Convolution2D(9, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
-            l3=F.Convolution2D(9, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
-            l4=F.Linear(135, 512),#, wscale=np.sqrt(2)),
+            l1=F.Convolution2D(n_history, 3, ksize=3, stride=1, nobias=False, wscale=np.sqrt(2)),
+            l2=F.Convolution2D(3, 6, ksize=2, stride=1, nobias=False, wscale=np.sqrt(2)),
+            l3=F.Convolution2D(6, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
+            l4=F.Linear(36, 512),#, wscale=np.sqrt(2)),
             q_value=F.Linear(512, n_act,
                              initialW=0.0*np.random.randn(n_act, 512).astype(np.float32))
         )

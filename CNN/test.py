@@ -78,13 +78,8 @@ def main():
             print "state' : "
             print state_prime
 
-	# store the translation
+          
             if step_in_episode == max_steps-1:
-                agent.dqn.stock_experience(agent.dqn.time_stamp, state, action_idx
-					, reward, state_prime, 1)
-            else : 
-            # store the translation
-            if step_in_episode == max_steps - 1:
                 agent.dqn.stock_experience(agent.dqn.time_stamp, state, action_idx
                                            , reward, state_prime, 1)
             else:
@@ -111,14 +106,6 @@ def main():
 
                 if iters-iter<=100:
                     n_goal +=1
-
-                n_goal_all += 1
-                step_in_episode += 1
-                agent.dqn.time_stamp += 1
-
-                if iters - iter <= 100:
-                    n_goal += 1
-                break
 
             step_in_episode += 1
             agent.dqn.time_stamp += 1
