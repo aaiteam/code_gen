@@ -25,18 +25,11 @@ def main():
 
         # 1 iteration
         env = gym.make("codegen-v0")
-<<<<<<< HEAD
         num = random.randrange(1,100)
         print "Goal Number : ", num 
         env.my_input = num
     	#env.goal = "['" + env.my_input + "']"
         env.goal = str(num)
-=======
-        num = random.randrange(1, 100)
-        print "Goal Number : ", num
-        env.my_input = str(num)
-        env.goal = "['" + env.my_input + "']"
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
 
         code = env._reset()
         step_in_episode = 0
@@ -55,18 +48,6 @@ def main():
         # while True:
         while step_in_episode < max_steps:
 
-<<<<<<< HEAD
-            #env.render()
-	    #state = env.code_index_list + [-1]*(max_steps-len(env.code_index_list
-            state = env.code_index_list[:]
-            state += np.zeros([max_steps-len(env.code_index_list), agent.dqn.code_idx_size], dtype=int).tolist()
-	    #state = state.tolist()
-	    #state = 1;
-	    #print "env = ",env.code_index_list
-	    #print "state = ",state
-	    #raw_input()
-=======
-            # env.render()
             # state = env.code_index_list + [-1]*(max_steps-len(env.code_index_list
             state = env.code_index_list[:]
             state += np.zeros([max_steps - len(env.code_index_list), agent.dqn.code_idx_size], dtype=int).tolist()
@@ -75,7 +56,7 @@ def main():
             # print "env = ",env.code_index_list
             # print "state = ",state
             # raw_input()
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
+
             if step_in_episode == 0:
                 action_idx = agent.start(code, state)
             else:
@@ -83,12 +64,7 @@ def main():
 
             code, reward, terminal, info = env._step(action_idx, agent.dqn.actions)
             state_prime = env.code_index_list[:]
-<<<<<<< HEAD
-            state_prime += np.zeros([max_steps-len(env.code_index_list), agent.dqn.code_idx_size], dtype=int).tolist()
-
-=======
             state_prime += np.zeros([max_steps - len(env.code_index_list), agent.dqn.code_idx_size], dtype=int).tolist()
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
 
             # debug : the sys
             # sss = []
@@ -102,19 +78,16 @@ def main():
             print "state' : "
             print state_prime
 
-<<<<<<< HEAD
 	# store the translation
             if step_in_episode == max_steps-1:
                 agent.dqn.stock_experience(agent.dqn.time_stamp, state, action_idx
 					, reward, state_prime, 1)
             else : 
-=======
             # store the translation
             if step_in_episode == max_steps - 1:
                 agent.dqn.stock_experience(agent.dqn.time_stamp, state, action_idx
                                            , reward, state_prime, 1)
             else:
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
                 agent.dqn.stock_experience(agent.dqn.time_stamp, state, action_idx
                                            , reward, state_prime, 0)
 
@@ -130,7 +103,6 @@ def main():
 
                 agent.end(reward)
                 agent.dqn.stock_experience(agent.dqn.time_stamp, state, action_idx
-<<<<<<< HEAD
                                         , reward, state_prime, 1)
 
                 n_goal_all +=1
@@ -139,15 +111,13 @@ def main():
 
                 if iters-iter<=100:
                     n_goal +=1
-=======
-                                           , reward, state_prime, 1)
+
                 n_goal_all += 1
                 step_in_episode += 1
                 agent.dqn.time_stamp += 1
 
                 if iters - iter <= 100:
                     n_goal += 1
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
                 break
 
             step_in_episode += 1

@@ -22,17 +22,10 @@ class ActionValue(Chain):
     def __init__(self, n_history, n_act):
         #print "n_history = ", n_history
         super(ActionValue, self).__init__(
-<<<<<<< HEAD
-            l1=F.Convolution2D(n_history, 3, ksize=3, stride=1, nobias=False, wscale=np.sqrt(2)),
-            l2=F.Convolution2D(3, 6, ksize=2, stride=1, nobias=False, wscale=np.sqrt(2)),
-            l3=F.Convolution2D(6, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
-            l4=F.Linear(36, 512),#, wscale=np.sqrt(2)),
-=======
             l1=F.Convolution2D(n_history, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
             l2=F.Convolution2D(9, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
             l3=F.Convolution2D(9, 9, ksize=1, stride=1, nobias=False, wscale=np.sqrt(2)),
             l4=F.Linear(135, 512),#, wscale=np.sqrt(2)),
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
             q_value=F.Linear(512, n_act,
                              initialW=0.0*np.random.randn(n_act, 512).astype(np.float32))
         )
@@ -89,11 +82,7 @@ class DQN:
 
     # TODO: implement, for now some stupid output
     def action_sample_e_greedy(self, state, epsilon):      
-<<<<<<< HEAD
         #print state
-=======
-        print state
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
         s = Variable(state)
         q = self.model.q_function(s)
         q = q.data[0]
@@ -108,13 +97,8 @@ class DQN:
             print(q)
         return action, q
 
-<<<<<<< HEAD
         #idx = random.randint(0, len(self.actions) - 1)
         #return idx, 0.5
-=======
-    #idx = random.randint(0, len(self.actions) - 1)
-    #return idx, 0.5
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
 
     def stock_experience(self, time,
                         state, action_idx, reward, state_prime,
@@ -136,11 +120,6 @@ class DQN:
     def experience_replay(self, time):
 
         if self.initial_exploration < time:
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
             rs_t = max(self.replay_size-len(self.goal_idx),self.replay_size/2)
             # Pick up replay_size number of samples from the Data
             if time < self.data_size:  # during the first sweep of the History Data
@@ -149,17 +128,10 @@ class DQN:
                 replay_index = np.random.randint(0, self.data_size, (rs_t, 1))
 
 
-<<<<<<< HEAD
             #print replay_index
             #print rs_t
             #print time
             #raw_input()
-=======
-        #print replay_index
-        #print rs_t
-        #print time
-        #raw_input()
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
 
             hs = self.n_history
             rs = self.replay_size
@@ -206,22 +178,12 @@ class DQN:
             
             rw = np.sign(reward[i])
             if episode_end[i][0] is True:
-<<<<<<< HEAD
                 tmp_ = rw
-=======
-                    tmp_ = rw
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
-            else:
-                #  The sign of reward is used as the reward of DQN!
+            else:    
                 tmp_ = rw + self.gamma * max_q_prime[i]
 
             target[i, action[i]] = tmp_
             #print(tmp_)
-<<<<<<< HEAD
-            #raw_input('pause!!')
-=======
-        #raw_input('pause!!')
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
 
         #print(target)
         # TD-error clipping
@@ -257,11 +219,7 @@ class DQNAgent:
 
         def __init__(self, code=""):
             self.code = code
-<<<<<<< HEAD
             #self.idx = [];
-=======
-        #self.idx = [];
->>>>>>> 08e7669dc7f5dcee77dd682c7bed34219b810084
 
 
     # Action is a string ~ codeword
