@@ -1,0 +1,6 @@
+.idea*
+*.pyc
+*.model
+temp.py
+.ipynb_checkpoints/*
+gym-codegen/gym_codegen.egg-info/*
