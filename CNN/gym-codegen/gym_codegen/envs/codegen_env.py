@@ -34,12 +34,13 @@ x = sys.argv[1]
 """
     FILENAME = "temp.py"
 
-    def __init__(self, program_input="", goal=""):
+    def __init__(self, program_input="", goal="", max_len=10000):
         print "Initializing Codegen Environment..."
         self.code = self.INITIAL_CODE
         self.my_input = program_input
         self.goal = goal
         self.code_index_list = []
+        self.max_len = max_len
 
     # received an action to make from environment
     def _step(self, action_idx, actions):
@@ -60,27 +61,16 @@ x = sys.argv[1]
             print "Got desired result!"
             reward = 1.0
             terminal = True
+        elif len(self.code_index_list) == self.max_len:
+            reward = -1.0
         elif ex_res.raised_exception:
-             if len(self.code_index_list) == 1000:
-                reward = -1.0
-             elif ex_res.exception_type == 'TypeError':
-                 reward = -1.0             
-             elif ex_res.exception_type == 'IndentationError':
-                 reward = -1.0
-                #terminal = True
-             elif ex_res.exception_type == 'SyntaxError':
+             if ex_res.exception_type == 'SyntaxError':
                  reward = 0.0
-                 #terminal = True
-             elif ex_res.exception_type == 'NameError':
-                if self.code_index_list[0]==2:
-                    reward = -1.0
-                else : 
-                    reward = -1.0
              else:
-                 reward = 0.0
-        else:	
-            #terminal = True
+                 reward = -1.0
+        else:
             reward = 0.0
+            #terminal = True
 
         self.last_reward = reward
         if len(self.code) > 255:
