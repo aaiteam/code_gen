@@ -22,14 +22,22 @@ def stdoutIO():
 class CodegenEnv(gym.Env):
     metadata = {'render.modes': ['human']}
 
+#     INITIAL_CODE = """
+# import sys
+# #x = []
+# #for arg in sys.argv[1:]:
+# #    x.append(arg)
+# x = sys.argv[1]
+# # desired code starts here
+# """
     INITIAL_CODE = """
 import sys
-#x = []
-#for arg in sys.argv[1:]:
-#    x.append(arg)
-x = sys.argv[1]
+
+x = int(sys.argv[1])
+
 # desired code starts here
 """
+
     FILENAME = "temp.py"
 
     def __init__(self, program_input="", goal=""):
@@ -75,8 +83,10 @@ x = sys.argv[1]
              #        reward = -1.0
              # else:
              #     reward = 0.0
-        else:   
-            reward = 0.0
+        elif len(ex_res.output) > 0:   
+            reward = 0.2
+        else:
+            reward = 0.1
 
         self.last_reward = reward
         if len(self.code) > 255:

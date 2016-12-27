@@ -1,0 +1,6313 @@
+Creating DQN agent...
+Initializing DQN...
+
+
+::0::
+Initializing Codegen Environment...
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 1, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 1, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 1, goal history size: 0
+q for action 3 is [ 0.02409843 -0.11669827 -0.12440319 -0.06009698 -0.04209403]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 1, goal history size: 0
+q for action 1 is [-0.00359469 -0.1478644  -0.11054002 -0.02681483 -0.00755431]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 1, goal history size: 0
+TOTAL 0.00% of wins in last 1 iters, sum: 0.0, total good: 0
+
+
+::1::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++ + +
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 2, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 2, goal history size: 0
+q for action 4 is [ 0.05662135 -0.08450072 -0.03429179  0.00111553 -0.00991905]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 2, goal history size: 0
+q for action 2 is [ 0.01082545 -0.07812886 -0.01221921  0.00416553  0.02822734]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 2, goal history size: 0
+q for action 0 is [ 0.01363467 -0.11160457  0.00023935  0.04934701  0.03676069]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 2, goal history size: 0
+TOTAL 0.00% of wins in last 2 iters, sum: 0.0, total good: 0
+
+
+::2::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print1xprint1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 3, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 3, goal history size: 0
+q for action 1 is [-0.00290317 -0.10346346 -0.06062561 -0.04400896  0.04698186]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 3, goal history size: 0
+q for action 2 is [-0.03130724 -0.11512645 -0.01898446  0.00582526  0.07841866]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 3, goal history size: 0
+q for action 2 is [-0.05840631 -0.11967455  0.00759353  0.03559816  0.09096023]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 3, goal history size: 0
+TOTAL 0.00% of wins in last 3 iters, sum: 0.0, total good: 0
+
+
+::3::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+  xx 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 4, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 4, goal history size: 0
+q for action 0 is [ 0.00869725 -0.11817016 -0.02063485  0.01962173  0.03478698]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 4, goal history size: 0
+q for action 0 is [ 0.0192652  -0.14877984  0.01727957  0.07685497  0.08172709]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 4, goal history size: 0
+q for action 0 is [ 0.02591726 -0.17076443  0.05799132  0.12568702  0.12621708]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 4, goal history size: 0
+TOTAL 0.00% of wins in last 4 iters, sum: 0.0, total good: 0
+
+
+::4::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xprintprintprintx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 5, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 5, goal history size: 0
+q for action 2 is [-0.01365229 -0.10464016 -0.02132806 -0.01740354  0.05431474]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 5, goal history size: 0
+q for action 0 is [-0.02248608 -0.12594543 -0.00888371  0.05966869  0.0588986 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 5, goal history size: 0
+q for action 4 is [-0.02097692 -0.140674    0.0244441   0.05345523  0.03144795]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 5, goal history size: 0
+TOTAL 0.00% of wins in last 5 iters, sum: 0.0, total good: 0
+
+
+::5::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ xprint1x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 6, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 6, goal history size: 0
+q for action 0 is [ 0.05907705 -0.0865944  -0.03139375  0.00382678 -0.01743834]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 6, goal history size: 0
+q for action 3 is [ 0.04057228 -0.09053852 -0.09096473 -0.02605372 -0.04558231]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 6, goal history size: 0
+q for action 0 is [ 0.07182465 -0.14000392 -0.06000455  0.01862472  0.01051612]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 6, goal history size: 0
+TOTAL 0.00% of wins in last 6 iters, sum: 0.0, total good: 0
+
+
+::6::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1print+print1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 7, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 7, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 7, goal history size: 0
+q for action 3 is [ 0.02409843 -0.11669827 -0.12440319 -0.06009698 -0.04209403]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 7, goal history size: 0
+q for action 1 is [-0.00359469 -0.1478644  -0.11054002 -0.02681483 -0.00755431]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 7, goal history size: 0
+TOTAL 0.00% of wins in last 7 iters, sum: 0.0, total good: 0
+
+
+::7::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++ + +
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 8, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 8, goal history size: 0
+q for action 0 is [ 0.00869725 -0.11817016 -0.02063485  0.01962173  0.03478698]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 8, goal history size: 0
+q for action 2 is [-0.03683709 -0.12734579  0.00494364  0.05471146  0.07810808]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 8, goal history size: 0
+q for action 0 is [-0.02412697 -0.1654883   0.00975436  0.09664579  0.08965045]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 8, goal history size: 0
+TOTAL 0.00% of wins in last 8 iters, sum: 0.0, total good: 0
+
+
+::8::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xprintxprint+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 9, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 9, goal history size: 0
+q for action 2 is [-0.00350769 -0.11172412 -0.06132476 -0.03906646 -0.00743911]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 9, goal history size: 0
+q for action 0 is [-0.0008078  -0.14451416 -0.04904857  0.02482808  0.02786932]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 9, goal history size: 0
+q for action 4 is [-0.01010151 -0.1520974  -0.0125848   0.04233954  0.00839231]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 9, goal history size: 0
+TOTAL 0.00% of wins in last 9 iters, sum: 0.0, total good: 0
+
+
+::9::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++xprint1+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 10, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 10, goal history size: 0
+q for action 2 is [ 0.00988385 -0.07899199 -0.03578987 -0.030386   -0.01226086]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 10, goal history size: 0
+q for action 2 is [-0.02257884 -0.09664269 -0.01027694 -0.01661056  0.02927051]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 10, goal history size: 0
+q for action 4 is [-0.02940596 -0.12256207  0.01518786 -0.02356194  0.00516911]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 10, goal history size: 0
+TOTAL 0.00% of wins in last 10 iters, sum: 0.0, total good: 0
+
+
+::10::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1xx1 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 11, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 11, goal history size: 0
+q for action 0 is [ 0.04753362 -0.10329297 -0.0765331  -0.02497409 -0.02131368]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 11, goal history size: 0
+q for action 3 is [ 0.03728554 -0.11820304 -0.1369487  -0.03024842 -0.03840099]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 11, goal history size: 0
+q for action 2 is [ 0.00722565 -0.15047674 -0.08394269  0.02440542  0.0198481 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 11, goal history size: 0
+TOTAL 0.00% of wins in last 11 iters, sum: 0.0, total good: 0
+
+
+::11::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++print+x1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 12, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 12, goal history size: 0
+q for action 0 is [ 0.00869725 -0.11817016 -0.02063485  0.01962173  0.03478698]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 12, goal history size: 0
+q for action 4 is [ 0.00199051 -0.12600455  0.00576119  0.03113466  0.01306807]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 12, goal history size: 0
+q for action 2 is [-0.03506884 -0.12044859  0.01525427  0.03397119  0.03814795]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 12, goal history size: 0
+TOTAL 0.00% of wins in last 12 iters, sum: 0.0, total good: 0
+
+
+::12::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xprint1x 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 13, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 13, goal history size: 0
+q for action 2 is [-0.01365229 -0.10464016 -0.02132806 -0.01740354  0.05431474]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 13, goal history size: 0
+q for action 3 is [ 0.02064637 -0.12041763 -0.07644077 -0.03244699  0.0003851 ]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 13, goal history size: 0
+q for action 3 is [ 0.04972072 -0.15952754 -0.10489151 -0.03690908 -0.03668846]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 13, goal history size: 0
+TOTAL 0.00% of wins in last 13 iters, sum: 0.0, total good: 0
+
+
+::13::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ x++1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 14, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 14, goal history size: 0
+q for action 0 is [ 0.06589152 -0.11025804  0.00374718  0.03568909  0.06904501]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 14, goal history size: 0
+q for action 3 is [ 0.05587304 -0.11568369 -0.0803581   0.00900173  0.02472878]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 14, goal history size: 0
+q for action 0 is [ 0.08608964 -0.15161934 -0.04345258  0.060868    0.0686843 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 14, goal history size: 0
+TOTAL 0.00% of wins in last 14 iters, sum: 0.0, total good: 0
+
+
+::14::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printprint+printprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 15, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 15, goal history size: 0
+q for action 2 is [-0.01365229 -0.10464016 -0.02132806 -0.01740354  0.05431474]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 15, goal history size: 0
+q for action 1 is [-0.02905192 -0.11384875 -0.03547355 -0.01481511  0.06838164]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 15, goal history size: 0
+q for action 2 is [-0.05588325 -0.12781118 -0.00897976  0.02791178  0.08918662]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 15, goal history size: 0
+TOTAL 0.00% of wins in last 15 iters, sum: 0.0, total good: 0
+
+
+::15::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ x xx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 16, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 16, goal history size: 0
+q for action 4 is [ 0.05907537 -0.10992123 -0.07136926 -0.02727593 -0.0752191 ]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 16, goal history size: 0
+q for action 3 is [ 0.04025097 -0.08469402 -0.11579545 -0.05401268 -0.11592061]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 16, goal history size: 0
+q for action 1 is [-0.00055831 -0.1236571  -0.11173106 -0.03960941 -0.06373521]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 16, goal history size: 0
+TOTAL 0.00% of wins in last 16 iters, sum: 0.0, total good: 0
+
+
+::16::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++1+  
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 17, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 17, goal history size: 0
+q for action 2 is [-0.01365229 -0.10464016 -0.02132806 -0.01740354  0.05431474]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 17, goal history size: 0
+q for action 2 is [-0.0452306  -0.11817298  0.0023455   0.01752716  0.07917012]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 17, goal history size: 0
+q for action 4 is [-0.04045227 -0.14126654  0.03563893  0.00435143  0.03956404]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 17, goal history size: 0
+TOTAL 0.00% of wins in last 17 iters, sum: 0.0, total good: 0
+
+
+::17::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ xx1x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 18, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 18, goal history size: 0
+q for action 0 is [ 0.06589152 -0.11025804  0.00374718  0.03568909  0.06904501]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 18, goal history size: 0
+q for action 1 is [ 0.03879372 -0.09410371 -0.00854397  0.0266066   0.11318874]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 18, goal history size: 0
+q for action 3 is [ 0.05751406 -0.1103304  -0.07832486 -0.01567937  0.04870286]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 18, goal history size: 0
+TOTAL 0.00% of wins in last 18 iters, sum: 0.0, total good: 0
+
+
+::18::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printprint +1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 19, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 19, goal history size: 0
+q for action 1 is [ 0.03492352 -0.0849344  -0.04593735 -0.01413992  0.06110977]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 19, goal history size: 0
+q for action 3 is [ 0.05240196 -0.10481052 -0.09991052 -0.03883481  0.01329942]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 49
+history size: 19, goal history size: 0
+q for action 2 is [ 0.02263401 -0.14494532 -0.04970827  0.00517688  0.04951054]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 49
+history size: 19, goal history size: 0
+TOTAL 0.00% of wins in last 19 iters, sum: 0.0, total good: 0
+
+
+::19::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print +x 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 20, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 20, goal history size: 0
+q for action 4 is [ 0.05907537 -0.10992123 -0.07136926 -0.02727593 -0.0752191 ]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 20, goal history size: 0
+q for action 1 is [-0.00828639 -0.1162597  -0.0896375  -0.02463925 -0.03345059]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 20, goal history size: 0
+q for action 0 is [-0.00465473 -0.11745272 -0.0558896   0.03542825 -0.00277595]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 20, goal history size: 0
+TOTAL 0.00% of wins in last 20 iters, sum: 0.0, total good: 0
+
+
+::20::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++1 print+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 21, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 21, goal history size: 0
+q for action 0 is [ 0.00869725 -0.11817016 -0.02063485  0.01962173  0.03478698]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 21, goal history size: 0
+q for action 2 is [-0.03683709 -0.12734579  0.00494364  0.05471146  0.07810808]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 21, goal history size: 0
+q for action 0 is [-0.02412697 -0.1654883   0.00975436  0.09664579  0.08965045]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 21, goal history size: 0
+TOTAL 0.00% of wins in last 21 iters, sum: 0.0, total good: 0
+
+
+::21::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xprintxprint 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 22, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 22, goal history size: 0
+q for action 2 is [ 0.01417403 -0.08995876 -0.01101152  0.01138526  0.05814208]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 22, goal history size: 0
+q for action 2 is [-0.03033406 -0.10377681  0.00477524  0.03223779  0.08634477]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 22, goal history size: 0
+q for action 3 is [ 0.01842322 -0.14341462 -0.07570443 -0.00459599  0.0209578 ]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 22, goal history size: 0
+TOTAL 0.00% of wins in last 22 iters, sum: 0.0, total good: 0
+
+
+::22::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printxx+ 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 23, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 23, goal history size: 0
+q for action 4 is [ 0.00249346 -0.10695972 -0.00576887 -0.02634338 -0.01110611]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 23, goal history size: 0
+q for action 0 is [ 0.00791875 -0.11709107  0.01131093  0.03197346  0.00042201]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 23, goal history size: 0
+q for action 0 is [ 0.00875122 -0.14640796  0.04160601  0.07670953  0.04775684]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 23, goal history size: 0
+TOTAL 0.00% of wins in last 23 iters, sum: 0.0, total good: 0
+
+
+::23::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x1printprint1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 24, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 24, goal history size: 0
+q for action 1 is [-0.00290317 -0.10346346 -0.06062561 -0.04400896  0.04698186]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 24, goal history size: 0
+q for action 0 is [-0.00977384 -0.10330843 -0.03005322  0.05189473  0.04361393]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 24, goal history size: 0
+q for action 1 is [-0.02462089 -0.10999593 -0.03632118  0.04531206  0.07768099]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 24, goal history size: 0
+TOTAL 0.00% of wins in last 24 iters, sum: 0.0, total good: 0
+
+
+::24::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+  print print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 25, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 25, goal history size: 0
+q for action 3 is [ 0.04422972 -0.05973735 -0.10473864 -0.06619658 -0.1097986 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 25, goal history size: 0
+q for action 0 is [ 0.06234115 -0.10812777 -0.07334489 -0.02592823 -0.05171204]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 25, goal history size: 0
+q for action 3 is [ 0.04364892 -0.11633077 -0.12877287 -0.03490397 -0.06585148]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 25, goal history size: 0
+TOTAL 0.00% of wins in last 25 iters, sum: 0.0, total good: 0
+
+
+::25::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1+print+ 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 26, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 26, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 26, goal history size: 0
+q for action 4 is [ 0.02226091 -0.14164428 -0.03768136 -0.01519763 -0.01508481]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 26, goal history size: 0
+q for action 0 is [ 0.00658535 -0.12131044 -0.00356222  0.04032087  0.00400641]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 26, goal history size: 0
+TOTAL 0.00% of wins in last 26 iters, sum: 0.0, total good: 0
+
+
+::26::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++ 1printx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 27, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 27, goal history size: 0
+q for action 0 is [ 0.06589152 -0.11025804  0.00374718  0.03568909  0.06904501]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 27, goal history size: 0
+q for action 2 is [ 0.01007691 -0.09923666  0.02537018  0.06040324  0.1091857 ]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 27, goal history size: 0
+q for action 3 is [ 0.0369871  -0.1258052  -0.06110732  0.00881356  0.04221167]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 27, goal history size: 0
+TOTAL 0.00% of wins in last 27 iters, sum: 0.0, total good: 0
+
+
+::27::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printprintx+1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 28, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 28, goal history size: 0
+q for action 0 is [ 0.04753362 -0.10329297 -0.0765331  -0.02497409 -0.02131368]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 28, goal history size: 0
+q for action 3 is [ 0.03728554 -0.11820304 -0.1369487  -0.03024842 -0.03840099]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 28, goal history size: 0
+q for action 4 is [ 0.05644485 -0.15149564 -0.08454289  0.01939817 -0.03583218]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 28, goal history size: 0
+TOTAL 0.00% of wins in last 28 iters, sum: 0.0, total good: 0
+
+
+::28::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++print+1 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 29, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 29, goal history size: 0
+q for action 4 is [ 0.03545682 -0.11559606 -0.01821673 -0.02811721 -0.0014983 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 29, goal history size: 0
+q for action 2 is [-0.02106781 -0.1052708   0.00434891 -0.01332432  0.03332765]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 29, goal history size: 0
+q for action 1 is [-0.04737973 -0.11255194 -0.0128359  -0.0227036   0.04732705]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 29, goal history size: 0
+TOTAL 0.00% of wins in last 29 iters, sum: 0.0, total good: 0
+
+
+::29::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ 1x  
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 30, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 30, goal history size: 0
+q for action 0 is [ 0.06589152 -0.11025804  0.00374718  0.03568909  0.06904501]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 30, goal history size: 0
+q for action 4 is [ 0.04899247 -0.09560245  0.00932069  0.0430868   0.03757403]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 30, goal history size: 0
+q for action 2 is [ 0.00067435 -0.07621346  0.02391081  0.03108131  0.06386697]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 30, goal history size: 0
+TOTAL 0.00% of wins in last 30 iters, sum: 0.0, total good: 0
+
+
+::30::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printprint1xx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 31, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 31, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 31, goal history size: 0
+q for action 0 is [ 0.00665651 -0.12112194 -0.0687274   0.02371836  0.00919744]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 31, goal history size: 0
+q for action 4 is [ 0.00330284 -0.13351697 -0.02388004  0.04001018  0.00371726]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 31, goal history size: 0
+TOTAL 0.00% of wins in last 31 iters, sum: 0.0, total good: 0
+
+
+::31::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++ print1print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 32, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 32, goal history size: 0
+q for action 2 is [-0.03038778 -0.10778023 -0.00859503 -0.00842793  0.04693734]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 32, goal history size: 0
+q for action 1 is [-0.03918315 -0.11975518 -0.03016329 -0.01323638  0.0662099 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 32, goal history size: 0
+q for action 0 is [-0.03844419 -0.14886226 -0.0176819   0.07877144  0.05894669]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 32, goal history size: 0
+TOTAL 0.00% of wins in last 32 iters, sum: 0.0, total good: 0
+
+
+::32::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xx print+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 33, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 33, goal history size: 0
+q for action 0 is [ 0.00869725 -0.11817016 -0.02063485  0.01962173  0.03478698]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 33, goal history size: 0
+q for action 4 is [ 0.00199051 -0.12600455  0.00576119  0.03113466  0.01306807]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 33, goal history size: 0
+q for action 0 is [ 0.0177922  -0.13619174  0.025938    0.07203238  0.02259325]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 33, goal history size: 0
+TOTAL 0.00% of wins in last 33 iters, sum: 0.0, total good: 0
+
+
+::33::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xprint1print1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 34, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 34, goal history size: 0
+q for action 4 is [ 0.07083857 -0.10292095 -0.05637966 -0.02058738 -0.07178675]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 34, goal history size: 0
+q for action 0 is [ 0.05089782 -0.09348072 -0.03737868  0.01150602 -0.03018419]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 34, goal history size: 0
+q for action 4 is [ 0.03299858 -0.10126215 -0.03057462  0.01021388 -0.0256289 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 34, goal history size: 0
+TOTAL 0.00% of wins in last 34 iters, sum: 0.0, total good: 0
+
+
+::34::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+11print1print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 35, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 35, goal history size: 0
+q for action 0 is [ 0.06589152 -0.11025804  0.00374718  0.03568909  0.06904501]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 35, goal history size: 0
+q for action 2 is [ 0.01007691 -0.09923666  0.02537018  0.06040324  0.1091857 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 35, goal history size: 0
+q for action 4 is [-0.00079789 -0.11311395  0.04755758  0.02540401  0.06604355]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 35, goal history size: 0
+TOTAL 0.00% of wins in last 35 iters, sum: 0.0, total good: 0
+
+
+::35::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printprintx1+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 36, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 36, goal history size: 0
+q for action 3 is [ 0.03217373 -0.09384508 -0.09726346 -0.06954192 -0.02776104]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 36, goal history size: 0
+q for action 4 is [ 0.0599684  -0.13894473 -0.04163021 -0.02032094 -0.04002661]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 36, goal history size: 0
+q for action 1 is [-0.0151785  -0.14080919 -0.06060503 -0.01788815 -0.00689176]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 36, goal history size: 0
+TOTAL 0.00% of wins in last 36 iters, sum: 0.0, total good: 0
+
+
+::36::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ +1 1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 37, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 37, goal history size: 0
+q for action 3 is [ 0.0218018  -0.0909172  -0.13401487 -0.08995409 -0.08984444]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 37, goal history size: 0
+q for action 2 is [-0.0046669  -0.1401144  -0.0806045  -0.02944141 -0.01922414]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 37, goal history size: 0
+q for action 0 is [-0.00367538 -0.16855846 -0.06879859  0.02974198  0.02013733]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 37, goal history size: 0
+TOTAL 0.00% of wins in last 37 iters, sum: 0.0, total good: 0
+
+
+::37::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+++xprintx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 38, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 38, goal history size: 0
+q for action 3 is [ 0.04422972 -0.05973735 -0.10473864 -0.06619658 -0.1097986 ]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 38, goal history size: 0
+q for action 2 is [ 0.01393414 -0.10822064 -0.05977282 -0.03881005 -0.04217294]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 38, goal history size: 0
+q for action 1 is [-0.01960465 -0.11235343 -0.06825922 -0.03841807 -0.00176355]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 38, goal history size: 0
+TOTAL 0.00% of wins in last 38 iters, sum: 0.0, total good: 0
+
+
+::38::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1+x x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 39, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 39, goal history size: 0
+q for action 0 is [ 0.05907705 -0.0865944  -0.03139375  0.00382678 -0.01743834]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 39, goal history size: 0
+q for action 1 is [ 0.01384617 -0.08694265 -0.03511903 -0.0066073   0.04594385]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 39, goal history size: 0
+q for action 0 is [ 0.01639531 -0.11321885 -0.01763359  0.05724396  0.05832955]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 39, goal history size: 0
+TOTAL 0.00% of wins in last 39 iters, sum: 0.0, total good: 0
+
+
+::39::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1print print+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 40, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 40, goal history size: 0
+q for action 0 is [ 0.00869725 -0.11817016 -0.02063485  0.01962173  0.03478698]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 40, goal history size: 0
+q for action 1 is [-0.00744723 -0.1214271  -0.0279708   0.02625808  0.07957068]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 40, goal history size: 0
+q for action 2 is [-0.04226728 -0.13319555 -0.00771927  0.05495908  0.10355682]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 40, goal history size: 0
+TOTAL 0.00% of wins in last 40 iters, sum: 0.0, total good: 0
+
+
+::40::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xprint xx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 41, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 41, goal history size: 0
+q for action 0 is [ 0.04753362 -0.10329297 -0.0765331  -0.02497409 -0.02131368]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 41, goal history size: 0
+q for action 3 is [ 0.03728554 -0.11820304 -0.1369487  -0.03024842 -0.03840099]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 41, goal history size: 0
+q for action 1 is [ 0.01662468 -0.14624093 -0.12790523  0.00508204  0.00634879]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 41, goal history size: 0
+TOTAL 0.00% of wins in last 41 iters, sum: 0.0, total good: 0
+
+
+::41::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++print+ x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 42, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 42, goal history size: 0
+q for action 2 is [-0.00350769 -0.11172412 -0.06132476 -0.03906646 -0.00743911]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 42, goal history size: 0
+q for action 3 is [ 0.01336893 -0.12663424 -0.1109369  -0.04813351 -0.03741676]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 42, goal history size: 0
+q for action 2 is [-0.00919336 -0.16922414 -0.06255029  0.00469213  0.01788388]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 42, goal history size: 0
+TOTAL 0.00% of wins in last 42 iters, sum: 0.0, total good: 0
+
+
+::42::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++x+x1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 43, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 43, goal history size: 0
+q for action 0 is [ 0.01780924 -0.09377322 -0.03774163  0.01894253  0.02140747]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 43, goal history size: 0
+q for action 4 is [ 0.01858776 -0.11183702 -0.00669602  0.02897581  0.01022683]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 43, goal history size: 0
+q for action 2 is [-0.02584715 -0.10673043  0.01142684  0.03171995  0.0419764 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 43, goal history size: 0
+TOTAL 0.00% of wins in last 43 iters, sum: 0.0, total good: 0
+
+
+::43::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ print1xx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 44, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 44, goal history size: 0
+q for action 3 is [ 0.04058694 -0.0889814  -0.10712015 -0.03521418 -0.023927  ]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 26
+history size: 44, goal history size: 0
+q for action 2 is [ 0.01369466 -0.1220992  -0.06343929  0.00825018  0.02934384]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 44, goal history size: 0
+q for action 2 is [-0.02609405 -0.13916185 -0.03509023  0.03754675  0.07030031]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 44, goal history size: 0
+TOTAL 0.00% of wins in last 44 iters, sum: 0.0, total good: 0
+
+
+::44::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print+xx1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 45, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 45, goal history size: 0
+q for action 0 is [ 0.04753362 -0.10329297 -0.0765331  -0.02497409 -0.02131368]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 45, goal history size: 0
+q for action 0 is [ 0.05958506 -0.14419715 -0.02831841  0.04071068  0.05357144]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 45, goal history size: 0
+q for action 3 is [ 0.05492917 -0.14862567 -0.10443157  0.01844133  0.01747186]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 45, goal history size: 0
+TOTAL 0.00% of wins in last 45 iters, sum: 0.0, total good: 0
+
+
+::45::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++printprint++
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 46, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 46, goal history size: 0
+q for action 2 is [ 0.00988385 -0.07899199 -0.03578987 -0.030386   -0.01226086]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 46, goal history size: 0
+q for action 4 is [-0.00144573 -0.10188448 -0.01164987 -0.02964869 -0.02445985]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 46, goal history size: 0
+q for action 0 is [-0.00019769 -0.11146539  0.0045089   0.02570136 -0.00912583]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 46, goal history size: 0
+TOTAL 0.00% of wins in last 46 iters, sum: 0.0, total good: 0
+
+
+::46::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1x1print+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 47, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 47, goal history size: 0
+q for action 1 is [-0.01570036 -0.10089695 -0.04102297 -0.03863487  0.03979412]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 47, goal history size: 0
+q for action 1 is [-0.02710445 -0.12041204 -0.04842585 -0.02613626  0.06760452]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 47, goal history size: 0
+q for action 3 is [ 0.02034221 -0.13703683 -0.08734633 -0.03370397  0.01331324]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 47, goal history size: 0
+TOTAL 0.00% of wins in last 47 iters, sum: 0.0, total good: 0
+
+
+::47::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x  +1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 48, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 48, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 48, goal history size: 0
+q for action 2 is [-0.0265528  -0.13100205 -0.0501378  -0.00612659  0.04338249]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 48, goal history size: 0
+q for action 0 is [-0.03056946 -0.14603803 -0.03161808  0.06500891  0.05685242]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 48, goal history size: 0
+TOTAL 0.00% of wins in last 48 iters, sum: 0.0, total good: 0
+
+
+::48::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++ xprint1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 49, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 49, goal history size: 0
+q for action 1 is [-0.00290317 -0.10346346 -0.06062561 -0.04400896  0.04698186]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 49, goal history size: 0
+q for action 1 is [-0.02238343 -0.11723738 -0.06027168 -0.02507922  0.07000821]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 49, goal history size: 0
+q for action 4 is [-0.01255015 -0.14430039  0.01326527 -0.00394858  0.04990461]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 49, goal history size: 0
+TOTAL 0.00% of wins in last 49 iters, sum: 0.0, total good: 0
+
+
+::49::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+   1print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 50, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 50, goal history size: 0
+q for action 3 is [ 0.03217373 -0.09384508 -0.09726346 -0.06954192 -0.02776104]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 50, goal history size: 0
+q for action 2 is [ 0.00590933 -0.13458124 -0.04269031 -0.02106063  0.02282347]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 50, goal history size: 0
+q for action 0 is [-0.00258909 -0.15458839 -0.03313788  0.04848744  0.03407869]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 50, goal history size: 0
+TOTAL 0.00% of wins in last 50 iters, sum: 0.0, total good: 0
+
+
+::50::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ +xprint1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 51, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 51, goal history size: 0
+q for action 0 is [ 0.06589152 -0.11025804  0.00374718  0.03568909  0.06904501]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 51, goal history size: 0
+q for action 3 is [ 0.05587304 -0.11568369 -0.0803581   0.00900173  0.02472878]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 51, goal history size: 0
+q for action 4 is [ 0.07240598 -0.13040113 -0.04550067  0.03036746  0.01601539]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 51, goal history size: 0
+TOTAL 0.00% of wins in last 51 iters, sum: 0.0, total good: 0
+
+
+::51::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printprint+1+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 52, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 52, goal history size: 0
+q for action 0 is [ 0.04753362 -0.10329297 -0.0765331  -0.02497409 -0.02131368]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 52, goal history size: 0
+q for action 4 is [ 0.04181079 -0.12000103 -0.0526779   0.01090632 -0.01972006]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 52, goal history size: 0
+q for action 2 is [-0.00563056 -0.1130989  -0.02641434  0.0247878   0.02220791]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 52, goal history size: 0
+TOTAL 0.00% of wins in last 52 iters, sum: 0.0, total good: 0
+
+
+::52::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++print1x+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 53, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 53, goal history size: 0
+q for action 0 is [ 0.05907705 -0.0865944  -0.03139375  0.00382678 -0.01743834]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 53, goal history size: 0
+q for action 2 is [ 0.00288239 -0.09320784  0.00012642  0.01379101  0.05009939]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 53, goal history size: 0
+q for action 4 is [-0.00819406 -0.11297318  0.02011137 -0.00283274  0.02221751]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 53, goal history size: 0
+TOTAL 0.00% of wins in last 53 iters, sum: 0.0, total good: 0
+
+
+::53::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1printx1x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 54, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 54, goal history size: 0
+q for action 2 is [-0.01365229 -0.10464016 -0.02132806 -0.01740354  0.05431474]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 54, goal history size: 0
+q for action 4 is [-0.01293265 -0.12622516  0.01807526 -0.01096537  0.02639488]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 54, goal history size: 0
+q for action 1 is [-0.06268296 -0.13004018 -0.00658699 -0.00903771  0.03516217]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 54, goal history size: 0
+TOTAL 0.00% of wins in last 54 iters, sum: 0.0, total good: 0
+
+
+::54::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ x1 x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 55, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 55, goal history size: 0
+q for action 4 is [ 0.05662135 -0.08450072 -0.03429179  0.00111553 -0.00991905]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 55, goal history size: 0
+q for action 3 is [ 0.04673089 -0.07048925 -0.09065609 -0.04281869 -0.0661992 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 55, goal history size: 0
+q for action 0 is [ 0.07393622 -0.1213405  -0.05817775 -0.00015751 -0.02100772]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 55, goal history size: 0
+TOTAL 0.00% of wins in last 55 iters, sum: 0.0, total good: 0
+
+
+::55::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print1+print1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 56, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 56, goal history size: 0
+q for action 4 is [ 0.05662135 -0.08450072 -0.03429179  0.00111553 -0.00991905]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 56, goal history size: 0
+q for action 0 is [ 0.06215137 -0.09745382 -0.00591359  0.04217672  0.02003988]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 56, goal history size: 0
+q for action 2 is [ 0.00153631 -0.09252119  0.02663101  0.04495601  0.07363503]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 56, goal history size: 0
+TOTAL 0.00% of wins in last 56 iters, sum: 0.0, total good: 0
+
+
+::56::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print1printxprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 57, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 57, goal history size: 0
+q for action 1 is [-0.01570036 -0.10089695 -0.04102297 -0.03863487  0.03979412]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 57, goal history size: 0
+q for action 1 is [-0.02710445 -0.12041204 -0.04842585 -0.02613626  0.06760452]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 57, goal history size: 0
+q for action 3 is [ 0.02034221 -0.13703683 -0.08734633 -0.03370397  0.01331324]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 57, goal history size: 0
+TOTAL 0.00% of wins in last 57 iters, sum: 0.0, total good: 0
+
+
+::57::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x  ++
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 58, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 58, goal history size: 0
+q for action 4 is [ 0.03545682 -0.11559606 -0.01821673 -0.02811721 -0.0014983 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 58, goal history size: 0
+q for action 2 is [-0.02106781 -0.1052708   0.00434891 -0.01332432  0.03332765]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 58, goal history size: 0
+q for action 2 is [-0.04599293 -0.11465584  0.02297145  0.0035149   0.05842521]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 58, goal history size: 0
+TOTAL 0.00% of wins in last 58 iters, sum: 0.0, total good: 0
+
+
+::58::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ 1xx1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 59, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 59, goal history size: 0
+q for action 0 is [ 0.05907705 -0.0865944  -0.03139375  0.00382678 -0.01743834]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 59, goal history size: 0
+q for action 4 is [ 0.03902011 -0.09418625 -0.02636229  0.01028051 -0.02164112]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 59, goal history size: 0
+q for action 4 is [ 0.03812899 -0.10321754 -0.02541958  0.00569749 -0.03482344]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 59, goal history size: 0
+TOTAL 0.00% of wins in last 59 iters, sum: 0.0, total good: 0
+
+
+::59::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1print11+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 60, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 60, goal history size: 0
+q for action 4 is [ 0.00249346 -0.10695972 -0.00576887 -0.02634338 -0.01110611]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 60, goal history size: 0
+q for action 4 is [-0.00318734 -0.13013038  0.01046366 -0.00706602 -0.02386228]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 60, goal history size: 0
+q for action 3 is [ 0.00577743 -0.09589024 -0.05397937 -0.04544734 -0.08327375]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 60, goal history size: 0
+TOTAL 0.00% of wins in last 60 iters, sum: 0.0, total good: 0
+
+
+::60::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x11+print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 61, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 61, goal history size: 0
+q for action 0 is [ 0.06589152 -0.11025804  0.00374718  0.03568909  0.06904501]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 61, goal history size: 0
+q for action 1 is [ 0.03879372 -0.09410371 -0.00854397  0.0266066   0.11318874]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 61, goal history size: 0
+q for action 2 is [-0.01023217 -0.09486903  0.00990422  0.04743421  0.12673438]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 61, goal history size: 0
+TOTAL 0.00% of wins in last 61 iters, sum: 0.0, total good: 0
+
+
+::61::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printprint xprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 62, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 62, goal history size: 0
+q for action 4 is [ 0.00249346 -0.10695972 -0.00576887 -0.02634338 -0.01110611]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 62, goal history size: 0
+q for action 2 is [-0.03703257 -0.10849907  0.00742686 -0.00967178  0.0216494 ]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 62, goal history size: 0
+q for action 3 is [ 0.00581154 -0.11490034 -0.05295822 -0.04404005 -0.0341679 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 62, goal history size: 0
+TOTAL 0.00% of wins in last 62 iters, sum: 0.0, total good: 0
+
+
+::62::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x1x+print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 63, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 63, goal history size: 0
+q for action 3 is [ 0.03217373 -0.09384508 -0.09726346 -0.06954192 -0.02776104]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 63, goal history size: 0
+q for action 2 is [ 0.00590933 -0.13458124 -0.04269031 -0.02106063  0.02282347]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 63, goal history size: 0
+q for action 0 is [-0.00258909 -0.15458839 -0.03313788  0.04848744  0.03407869]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 63, goal history size: 0
+TOTAL 0.00% of wins in last 63 iters, sum: 0.0, total good: 0
+
+
+::63::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ +xprintprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 64, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 64, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 64, goal history size: 0
+q for action 0 is [ 0.00665651 -0.12112194 -0.0687274   0.02371836  0.00919744]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 64, goal history size: 0
+q for action 1 is [-0.01375258 -0.12434845 -0.06771193  0.03386796  0.05949255]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 64, goal history size: 0
+TOTAL 0.00% of wins in last 64 iters, sum: 0.0, total good: 0
+
+
+::64::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++ print x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 65, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 65, goal history size: 0
+q for action 4 is [ 0.05662135 -0.08450072 -0.03429179  0.00111553 -0.00991905]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 65, goal history size: 0
+q for action 1 is [ 0.00838197 -0.08504054 -0.05434491 -0.00226236  0.01550081]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 65, goal history size: 0
+q for action 2 is [-0.01586527 -0.10170409 -0.02377181  0.01896242  0.04509091]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 65, goal history size: 0
+TOTAL 0.00% of wins in last 65 iters, sum: 0.0, total good: 0
+
+
+::65::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print1 xx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 66, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 66, goal history size: 0
+q for action 2 is [-0.03038778 -0.10778023 -0.00859503 -0.00842793  0.04693734]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 66, goal history size: 0
+q for action 3 is [ 0.00740516 -0.1337665  -0.07794783 -0.02897547 -0.00426112]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 66, goal history size: 0
+q for action 1 is [  4.35486436e-06  -1.73912644e-01  -8.28987658e-02  -1.24729853e-02
+   2.40805149e-02]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 66, goal history size: 0
+TOTAL 0.00% of wins in last 66 iters, sum: 0.0, total good: 0
+
+
+::66::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xx+  
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 67, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 67, goal history size: 0
+q for action 1 is [-0.00290317 -0.10346346 -0.06062561 -0.04400896  0.04698186]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 67, goal history size: 0
+q for action 2 is [-0.03130724 -0.11512645 -0.01898446  0.00582526  0.07841866]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 67, goal history size: 0
+q for action 3 is [ 0.01835161 -0.12625241 -0.07101434 -0.01458451  0.01576874]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 67, goal history size: 0
+TOTAL 0.00% of wins in last 67 iters, sum: 0.0, total good: 0
+
+
+::67::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+  x+print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 68, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 68, goal history size: 0
+q for action 4 is [ 0.00249346 -0.10695972 -0.00576887 -0.02634338 -0.01110611]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 68, goal history size: 0
+q for action 4 is [-0.00318734 -0.13013038  0.01046366 -0.00706602 -0.02386228]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 68, goal history size: 0
+q for action 3 is [ 0.00577743 -0.09589024 -0.05397937 -0.04544734 -0.08327375]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 68, goal history size: 0
+TOTAL 0.00% of wins in last 68 iters, sum: 0.0, total good: 0
+
+
+::68::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x11+ 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 69, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 69, goal history size: 0
+q for action 4 is [ 0.03545682 -0.11559606 -0.01821673 -0.02811721 -0.0014983 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 69, goal history size: 0
+q for action 4 is [ 0.02589026 -0.13488789  0.00671088 -0.01311254 -0.01400056]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 69, goal history size: 0
+q for action 1 is [-0.0472336  -0.12403043 -0.03213766 -0.01946738  0.00052849]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 69, goal history size: 0
+TOTAL 0.00% of wins in last 69 iters, sum: 0.0, total good: 0
+
+
+::69::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ 11  
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 70, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 70, goal history size: 0
+q for action 2 is [-0.03038778 -0.10778023 -0.00859503 -0.00842793  0.04693734]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 70, goal history size: 0
+q for action 3 is [ 0.00740516 -0.1337665  -0.07794783 -0.02897547 -0.00426112]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 70, goal history size: 0
+q for action 3 is [ 0.04294826 -0.17713042 -0.10959616 -0.0336749  -0.03884679]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 70, goal history size: 0
+TOTAL 0.00% of wins in last 70 iters, sum: 0.0, total good: 0
+
+
+::70::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xx++x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 71, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 71, goal history size: 0
+q for action 0 is [ 0.04753362 -0.10329297 -0.0765331  -0.02497409 -0.02131368]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 71, goal history size: 0
+q for action 3 is [ 0.03728554 -0.11820304 -0.1369487  -0.03024842 -0.03840099]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 71, goal history size: 0
+q for action 3 is [ 0.04228092 -0.14070098 -0.16407444 -0.03709586 -0.05689785]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 71, goal history size: 0
+TOTAL 0.00% of wins in last 71 iters, sum: 0.0, total good: 0
+
+
+::71::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++print++1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 72, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 72, goal history size: 0
+q for action 4 is [ 0.07083857 -0.10292095 -0.05637966 -0.02058738 -0.07178675]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 72, goal history size: 0
+q for action 2 is [ 0.00455671 -0.09063299 -0.05284333 -0.0188147  -0.02928113]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 72, goal history size: 0
+q for action 2 is [-0.02267613 -0.10289431 -0.0217087  -0.01336089  0.01815221]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 72, goal history size: 0
+TOTAL 0.00% of wins in last 72 iters, sum: 0.0, total good: 0
+
+
+::72::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+11xxprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 73, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 73, goal history size: 0
+q for action 3 is [ 0.04422972 -0.05973735 -0.10473864 -0.06619658 -0.1097986 ]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 73, goal history size: 0
+q for action 2 is [ 0.01393414 -0.10822064 -0.05977282 -0.03881005 -0.04217294]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 73, goal history size: 0
+q for action 4 is [-0.00161356 -0.12159786 -0.02771164 -0.02657812 -0.04496669]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 73, goal history size: 0
+TOTAL 0.00% of wins in last 73 iters, sum: 0.0, total good: 0
+
+
+::73::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1+x11
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 74, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 74, goal history size: 0
+q for action 2 is [-0.03038778 -0.10778023 -0.00859503 -0.00842793  0.04693734]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 74, goal history size: 0
+q for action 4 is [-0.03444276 -0.12899889  0.01977454 -0.01042689  0.01457135]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 74, goal history size: 0
+q for action 2 is [-0.06085326 -0.13383356  0.0255862   0.00706714  0.03831014]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 74, goal history size: 0
+TOTAL 0.00% of wins in last 74 iters, sum: 0.0, total good: 0
+
+
+::74::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xx1x 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 75, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 75, goal history size: 0
+q for action 4 is [ 0.00249346 -0.10695972 -0.00576887 -0.02634338 -0.01110611]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 75, goal history size: 0
+q for action 4 is [-0.00318734 -0.13013038  0.01046366 -0.00706602 -0.02386228]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 75, goal history size: 0
+q for action 1 is [-0.06543477 -0.12636434 -0.03092704 -0.01330793 -0.00699058]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 75, goal history size: 0
+TOTAL 0.00% of wins in last 75 iters, sum: 0.0, total good: 0
+
+
+::75::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x11 1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 76, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 76, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 76, goal history size: 0
+q for action 0 is [ 0.00665651 -0.12112194 -0.0687274   0.02371836  0.00919744]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 76, goal history size: 0
+q for action 0 is [ 0.01591587 -0.14637019 -0.01601808  0.08019114  0.0681508 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 76, goal history size: 0
+TOTAL 0.00% of wins in last 76 iters, sum: 0.0, total good: 0
+
+
+::76::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++ printprintprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 77, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 77, goal history size: 0
+q for action 0 is [ 0.00869725 -0.11817016 -0.02063485  0.01962173  0.03478698]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 77, goal history size: 0
+q for action 0 is [ 0.0192652  -0.14877984  0.01727957  0.07685497  0.08172709]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 77, goal history size: 0
+q for action 3 is [ 0.04235343 -0.16679622 -0.06877065  0.04425947  0.03929746]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 77, goal history size: 0
+TOTAL 0.00% of wins in last 77 iters, sum: 0.0, total good: 0
+
+
+::77::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xprintprint+ 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 78, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 78, goal history size: 0
+q for action 4 is [ 0.03545682 -0.11559606 -0.01821673 -0.02811721 -0.0014983 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 78, goal history size: 0
+q for action 2 is [-0.02106781 -0.1052708   0.00434891 -0.01332432  0.03332765]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 78, goal history size: 0
+q for action 1 is [-0.04737973 -0.11255194 -0.0128359  -0.0227036   0.04732705]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 78, goal history size: 0
+TOTAL 0.00% of wins in last 78 iters, sum: 0.0, total good: 0
+
+
+::78::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ 1x 1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 79, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 79, goal history size: 0
+q for action 3 is [ 0.03217373 -0.09384508 -0.09726346 -0.06954192 -0.02776104]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 79, goal history size: 0
+q for action 1 is [ 0.00915584 -0.13111678 -0.08855021 -0.0420467   0.00719829]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 79, goal history size: 0
+q for action 2 is [-0.02638452 -0.14395532 -0.03855336  0.00912923  0.05335703]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 79, goal history size: 0
+TOTAL 0.00% of wins in last 79 iters, sum: 0.0, total good: 0
+
+
+::79::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ + xprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 80, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 80, goal history size: 0
+q for action 1 is [ 0.03492352 -0.0849344  -0.04593735 -0.01413992  0.06110977]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 80, goal history size: 0
+q for action 1 is [ 0.01947112 -0.09951925 -0.05405875 -0.01075117  0.08924055]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 80, goal history size: 0
+q for action 3 is [ 0.05570893 -0.12389629 -0.09503704 -0.02783945  0.02983936]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 1
+history size: 80, goal history size: 0
+TOTAL 0.00% of wins in last 80 iters, sum: 0.0, total good: 0
+
+
+::80::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print  +1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 81, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 81, goal history size: 0
+q for action 4 is [ 0.00249346 -0.10695972 -0.00576887 -0.02634338 -0.01110611]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 81, goal history size: 0
+q for action 3 is [ 0.00859245 -0.09521683 -0.05990599 -0.05326595 -0.06671528]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 81, goal history size: 0
+q for action 4 is [ 0.02255272 -0.14624992 -0.02247441 -0.00994465 -0.06501486]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 81, goal history size: 0
+TOTAL 0.00% of wins in last 81 iters, sum: 0.0, total good: 0
+
+
+::81::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x1+1x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 82, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 82, goal history size: 0
+q for action 4 is [ 0.05662135 -0.08450072 -0.03429179  0.00111553 -0.00991905]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 82, goal history size: 0
+q for action 3 is [ 0.04673089 -0.07048925 -0.09065609 -0.04281869 -0.0661992 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 82, goal history size: 0
+q for action 4 is [ 0.06264084 -0.11528138 -0.05518021 -0.00966636 -0.06558368]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 82, goal history size: 0
+TOTAL 0.00% of wins in last 82 iters, sum: 0.0, total good: 0
+
+
+::82::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print1+1print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 83, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 83, goal history size: 0
+q for action 4 is [ 0.00249346 -0.10695972 -0.00576887 -0.02634338 -0.01110611]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 83, goal history size: 0
+q for action 1 is [-0.04736778 -0.11465254 -0.02970987 -0.02110967  0.00792133]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 83, goal history size: 0
+q for action 0 is [-0.03091533 -0.1245447  -0.00718331  0.05480282  0.01076437]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 83, goal history size: 0
+TOTAL 0.00% of wins in last 83 iters, sum: 0.0, total good: 0
+
+
+::83::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x1 printprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 84, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 84, goal history size: 0
+q for action 0 is [ 0.05907705 -0.0865944  -0.03139375  0.00382678 -0.01743834]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 84, goal history size: 0
+q for action 2 is [ 0.00288239 -0.09320784  0.00012642  0.01379101  0.05009939]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 84, goal history size: 0
+q for action 3 is [ 0.02942841 -0.115101   -0.07418175 -0.02407108 -0.00996406]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 84, goal history size: 0
+TOTAL 0.00% of wins in last 84 iters, sum: 0.0, total good: 0
+
+
+::84::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1printx+x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 85, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 85, goal history size: 0
+q for action 4 is [ 0.07083857 -0.10292095 -0.05637966 -0.02058738 -0.07178675]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 85, goal history size: 0
+q for action 0 is [ 0.05089782 -0.09348072 -0.03737868  0.01150602 -0.03018419]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 85, goal history size: 0
+q for action 4 is [ 0.03299858 -0.10126215 -0.03057462  0.01021388 -0.0256289 ]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 85, goal history size: 0
+TOTAL 0.00% of wins in last 85 iters, sum: 0.0, total good: 0
+
+
+::85::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+11print1+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 86, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 86, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 86, goal history size: 0
+q for action 1 is [-0.01827206 -0.12771134 -0.09150451 -0.03143735  0.02845959]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 86, goal history size: 0
+q for action 4 is [-0.00736237 -0.15069917 -0.01487993 -0.00231846  0.0203555 ]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 86, goal history size: 0
+TOTAL 0.00% of wins in last 86 iters, sum: 0.0, total good: 0
+
+
+::86::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++  11
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 87, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 87, goal history size: 0
+q for action 3 is [ 0.04058694 -0.0889814  -0.10712015 -0.03521418 -0.023927  ]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 40
+history size: 87, goal history size: 0
+q for action 2 is [ 0.01369466 -0.1220992  -0.06343929  0.00825018  0.02934384]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 87, goal history size: 0
+q for action 3 is [ 0.03474723 -0.14298162 -0.11748458 -0.01718527 -0.00872698]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 87, goal history size: 0
+TOTAL 0.00% of wins in last 87 iters, sum: 0.0, total good: 0
+
+
+::87::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print+x+print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 88, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 88, goal history size: 0
+q for action 1 is [ 0.03492352 -0.0849344  -0.04593735 -0.01413992  0.06110977]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 88, goal history size: 0
+q for action 1 is [ 0.01947112 -0.09951925 -0.05405875 -0.01075117  0.08924055]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 1
+history size: 88, goal history size: 0
+q for action 4 is [ 0.0281612  -0.13765626  0.00777128 -0.00483793  0.06542125]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 88, goal history size: 0
+TOTAL 0.00% of wins in last 88 iters, sum: 0.0, total good: 0
+
+
+::88::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print  1+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 89, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 89, goal history size: 0
+q for action 3 is [ 0.03217373 -0.09384508 -0.09726346 -0.06954192 -0.02776104]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 89, goal history size: 0
+q for action 1 is [ 0.00915584 -0.13111678 -0.08855021 -0.0420467   0.00719829]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 89, goal history size: 0
+q for action 0 is [ 0.00362767 -0.13326731 -0.05515697  0.04511602  0.01621568]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 89, goal history size: 0
+TOTAL 0.00% of wins in last 89 iters, sum: 0.0, total good: 0
+
+
+::89::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ + printx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 90, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 90, goal history size: 0
+q for action 4 is [ 0.07083857 -0.10292095 -0.05637966 -0.02058738 -0.07178675]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 90, goal history size: 0
+q for action 2 is [ 0.00455671 -0.09063299 -0.05284333 -0.0188147  -0.02928113]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 90, goal history size: 0
+q for action 2 is [-0.02267613 -0.10289431 -0.0217087  -0.01336089  0.01815221]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 90, goal history size: 0
+TOTAL 0.00% of wins in last 90 iters, sum: 0.0, total good: 0
+
+
+::90::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+11xxx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 91, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 91, goal history size: 0
+q for action 0 is [ 0.00869725 -0.11817016 -0.02063485  0.01962173  0.03478698]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 91, goal history size: 0
+q for action 1 is [-0.00744723 -0.1214271  -0.0279708   0.02625808  0.07957068]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 91, goal history size: 0
+q for action 1 is [-0.01602193 -0.13262638 -0.04526988  0.0232119   0.09872991]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 91, goal history size: 0
+TOTAL 0.00% of wins in last 91 iters, sum: 0.0, total good: 0
+
+
+::91::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xprint  1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 92, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 92, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 92, goal history size: 0
+q for action 4 is [ 0.02226091 -0.14164428 -0.03768136 -0.01519763 -0.01508481]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 92, goal history size: 0
+q for action 3 is [ 0.02078776 -0.107328   -0.07430021 -0.04113603 -0.06860983]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 92, goal history size: 0
+TOTAL 0.00% of wins in last 92 iters, sum: 0.0, total good: 0
+
+
+::92::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++ 1+x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 93, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 93, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 93, goal history size: 0
+q for action 4 is [ 0.02226091 -0.14164428 -0.03768136 -0.01519763 -0.01508481]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 93, goal history size: 0
+q for action 3 is [ 0.02078776 -0.107328   -0.07430021 -0.04113603 -0.06860983]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 93, goal history size: 0
+TOTAL 0.00% of wins in last 93 iters, sum: 0.0, total good: 0
+
+
+::93::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++ 1+print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 94, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 94, goal history size: 0
+q for action 4 is [ 0.05662135 -0.08450072 -0.03429179  0.00111553 -0.00991905]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 94, goal history size: 0
+q for action 4 is [ 0.0610401  -0.09427159 -0.029201    0.00436278 -0.0301143 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 94, goal history size: 0
+q for action 0 is [ 0.05453664 -0.09361444 -0.01074385  0.03340953 -0.00203421]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 94, goal history size: 0
+TOTAL 0.00% of wins in last 94 iters, sum: 0.0, total good: 0
+
+
+::94::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print11print+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 95, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 95, goal history size: 0
+q for action 2 is [-0.01365229 -0.10464016 -0.02132806 -0.01740354  0.05431474]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 95, goal history size: 0
+q for action 4 is [-0.01293265 -0.12622516  0.01807526 -0.01096537  0.02639488]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 95, goal history size: 0
+q for action 3 is [ 0.00469956 -0.11237051 -0.03168501 -0.03816554 -0.03653842]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 95, goal history size: 0
+TOTAL 0.00% of wins in last 95 iters, sum: 0.0, total good: 0
+
+
+::95::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ x1+print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 96, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 96, goal history size: 0
+q for action 4 is [ 0.07083857 -0.10292095 -0.05637966 -0.02058738 -0.07178675]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 96, goal history size: 0
+q for action 1 is [-0.00824886 -0.09879058 -0.08968211 -0.03013285 -0.04567343]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 96, goal history size: 0
+q for action 0 is [-0.00175665 -0.10054629 -0.05619607  0.03073101 -0.01761285]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 96, goal history size: 0
+TOTAL 0.00% of wins in last 96 iters, sum: 0.0, total good: 0
+
+
+::96::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+11 printprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 97, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 97, goal history size: 0
+q for action 1 is [-0.01570036 -0.10089695 -0.04102297 -0.03863487  0.03979412]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 97, goal history size: 0
+q for action 0 is [-0.01520012 -0.12486663 -0.02417249  0.05165813  0.04372557]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 97, goal history size: 0
+q for action 4 is [-0.01776253 -0.13960952  0.01619226  0.04697812  0.02572163]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 97, goal history size: 0
+TOTAL 0.00% of wins in last 97 iters, sum: 0.0, total good: 0
+
+
+::97::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x print11
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 98, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 98, goal history size: 0
+q for action 3 is [ 0.03217373 -0.09384508 -0.09726346 -0.06954192 -0.02776104]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 98, goal history size: 0
+q for action 1 is [ 0.00915584 -0.13111678 -0.08855021 -0.0420467   0.00719829]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 98, goal history size: 0
+q for action 3 is [ 0.03348961 -0.13492499 -0.11191519 -0.04132314 -0.02545878]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 98, goal history size: 0
+TOTAL 0.00% of wins in last 98 iters, sum: 0.0, total good: 0
+
+
+::98::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ + +print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 99, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 99, goal history size: 0
+q for action 4 is [ 0.05907537 -0.10992123 -0.07136926 -0.02727593 -0.0752191 ]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 99, goal history size: 0
+q for action 1 is [-0.00828639 -0.1162597  -0.0896375  -0.02463925 -0.03345059]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 99, goal history size: 0
+q for action 1 is [-0.03775873 -0.12810452 -0.09393577 -0.02142441  0.0054733 ]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 99, goal history size: 0
+TOTAL 0.00% of wins in last 99 iters, sum: 0.0, total good: 0
+
+
+::99::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++1   
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 100, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 100, goal history size: 0
+q for action 2 is [ 0.01417403 -0.08995876 -0.01101152  0.01138526  0.05814208]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 100, goal history size: 0
+q for action 4 is [  5.88377006e-03  -1.11862294e-01   1.34992730e-02  -4.53196699e-05
+   2.93714758e-02]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 100, goal history size: 0
+q for action 1 is [-0.03713169 -0.12065129 -0.00886171 -0.00280312  0.04171776]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 100, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::100::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printx1 x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 101, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 101, goal history size: 0
+q for action 4 is [ 0.05662135 -0.08450072 -0.03429179  0.00111553 -0.00991905]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 101, goal history size: 0
+q for action 0 is [ 0.06215137 -0.09745382 -0.00591359  0.04217672  0.02003988]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 101, goal history size: 0
+q for action 2 is [ 0.00153631 -0.09252119  0.02663101  0.04495601  0.07363503]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 101, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::101::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print1printx1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 102, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 102, goal history size: 0
+q for action 2 is [-0.00350769 -0.11172412 -0.06132476 -0.03906646 -0.00743911]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 102, goal history size: 0
+q for action 0 is [-0.0008078  -0.14451416 -0.04904857  0.02482808  0.02786932]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 102, goal history size: 0
+q for action 2 is [-0.04479972 -0.1512607  -0.01880731  0.06584546  0.0750933 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 102, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::102::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++xprintxx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 103, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 103, goal history size: 0
+q for action 4 is [ 0.07083857 -0.10292095 -0.05637966 -0.02058738 -0.07178675]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 103, goal history size: 0
+q for action 2 is [ 0.00455671 -0.09063299 -0.05284333 -0.0188147  -0.02928113]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 103, goal history size: 0
+q for action 3 is [ 0.03448872 -0.08293383 -0.09299257 -0.06123592 -0.07914633]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 103, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::103::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+11x++
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 104, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 104, goal history size: 0
+q for action 0 is [ 0.04753362 -0.10329297 -0.0765331  -0.02497409 -0.02131368]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 104, goal history size: 0
+q for action 0 is [ 0.05958506 -0.14419715 -0.02831841  0.04071068  0.05357144]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 104, goal history size: 0
+q for action 1 is [ 0.02977586 -0.12938207 -0.03315001  0.04383735  0.10811238]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 104, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::104::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++printprint  
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 105, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 105, goal history size: 0
+q for action 0 is [ 0.00869725 -0.11817016 -0.02063485  0.01962173  0.03478698]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 105, goal history size: 0
+q for action 4 is [ 0.00199051 -0.12600455  0.00576119  0.03113466  0.01306807]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 105, goal history size: 0
+q for action 0 is [ 0.0177922  -0.13619174  0.025938    0.07203238  0.02259325]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 105, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::105::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xprint1printprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 106, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 106, goal history size: 0
+q for action 2 is [ 0.01417403 -0.08995876 -0.01101152  0.01138526  0.05814208]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 106, goal history size: 0
+q for action 4 is [  5.88377006e-03  -1.11862294e-01   1.34992730e-02  -4.53196699e-05
+   2.93714758e-02]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 106, goal history size: 0
+q for action 4 is [-0.00046659 -0.13363232  0.03501713  0.00476561  0.00916339]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 106, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::106::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printx11 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 107, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 107, goal history size: 0
+q for action 0 is [ 0.01780924 -0.09377322 -0.03774163  0.01894253  0.02140747]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 107, goal history size: 0
+q for action 2 is [-0.02536417 -0.11026423 -0.0013365   0.04970331  0.07228701]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 107, goal history size: 0
+q for action 1 is [-0.02843102 -0.12119943 -0.02335806  0.02951979  0.0918449 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 107, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::107::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ printx x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 108, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 108, goal history size: 0
+q for action 3 is [ 0.0218018  -0.0909172  -0.13401487 -0.08995409 -0.08984444]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 108, goal history size: 0
+q for action 0 is [ 0.04848522 -0.13971405 -0.10238248 -0.02252502 -0.03802467]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 108, goal history size: 0
+q for action 0 is [ 0.06118671 -0.1796146  -0.05065373  0.04246789  0.04494764]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 108, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::108::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+++printprintx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 109, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 109, goal history size: 0
+q for action 2 is [-0.03038778 -0.10778023 -0.00859503 -0.00842793  0.04693734]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 109, goal history size: 0
+q for action 1 is [-0.03918315 -0.11975518 -0.03016329 -0.01323638  0.0662099 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 109, goal history size: 0
+q for action 4 is [-0.03182884 -0.15635356  0.02144643 -0.00753004  0.04159103]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 109, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::109::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xx 11
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 110, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 110, goal history size: 0
+q for action 1 is [ 0.03492352 -0.0849344  -0.04593735 -0.01413992  0.06110977]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 110, goal history size: 0
+q for action 3 is [ 0.05240196 -0.10481052 -0.09991052 -0.03883481  0.01329942]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 110, goal history size: 0
+q for action 3 is [ 0.06716761 -0.14001635 -0.12336554 -0.05085203 -0.02110132]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 110, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::110::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print ++print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 111, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 111, goal history size: 0
+q for action 2 is [ 0.00988385 -0.07899199 -0.03578987 -0.030386   -0.01226086]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 111, goal history size: 0
+q for action 3 is [ 0.02998375 -0.086083   -0.08535111 -0.06302445 -0.06189782]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 111, goal history size: 0
+q for action 3 is [ 0.0541065  -0.12748665 -0.11368385 -0.06829804 -0.0940158 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 111, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::111::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1x++1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 112, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 112, goal history size: 0
+q for action 2 is [ 0.01417403 -0.08995876 -0.01101152  0.01138526  0.05814208]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 112, goal history size: 0
+q for action 0 is [ 0.01819968 -0.13110116  0.00150522  0.05990535  0.08158632]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 112, goal history size: 0
+q for action 3 is [ 0.04360417 -0.15686175 -0.08026941  0.02899979  0.03212618]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 112, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::112::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printxprint++
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 113, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 113, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 113, goal history size: 0
+q for action 0 is [ 0.00665651 -0.12112194 -0.0687274   0.02371836  0.00919744]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 113, goal history size: 0
+q for action 1 is [-0.01375258 -0.12434845 -0.06771193  0.03386796  0.05949255]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 113, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::113::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++ print x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 114, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 114, goal history size: 0
+q for action 3 is [ 0.04422972 -0.05973735 -0.10473864 -0.06619658 -0.1097986 ]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 114, goal history size: 0
+q for action 1 is [ 0.00617812 -0.10229485 -0.10538193 -0.05470163 -0.05984776]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 114, goal history size: 0
+q for action 3 is [ 0.03544087 -0.10338473 -0.13224666 -0.06727361 -0.08516521]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 114, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::114::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1+ ++
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 115, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 115, goal history size: 0
+q for action 2 is [ 0.01417403 -0.08995876 -0.01101152  0.01138526  0.05814208]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 115, goal history size: 0
+q for action 3 is [ 0.03312401 -0.11862461 -0.08447767 -0.01979232  0.00527337]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 115, goal history size: 0
+q for action 3 is [ 0.05558937 -0.15872239 -0.11916485 -0.03430025 -0.0296006 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 115, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::115::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printx++x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 116, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 116, goal history size: 0
+q for action 0 is [ 0.01780924 -0.09377322 -0.03774163  0.01894253  0.02140747]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 116, goal history size: 0
+q for action 3 is [ 0.03179664 -0.11811124 -0.1012989  -0.00054086 -0.00980834]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 116, goal history size: 0
+q for action 1 is [ 0.01745943 -0.14655009 -0.09884489  0.01721028  0.02576321]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 116, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::116::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ print+ x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 117, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 117, goal history size: 0
+q for action 3 is [ 0.04058694 -0.0889814  -0.10712015 -0.03521418 -0.023927  ]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 36
+history size: 117, goal history size: 0
+q for action 2 is [ 0.01369466 -0.1220992  -0.06343929  0.00825018  0.02934384]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 117, goal history size: 0
+q for action 2 is [-0.02609405 -0.13916185 -0.03509023  0.03754675  0.07030031]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 117, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::117::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print+xx 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 118, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 118, goal history size: 0
+q for action 4 is [ 0.05662135 -0.08450072 -0.03429179  0.00111553 -0.00991905]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 118, goal history size: 0
+q for action 1 is [ 0.00838197 -0.08504054 -0.05434491 -0.00226236  0.01550081]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 118, goal history size: 0
+q for action 1 is [-0.01247183 -0.10440184 -0.06755573 -0.00614588  0.03635906]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 118, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::118::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print1  print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 119, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 119, goal history size: 0
+q for action 1 is [ 0.00173208 -0.08715198 -0.07710405 -0.03655832 -0.02699369]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 119, goal history size: 0
+q for action 4 is [ 0.01399917 -0.11750869 -0.03385327 -0.02208589 -0.03099885]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 119, goal history size: 0
+q for action 0 is [ 0.00448892 -0.10358249 -0.00565802  0.03215738 -0.01236265]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 119, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::119::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1 1print+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 120, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 120, goal history size: 0
+q for action 1 is [ 0.00302132 -0.10696666 -0.1016897  -0.05741513 -0.02089201]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 120, goal history size: 0
+q for action 1 is [-0.01827206 -0.12771134 -0.09150451 -0.03143735  0.02845959]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 120, goal history size: 0
+q for action 4 is [-0.00736237 -0.15069917 -0.01487993 -0.00231846  0.0203555 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 120, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::120::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++  1x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 121, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 121, goal history size: 0
+q for action 1 is [ 0.03492352 -0.0849344  -0.04593735 -0.01413992  0.06110977]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 121, goal history size: 0
+q for action 3 is [ 0.05240196 -0.10481052 -0.09991052 -0.03883481  0.01329942]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 121, goal history size: 0
+q for action 3 is [ 0.06716761 -0.14001635 -0.12336554 -0.05085203 -0.02110132]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 121, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::121::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print ++ 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 122, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 122, goal history size: 0
+q for action 3 is [ 0.03217373 -0.09384508 -0.09726346 -0.06954192 -0.02776104]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 122, goal history size: 0
+q for action 4 is [ 0.0599684  -0.13894473 -0.04163021 -0.02032094 -0.04002661]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 122, goal history size: 0
+q for action 2 is [-0.00414128 -0.1345122  -0.02269464 -0.00660158  0.00594913]
+RANDOM
+next action = 4
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 122, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::122::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ +1x1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 123, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 123, goal history size: 0
+q for action 2 is [-0.00350769 -0.11172412 -0.06132476 -0.03906646 -0.00743911]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 123, goal history size: 0
+q for action 2 is [-0.03712258 -0.13406928 -0.03293587  0.00278932  0.04486052]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 123, goal history size: 0
+q for action 2 is [-0.06470166 -0.14695857 -0.02054259  0.03140731  0.07656141]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 123, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::123::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++xxxprint
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 124, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 124, goal history size: 0
+q for action 1 is [-0.01570036 -0.10089695 -0.04102297 -0.03863487  0.03979412]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 124, goal history size: 0
+q for action 0 is [-0.01520012 -0.12486663 -0.02417249  0.05165813  0.04372557]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 124, goal history size: 0
+q for action 4 is [-0.01776253 -0.13960952  0.01619226  0.04697812  0.02572163]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 124, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::124::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x print11
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 125, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 125, goal history size: 0
+q for action 1 is [ 0.00173208 -0.08715198 -0.07710405 -0.03655832 -0.02699369]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 125, goal history size: 0
+q for action 0 is [ 0.00769791 -0.09596714 -0.04726183  0.02920907 -0.00432529]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 125, goal history size: 0
+q for action 0 is [ 0.01239684 -0.13230263 -0.0005262   0.0783766   0.05411441]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 125, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::125::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1 printprintx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 126, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 126, goal history size: 0
+q for action 4 is [ 0.00249346 -0.10695972 -0.00576887 -0.02634338 -0.01110611]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 126, goal history size: 0
+q for action 3 is [ 0.00859245 -0.09521683 -0.05990599 -0.05326595 -0.06671528]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 126, goal history size: 0
+q for action 4 is [ 0.02255272 -0.14624992 -0.02247441 -0.00994465 -0.06501486]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 126, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::126::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x1+1x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 127, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 127, goal history size: 0
+q for action 0 is [ 0.01780924 -0.09377322 -0.03774163  0.01894253  0.02140747]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 127, goal history size: 0
+q for action 1 is [ 0.0003253  -0.10389725 -0.04178055  0.02283092  0.06882424]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 127, goal history size: 0
+q for action 2 is [-0.03456295 -0.11861382 -0.0142166   0.05451742  0.09672381]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 127, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::127::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ print x+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 128, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 128, goal history size: 0
+q for action 0 is [ 0.05907705 -0.0865944  -0.03139375  0.00382678 -0.01743834]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 128, goal history size: 0
+q for action 2 is [ 0.00288239 -0.09320784  0.00012642  0.01379101  0.05009939]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 128, goal history size: 0
+q for action 4 is [-0.00819406 -0.11297318  0.02011137 -0.00283274  0.02221751]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 128, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::128::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1printx1 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 129, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 129, goal history size: 0
+q for action 2 is [-0.01365229 -0.10464016 -0.02132806 -0.01740354  0.05431474]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 129, goal history size: 0
+q for action 2 is [-0.0452306  -0.11817298  0.0023455   0.01752716  0.07917012]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 129, goal history size: 0
+q for action 0 is [-0.05474954 -0.14670189  0.00363832  0.09057507  0.07319365]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 129, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::129::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ xxprint 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 130, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 130, goal history size: 0
+q for action 3 is [ 0.0218018  -0.0909172  -0.13401487 -0.08995409 -0.08984444]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 130, goal history size: 0
+q for action 0 is [ 0.04848522 -0.13971405 -0.10238248 -0.02252502 -0.03802467]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 130, goal history size: 0
+q for action 2 is [-0.0024715  -0.15370864 -0.05985928  0.03468166  0.03973166]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 130, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::130::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+++printxx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 131, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 131, goal history size: 0
+q for action 2 is [ 0.01417403 -0.08995876 -0.01101152  0.01138526  0.05814208]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 131, goal history size: 0
+q for action 3 is [ 0.03312401 -0.11862461 -0.08447767 -0.01979232  0.00527337]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 131, goal history size: 0
+q for action 3 is [ 0.05558937 -0.15872239 -0.11916485 -0.03430025 -0.0296006 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 131, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::131::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printx++1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 132, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 132, goal history size: 0
+q for action 4 is [ 0.00249346 -0.10695972 -0.00576887 -0.02634338 -0.01110611]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 132, goal history size: 0
+q for action 0 is [ 0.00791875 -0.11709107  0.01131093  0.03197346  0.00042201]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 132, goal history size: 0
+q for action 1 is [-0.03110528 -0.11967771 -0.00282456  0.02675522  0.05278856]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 132, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::132::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x1print print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 133, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 133, goal history size: 0
+q for action 2 is [ 0.01417403 -0.08995876 -0.01101152  0.01138526  0.05814208]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 133, goal history size: 0
+q for action 2 is [-0.03033406 -0.10377681  0.00477524  0.03223779  0.08634477]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 133, goal history size: 0
+q for action 2 is [-0.06207504 -0.12400356  0.00516598  0.04764898  0.09972347]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 133, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::133::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printxxx+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 134, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 134, goal history size: 0
+q for action 2 is [ 0.00988385 -0.07899199 -0.03578987 -0.030386   -0.01226086]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 134, goal history size: 0
+q for action 3 is [ 0.02998375 -0.086083   -0.08535111 -0.06302445 -0.06189782]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 134, goal history size: 0
+q for action 1 is [ 0.00927322 -0.13017944 -0.08541742 -0.04788078 -0.02191886]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 134, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::134::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1x+ +
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 135, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 135, goal history size: 0
+q for action 2 is [ 0.00988385 -0.07899199 -0.03578987 -0.030386   -0.01226086]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 135, goal history size: 0
+q for action 2 is [-0.02257884 -0.09664269 -0.01027694 -0.01661056  0.02927051]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 135, goal history size: 0
+q for action 4 is [-0.02940596 -0.12256207  0.01518786 -0.02356194  0.00516911]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 135, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::135::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1xx1 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 136, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 4
+Execution result: Raised exception of type NameError, code output: 
+history size: 136, goal history size: 0
+q for action 4 is [ 0.00249346 -0.10695972 -0.00576887 -0.02634338 -0.01110611]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 136, goal history size: 0
+q for action 0 is [ 0.00791875 -0.11709107  0.01131093  0.03197346  0.00042201]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 136, goal history size: 0
+q for action 3 is [ 0.01253994 -0.12916063 -0.0604066   0.00148235 -0.02916461]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 136, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::136::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x1print+x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 137, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 137, goal history size: 0
+q for action 4 is [ 0.05907537 -0.10992123 -0.07136926 -0.02727593 -0.0752191 ]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 137, goal history size: 0
+q for action 1 is [-0.00828639 -0.1162597  -0.0896375  -0.02463925 -0.03345059]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 137, goal history size: 0
+q for action 3 is [ 0.02441011 -0.10647635 -0.12358716 -0.0513243  -0.07514354]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 137, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::137::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
++1 ++
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 138, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 138, goal history size: 0
+q for action 2 is [ 0.01417403 -0.08995876 -0.01101152  0.01138526  0.05814208]
+RANDOM
+next action = 0
+Execution result: Raised exception of type NameError, code output: 
+history size: 138, goal history size: 0
+q for action 0 is [ 0.01819968 -0.13110116  0.00150522  0.05990535  0.08158632]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 138, goal history size: 0
+q for action 2 is [-0.03305361 -0.13209373  0.02283068  0.08383112  0.1115163 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 138, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::138::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+printxprintxx
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 139, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 139, goal history size: 0
+q for action 3 is [ 0.0218018  -0.0909172  -0.13401487 -0.08995409 -0.08984444]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 139, goal history size: 0
+q for action 4 is [ 0.05683324 -0.14378861 -0.08577073 -0.01970597 -0.08702609]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 139, goal history size: 0
+q for action 3 is [ 0.03774546 -0.11309295 -0.12570241 -0.04185411 -0.12043338]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 139, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::139::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+++1+x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 140, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 140, goal history size: 0
+q for action 3 is [ 0.03217373 -0.09384508 -0.09726346 -0.06954192 -0.02776104]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 140, goal history size: 0
+q for action 0 is [ 0.05324078 -0.13190186 -0.06290359  0.00102784 -0.00332175]
+RANDOM
+next action = 1
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 140, goal history size: 0
+q for action 1 is [ 0.01879384 -0.14009759 -0.06590877  0.0218116   0.05139736]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 140, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::140::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ +print print
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 141, goal history size: 0
+q for action 1 is [ 0.01516175 -0.08024412 -0.06327988 -0.05994615  0.00582617]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 141, goal history size: 0
+q for action 3 is [ 0.03217373 -0.09384508 -0.09726346 -0.06954192 -0.02776104]
+RANDOM
+next action = 0
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 141, goal history size: 0
+q for action 0 is [ 0.05324078 -0.13190186 -0.06290359  0.00102784 -0.00332175]
+RANDOM
+next action = 2
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 141, goal history size: 0
+q for action 2 is [-0.00208343 -0.14563993 -0.02531736  0.04675511  0.05472755]
+RANDOM
+next action = 3
+Execution result: Raised exception of type IndentationError, code output: 
+history size: 141, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::141::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+ +printx+
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 142, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 2
+Execution result: Raised exception of type NameError, code output: 
+history size: 142, goal history size: 0
+q for action 2 is [-0.03038778 -0.10778023 -0.00859503 -0.00842793  0.04693734]
+RANDOM
+next action = 1
+Execution result: Raised exception of type NameError, code output: 
+history size: 142, goal history size: 0
+q for action 1 is [-0.03918315 -0.11975518 -0.03016329 -0.01323638  0.0662099 ]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 142, goal history size: 0
+q for action 0 is [-0.03844419 -0.14886226 -0.0176819   0.07877144  0.05894669]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 142, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::142::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+xx print 
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 143, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 143, goal history size: 0
+q for action 3 is [ 0.04058694 -0.0889814  -0.10712015 -0.03521418 -0.023927  ]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 143, goal history size: 0
+q for action 3 is [ 0.04370557 -0.11313333 -0.14505875 -0.05102219 -0.04713328]
+RANDOM
+next action = 1
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 143, goal history size: 0
+q for action 1 is [ 0.01852933 -0.15180144 -0.1344195  -0.01283189 -0.00475012]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 60
+history size: 143, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::143::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print++ x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 144, goal history size: 0
+q for action 4 is [ 0.06310693 -0.07927002 -0.05333777 -0.03085691 -0.05911816]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 144, goal history size: 0
+q for action 3 is [ 0.04422972 -0.05973735 -0.10473864 -0.06619658 -0.1097986 ]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 144, goal history size: 0
+q for action 4 is [ 0.0593962  -0.11207052 -0.07246475 -0.02175929 -0.10259175]
+RANDOM
+next action = 0
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 144, goal history size: 0
+q for action 0 is [ 0.04406501 -0.11142131 -0.0520837   0.00470353 -0.04435743]
+RANDOM
+next action = 4
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 144, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::144::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+1+1print1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 145, goal history size: 0
+q for action 3 is [ 0.01757334 -0.06169102 -0.10447886 -0.08592927 -0.06885792]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 145, goal history size: 0
+q for action 3 is [ 0.0218018  -0.0909172  -0.13401487 -0.08995409 -0.08984444]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 145, goal history size: 0
+q for action 3 is [ 0.02455668 -0.11775933 -0.15090552 -0.08085255 -0.10313014]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 145, goal history size: 0
+q for action 3 is [ 0.02333157 -0.13860783 -0.1607103  -0.06639413 -0.11192255]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 145, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::145::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+++++1
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 2
+Execution result: No exception, code output: 
+history size: 146, goal history size: 0
+q for action 2 is [ 0.00447012 -0.08206404 -0.03328278 -0.04313719  0.0039252 ]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 146, goal history size: 0
+q for action 3 is [ 0.01498304 -0.10340671 -0.08746154 -0.05567307 -0.03413675]
+RANDOM
+next action = 3
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 146, goal history size: 0
+q for action 3 is [ 0.03781166 -0.1408359  -0.11689886 -0.05757656 -0.06014292]
+RANDOM
+next action = 4
+Execution result: No exception, code output: 
+history size: 146, goal history size: 0
+q for action 4 is [ 0.05538298 -0.18621573 -0.06496885 -0.00122061 -0.06088087]
+RANDOM
+next action = 2
+Execution result: Raised exception of type SyntaxError, code output: 
+history size: 146, goal history size: 0
+TOTAL 0.00% of wins in last 100 iters, sum: 0.0, total good: 0
+
+
+::146::
+Initializing Codegen Environment...
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+x++1x
+=====================
+
+EPSILON: 1.0
+q for action -1 is [ 0.03542772 -0.05011134 -0.05413155 -0.05353831 -0.03518965]
+RANDOM
+next action = 0
+Execution result: No exception, code output: 
+history size: 147, goal history size: 0
+q for action 0 is [ 0.05572999 -0.07657959 -0.03761546 -0.01967517  0.00677093]
+RANDOM
+next action = 1
+Execution result: No exception, code output: 
+history size: 147, goal history size: 0
+q for action 1 is [ 0.03492352 -0.0849344  -0.04593735 -0.01413992  0.06110977]
+RANDOM
+next action = 4
+Rendering Codegen environment...
+Code: 
+=====================
+
+import sys
+
+x = int(sys.argv[1])
+
+# desired code starts here
+print 1
+=====================
+

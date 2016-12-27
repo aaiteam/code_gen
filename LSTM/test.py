@@ -10,14 +10,25 @@ import sys
 def main():
     print "Creating DQN agent..."
 
-    iters = 5000
+    iters = 10000
     n_goal = 0
     n_goal_all = 0
     time_stamp = 0
 
-    max_steps = 3 #5
-    agent = DQNAgent(max_steps)
-    agent.dqn.initial_exploration = iters*0.4
+    ############################################################
+    # print x
+    # max_steps = 3
+    # actions = ["print", " ", "x"]
+    ############################################################
+
+    ############################################################
+    # print x+1
+    max_steps = 5
+    actions = ["print", " ", "x", "+", "1"]
+    ############################################################
+
+    agent = DQNAgent(max_steps, actions)
+    agent.dqn.initial_exploration = iters*0.6
 
     results = []
     policy_frozen = False
@@ -25,13 +36,22 @@ def main():
     for iter in range(iters):
         print "\n\n::{}::".format(iter)
 
-        if iter == 2300:
+        if iter == 4300: # 2300:
             policy_frozen = True
 
         env = gym.make("codegen-v0")
         num = random.randrange(1,100)
         env.my_input = num
-        env.goal = str(num)
+
+        ############################################################
+        # print x
+        # env.goal = str(num)
+        ############################################################
+
+        ############################################################
+        # print x+1
+        env.goal = str(num + 1)
+        ############################################################
 
         code = env._reset()
         step_in_episode = 0
@@ -85,10 +105,10 @@ def main():
         else:
             results.append(0.0)
         total_iters = 100 if iter >= 100 else iter + 1
-        print "TOTAL {:.2f}% of wins in last {} iters, sum: {}".format(100 * sum(results) / total_iters, total_iters,
-            sum(results))
+        print "TOTAL {:.2f}% of wins in last {} iters, sum: {}, total good: {}".format(
+            100 * sum(results) / total_iters, total_iters, sum(results), len(agent.dqn.goal_idx))
 
-        if iter == 1 + (agent.dqn.initial_exploration / max_steps):
+        if iter == 1 + agent.dqn.initial_exploration:
             print "n_goal_all = ", n_goal_all
             print agent.dqn.goal_idx
             raw_input()

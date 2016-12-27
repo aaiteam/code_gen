@@ -19,22 +19,45 @@ import matplotlib.pyplot as plt
 #random.seed(42) # for reproducibility
 
 class ActionValue(Chain):
+
+    # n_act + 1 to incorporate initial state -1 without actions
     def __init__(self, n_history, n_act):
         embedding_size = n_act + 1
         super(ActionValue, self).__init__(
             embed=L.EmbedID(n_act + 1, embedding_size),
-            lstm=L.LSTM(in_size=embedding_size, out_size=30), 
+            lstm1=L.LSTM(in_size=embedding_size, out_size=60),
+            lstm2=L.LSTM(in_size=60, out_size=30),
             q_value=L.Linear(30, n_act)
         )
 
     def q_function(self, action):
         x = self.embed(Variable(np.asarray([np.int32(action + 1)])))
-        h_lstm = self.lstm(x)
-        res  = self.q_value(h_lstm)
+        h_lstm1 = self.lstm1(x)
+        h_lstm2 = self.lstm2(h_lstm1)
+        res  = self.q_value(h_lstm2)
         return res 
 
     def reset_state(self):
-        self.lstm.reset_state()
+        self.lstm1.reset_state()
+        self.lstm2.reset_state()
+
+# class ActionValue(Chain):
+#     def __init__(self, n_history, n_act):
+#         embedding_size = n_act + 1
+#         super(ActionValue, self).__init__(
+#             embed=L.EmbedID(n_act + 1, embedding_size),
+#             lstm=L.LSTM(in_size=embedding_size, out_size=30),
+#             q_value=L.Linear(30, n_act)
+#         )
+
+#     def q_function(self, action):
+#         x = self.embed(Variable(np.asarray([np.int32(action + 1)])))
+#         h_lstm = self.lstm(x)
+#         res  = self.q_value(h_lstm)
+#         return res 
+
+#     def reset_state(self):
+#         self.lstm.reset_state()
 
 
 class DQN:
@@ -43,10 +66,10 @@ class DQN:
     gamma = 0.9  # Discount factor
     initial_exploration = 1000  # Initial exploratoin. original: 5x10^4
     replay_size = 100  # Replay (batch) size
-    good_replay_size = 70 # Let's replay more good examples
+    goal_replay_size = 70 # Let's replay more good examples
     target_model_update_freq = 10  # Target update frequancy. original: 10^4
-    data_size = 10**7  # Data size of history. original: 10^6
-    max_steps = 3
+    history_size = 1000
+    goal_history_size = 200
     goal_idx = []
 
     class Episode:
@@ -77,12 +100,8 @@ class DQN:
         self.optimizer.setup(self.model)
 
         hs = self.n_history
-        self.replay_buffer = [np.zeros((self.data_size, hs, self.max_steps, self.n_act), dtype=np.float32),
-                  np.zeros(self.data_size, dtype=np.uint8),
-                  np.zeros((self.data_size, 1), dtype=np.float32),
-                  np.zeros((self.data_size, hs, self.max_steps, self.n_act), dtype=np.float32),
-                  np.zeros((self.data_size, 1), dtype=np.bool)]
         self.history = []
+        self.goal_history = []
         self.xp = self.model.xp
 
     def action_sample_e_greedy(self, state, epsilon):
@@ -118,23 +137,66 @@ class DQN:
             self.history[-1].rewards.append(reward)
             if episode_end_flag is True:
                 self.history[-1].ended = True
+                if self.history[-1].rewards[-1] >= 1:
+                    for i in range(len(self.history[-1].rewards) - 1):
+                        if self.history[-1].rewards[i] < 0:
+                            self.history[-1].rewards[i] = 0.1
+                    self.goal_history.append(self.history[-1])
         else:   
             self.history.append(self.Episode(actions=[action_idx], rewards=[reward]))
 
+        if len(self.history) > self.history_size:
+            self.history = self.history[1:]
+        if len(self.goal_history) > self.goal_history_size:
+            self.goal_history = self.goal_history[1:]
+
+        print "history size: {}, goal history size: {}".format(len(self.history), len(self.goal_history))
+
     def experience_replay(self, time):
         if self.initial_exploration < time:
-            replay_all = max(self.replay_size - len(self.goal_idx), self.replay_size - self.good_replay_size)
-            replay_good = min(len(self.goal_idx), self.good_replay_size)
+            replay_goal = min(len(self.goal_history), self.goal_replay_size)
+            replay_all = min(replay_goal, self.replay_size - self.goal_replay_size)
+            print "REPLAYING {} good and {} all".format(replay_goal, replay_all)
 
-            replay_index = random.sample(range(len(self.history)), replay_all) + \
-                random.sample(self.goal_idx, replay_good)
-
-            r_episodes = [self.history[id] for id in replay_index]
+            replay_index = random.sample(range(len(self.history)), replay_all)
+            goal_replay_index = random.sample(range(len(self.goal_history)), replay_goal)
+            r_episodes = [self.history[id] for id in replay_index] + [self.goal_history[id] for id in goal_replay_index]
             for episode in r_episodes:
                 self.optimizer.zero_grads()
                 self.get_loss(episode).backward()
                 self.optimizer.update()
                 self.target_model_update(time, soft_update=False)
+
+    # def experience_replay(self, time):
+    #     if self.initial_exploration < time:
+    #         replay_goal = min(len(self.goal_idx), self.good_replay_size)
+    #         replay_all = min(replay_good, self.replay_size - self.good_replay_size)
+    #         print "REPLAYING {} good and {} all".format(replay_good, replay_all)
+
+    #         replay_index = random.sample(range(len(self.history)), replay_all) + \
+    #             random.sample(self.goal_idx, replay_good)
+
+    #         r_episodes = [self.history[id] for id in replay_index]
+    #         for episode in r_episodes:
+    #             self.optimizer.zero_grads()
+    #             self.get_loss(episode).backward()
+    #             self.optimizer.update()
+    #             self.target_model_update(time, soft_update=False)
+
+    # def experience_replay(self, time):
+    #     if self.initial_exploration < time:
+    #         replay_all = max(self.replay_size - len(self.goal_idx), self.replay_size - self.good_replay_size)
+    #         replay_good = min(len(self.goal_idx), self.good_replay_size)
+
+    #         replay_index = random.sample(range(len(self.history)), replay_all) + \
+    #             random.sample(self.goal_idx, replay_good)
+
+    #         r_episodes = [self.history[id] for id in replay_index]
+    #         for episode in r_episodes:
+    #             self.optimizer.zero_grads()
+    #             self.get_loss(episode).backward()
+    #             self.optimizer.update()
+    #             self.target_model_update(time, soft_update=False)
 
 
     def get_action_id(self, action):
@@ -202,10 +264,10 @@ class DQNAgent:
 
 
     # TODO: move actions in a better place
-    def __init__(self, max_stp, actions=None):
-        self.actions = ["print", " ", "x"]
+    def __init__(self, max_steps, actions=["print", " ", "x", "+", "1"]):
+        self.actions = actions
         self.epsilon = 1.0  # Initial exploratoin rate
-        self.dqn = DQN(self.actions, max_stp)
+        self.dqn = DQN(self.actions, max_steps)
 
     def start(self, code, s_state, policy_frozen=False):
         self.reset_state(code)
@@ -215,20 +277,27 @@ class DQNAgent:
         state = np.asanyarray(s_state, dtype=np.float32).reshape(1, self.dqn.n_history, self.dqn.max_steps,
             self.dqn.n_act)
         # Exploration decays along the time sequence
-        self.policy_frozen = policy_frozen
+        self.policy_frozen = False if len(self.dqn.goal_idx) < 40 else policy_frozen
         if self.policy_frozen is False:  # Learning ON/OFF
-            if self.dqn.initial_exploration < self.dqn.time_stamp*3:
-                self.epsilon -= 0.2#1.0/10**2
-                if self.epsilon < 0.1:
-                    self.epsilon = 0.1
-                # eps = self.epsilon
-            # else:  # Initial Exploation Phase
-            #     eps = 1.0
+            if len(self.dqn.goal_idx) < 5: #20:
+                self.epsilon = 1.0
+            elif len(self.dqn.goal_idx) < 10: #40:
+                self.epsilon = 0.5
+            else:
+                self.epsilon = 0.1
         else:  # Evaluation
-            # Freeze it harder :D
             self.epsilon = 0.0
-            # eps = self.epsilon #0.05
         print "EPSILON: {}".format(self.epsilon)
+        # # Exploration decays along the time sequence
+        # self.policy_frozen = policy_frozen
+        # if self.policy_frozen is False:  # Learning ON/OFF
+        #     print "initial exploration: {}, time_stamp: {}".format(self.dqn.initial_exploration, self.dqn.time_stamp)
+        #     if self.dqn.initial_exploration < self.dqn.time_stamp:
+        #         self.epsilon = 0.5
+        # else:  # Evaluation
+        #     # Freeze it harder :D
+        #     self.epsilon = 0.0
+        # print "EPSILON: {}".format(self.epsilon)
 
         action_idx, Q_now = self.dqn.action_sample_e_greedy(state, self.epsilon)
         self.last_action = self.dqn.actions[action_idx]
