@@ -17,6 +17,51 @@ import chainer.links as L
 import matplotlib.pyplot as plt
 
 #random.seed(42) # for reproducibility
+    
+
+class simple_LSTM(Chain):
+
+    def __init__(self, n_history, n_act):
+        embedding_size = n_act + 1
+        super(simple_LSTM, self).__init__(
+            embed=L.EmbedID(n_act + 1, embedding_size),
+            lstm1=L.LSTM(in_size=embedding_size, out_size=30)
+        )
+
+    def __call__(self, action):
+        x = self.embed(Variable(np.asarray([np.int32(action + 1)])))
+        return self.lstm1(x)
+
+    def reset_state(self):
+        self.lstm1.reset_state()
+
+    def compute_loss(self, x_list):
+        loss = 0
+        for cur_word, next_word in zip(x_list, x_list[1:]):
+            loss += model(cur_word, next_word)
+        return loss
+
+class ActionValue_pretrained(Chain):
+
+    # n_act + 1 to incorporate initial state -1 without actions
+    def __init__(self, n_history, n_act, pretrained_model):
+        embedding_size = n_act + 1
+        super(ActionValue_pretrained, self).__init__(
+            embed = L.EmbedID(n_act + 1, embedding_size),
+            lstm1 = pretrained_model.copy(), # Copy the pretrained model
+            q_value=L.Linear(30, n_act)
+        )
+
+    def q_function(self, action):
+        #x = self.embed(Variable(np.asarray([np.int32(action + 1)])))  #Already done in LSTM function
+        x = action
+        h_lstm1 = self.lstm1(x)
+        res  = self.q_value(h_lstm1)
+        return res
+
+    def reset_state(self):
+        self.lstm1.reset_state()
+
 
 class ActionValue(Chain):
 
@@ -25,21 +70,18 @@ class ActionValue(Chain):
         embedding_size = n_act + 1
         super(ActionValue, self).__init__(
             embed=L.EmbedID(n_act + 1, embedding_size),
-            lstm1=L.LSTM(in_size=embedding_size, out_size=60),
-            lstm2=L.LSTM(in_size=60, out_size=30),
+            lstm1=L.LSTM(in_size=embedding_size, out_size=30),
             q_value=L.Linear(30, n_act)
         )
 
     def q_function(self, action):
         x = self.embed(Variable(np.asarray([np.int32(action + 1)])))
         h_lstm1 = self.lstm1(x)
-        h_lstm2 = self.lstm2(h_lstm1)
-        res  = self.q_value(h_lstm2)
+        res  = self.q_value(h_lstm1)
         return res 
 
     def reset_state(self):
         self.lstm1.reset_state()
-        self.lstm2.reset_state()
 
 # class ActionValue(Chain):
 #     def __init__(self, n_history, n_act):
@@ -84,6 +126,9 @@ class DQN:
             print self.rewards
             print "Ended: {}".format(self.ended)
 
+    class Pretrained:
+        pass
+
     def __init__(self, actions, max_steps, n_history=1):
         print "Initializing DQN..."
         self.actions = actions
@@ -93,7 +138,18 @@ class DQN:
         self.max_steps = max_steps
         self.time_stamp = 0
 
-        self.model = ActionValue(self.n_history, self.n_act)
+        print "LSTM pretraining...(Data not prepared yet...)"
+        self.Pretrained.model = simple_LSTM(self.n_history, self.n_act)
+        self.Pretrained.optimizer = optimizers.AdaGrad(lr=0.001)
+        self.Pretrained.optimizer.setup(self.Pretrained.model)
+        self.Pretrained.model.reset_state()
+        #self.Pretrained.optimizer.update(self.Pretrained.model.compute_loss, Data) #Put the data here!!!
+        print "pretraining complete!!"
+        raw_input()
+
+
+        #self.model = ActionValue(self.n_history, self.n_act)
+        self.model = ActionValue_pretrained(self.n_history, self.n_act, self.Pretrained.model)
         self.model_target = copy.deepcopy(self.model)
 
         self.optimizer = optimizers.AdaGrad(lr=0.001)

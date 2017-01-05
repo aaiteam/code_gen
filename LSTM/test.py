@@ -1,6 +1,7 @@
 import gym
 import gym_codegen
 import numpy as np
+import dqn
 from dqn import DQNAgent
 
 import random
