@@ -1,0 +1,4 @@
+https://docs.python.org/2.7/tutorial/introduction.html
+https://docs.python.org/2.7/tutorial/controlflow.html
+https://docs.python.org/2.7/tutorial/datastructures.html
+https://docs.python.org/2.7/tutorial/modules.html
