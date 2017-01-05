@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 import urllib2 as urllib
@@ -9,6 +8,8 @@ import keyword
 import re
 import itertools
 import cPickle as pickle
+import pandas as pd
+import numpy as np
 
 def code_extraction(input_file, output_file):
 
@@ -69,14 +70,42 @@ def code_extraction(input_file, output_file):
                 if code_refine:
 #                     print code_refine
                     output_list.append(code_refine)
-    print output_list
+#     print output_list
     with open(output_file,'wb') as f:
         pickle.dump(output_list,f)
 
+def convert2onehot(input_file):
+    """ read codeword examples and convert them to onehot representation,
+    save the converted ones into data_onehot as list with each element of a numpy matrix
+
+    Args:
+        input_file: from where to read .pkl file
+
+    Returns:
+        data_onehot: data with onehot representation
+    """
+
+    # load .pkl file
+    with open(input_file,"rb") as f:
+        data = pickle.load(f)
+    # flatten multi-level list into single-level list
+    data_list = [element for lst in data for element in lst]
+    # obtain one-hot representation of each codeword
+    s = pd.Series(data_list)
+    onehot = pd.get_dummies(s)
+    onehot = onehot.as_matrix()
+    num_codeword = onehot.shape[1]
+    data_onehot = []
+    cnt = 0
+    for lst in data:
+        lst_onehot = np.empty((0,num_codeword), dtype=int)
+        for element in lst:
+            lst_onehot = np.concatenate((lst_onehot, onehot[cnt,:][np.newaxis,:]), axis = 0)
+            cnt += 1
+        data_onehot.append(lst_onehot)
+
+    return data_onehot
+
 if __name__ == '__main__':
     code_extraction("webpage_list.txt", "output.pkl")
-
-import pandas as pd
-s = pd.Series(['one', 'two', 'three', 'four', 'five', 'six'])
-onehot = pd.get_dummies(s)
-print onehot
+    data_onehot = convert2onehot("output.pkl")
