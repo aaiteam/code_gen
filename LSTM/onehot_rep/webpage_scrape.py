@@ -67,7 +67,7 @@ def code_extraction(input_file, output_file):
                             elif symbol not in omit_list:
                                 code_refine.append('x')
                 #  if code_refine is not empty
-                if code_refine:
+                if len(code_refine) >= 2:
 #                     print code_refine
                     output_list.append(code_refine)
 #     print output_list
