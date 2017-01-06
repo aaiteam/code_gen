@@ -76,35 +76,41 @@ def code_extraction(input_file, output_file):
 
 def convert2onehot(input_file):
     """ read codeword examples and convert them to onehot representation,
-    save the converted ones into data_onehot as list with each element of a numpy matrix
-
+    save the converted ones into data_onehot as list with each element of a numpy matrix 
+    
     Args:
         input_file: from where to read .pkl file
-
+    
     Returns:
-        data_onehot: data with onehot representation
+        data_onehot: data with onehot representation 
+        data_index: data with index representation 
     """
-
-    # load .pkl file
+    
+    # load .pkl file 
     with open(input_file,"rb") as f:
         data = pickle.load(f)
-    # flatten multi-level list into single-level list
+    # flatten multi-level list into single-level list    
     data_list = [element for lst in data for element in lst]
     # obtain one-hot representation of each codeword
     s = pd.Series(data_list)
     onehot = pd.get_dummies(s)
     onehot = onehot.as_matrix()
+    # save index of each codeword in index(list)
+    index = [int(np.nonzero(row)[0][0]) for row in onehot] 
     num_codeword = onehot.shape[1]
     data_onehot = []
-    cnt = 0
+    data_index = []
+    cnt = 0 
     for lst in data:
         lst_onehot = np.empty((0,num_codeword), dtype=int)
+        lst_index = []
         for element in lst:
             lst_onehot = np.concatenate((lst_onehot, onehot[cnt,:][np.newaxis,:]), axis = 0)
+            lst_index.append(index[cnt])
             cnt += 1
-        data_onehot.append(lst_onehot)
-
-    return data_onehot
+        data_onehot.append(lst_onehot) 
+        data_index.append(lst_index)
+    return data_onehot, data_index
 
 #if __name__ == '__main__':
 #    code_extraction("webpage_list.txt", "output.pkl")
