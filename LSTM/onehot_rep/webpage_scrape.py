@@ -12,13 +12,13 @@ import pandas as pd
 import numpy as np
 
 def code_extraction(input_file, output_file):
-
-    """ read webpages from input_file, extract python codes from corresponding webpage and saved
+    
+    """ read webpages from input_file, extract python codes from corresponding webpage and saved 
     the refined codeword into output_file
-
+    
     Args:
        input_file: from which txt file to read webpage list
-       output_file: to which csv file to write codeword into
+       output_file: to which csv file to write codeword into 
     """
     with open(input_file, "rb") as reader:
         output_list = []
@@ -28,25 +28,25 @@ def code_extraction(input_file, output_file):
             web_file = urllib.urlopen(webpage)
             soup = BeautifulSoup(web_file, "lxml")
 
-            # all kinds of codeword to extract
+            # all kinds of codeword to extract 
             builtin_func = dir(__builtins__)  # builtin functions
             keyword_list = keyword.kwlist  # builtin keywords
             arith_operator = ['+', '-', '*', '/', '%', '//', '**']
             comp_operator = ['>', '<', '!=', '==', '>=', '<=']
             logic_operator = ['or', 'and', 'not']
             assign_operator = ['=', '+=', '-=', '*=', '/=', '%=', '//=', '**=']
-            bracket = ['{', '}', '[', ']', '(', ')']
+            bracket = ['{', '}', '[', ']', '(', ')'] 
             special_symbol = [':']
 
-            # symbols to be omitted
+            # symbols to be omitted 
             omit_list = ['', ' ', ',', '\n', '"', ">>>", "...", "#", '.']
 
-            filt = list(itertools.chain(builtin_func, keyword_list, arith_operator,
+            filt = list(itertools.chain(builtin_func, keyword_list, arith_operator, 
                         comp_operator, logic_operator, assign_operator, bracket, special_symbol))
 
-            # delimiters to split string into list
-            delimiters = [',',' ', '(', ')', '[', ']', ':', "...", '\n', '"', '.', '>>>']
-            regexPattern = "(" + '|'.join(map(re.escape, delimiters)) + ")"
+            # delimiters to split string into list 
+            delimiters = [',',' ', '(', ')', '[', ']', '{', '}', ':', "...", '\n', '"', '.', '>>>']
+            regexPattern = "(" + '|'.join(map(re.escape, delimiters)) + ")"  
 
             code_set = soup.find_all("div", class_="highlight-python")
             for code_block in code_set:
@@ -54,15 +54,15 @@ def code_extraction(input_file, output_file):
                 code_txt = code_block.get_text().encode('utf8')
                 code_txt = code_txt.split('\n')
                 for code_line in code_txt:
-                    # extract only source code and omit substrings after #
+                    # extract only source code and omit substrings after # 
                     code_line = code_line.split("#",1)[0]
                     # replace substring within "" with x
                     code_line = re.sub(r'\"(.+?)\"', "x", code_line)
                     if code_line.startswith(">>>") or code_line.startswith("..."):
-                        code_list = re.split(regexPattern, code_line)
+                        code_list = re.split(regexPattern, code_line) 
             #             print code_list
-                        for symbol in code_list:
-                            if symbol in filt:
+                        for symbol in code_list:     
+                            if symbol in filt: 
                                 code_refine.append(symbol)
                             elif symbol not in omit_list:
                                 code_refine.append('x')
@@ -94,6 +94,7 @@ def convert2onehot(input_file):
     # obtain one-hot representation of each codeword
     s = pd.Series(data_list)
     onehot = pd.get_dummies(s)
+    codebook = list(onehot.columns.values)
     onehot = onehot.as_matrix()
     # save index of each codeword in index(list)
     index = [int(np.nonzero(row)[0][0]) for row in onehot] 
@@ -110,8 +111,11 @@ def convert2onehot(input_file):
             cnt += 1
         data_onehot.append(lst_onehot) 
         data_index.append(lst_index)
-    return data_onehot, data_index
+    return data_onehot, data_index, codebook
 
 #if __name__ == '__main__':
 #    code_extraction("webpage_list.txt", "output.pkl")
-#    data_onehot = convert2onehot("output.pkl")
+#    _, data_index, codebook = convert2onehot("output.pkl")
+#    print 'data_index\n', data_index
+#    print 'codebook\n', codebook
+#    print 'max index', max([max(x) for x in data_index])
