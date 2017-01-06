@@ -26,25 +26,27 @@ class simple_LSTM(Chain):
         embedding_size = n_act + 1
         super(simple_LSTM, self).__init__(
             embed=L.EmbedID(n_act + 1, embedding_size),
-            lstm1=L.LSTM(in_size=embedding_size, out_size=30),
-            out=L.Linear(30, embedding_size)
+            lstm1=L.LSTM(in_size=embedding_size, out_size=embedding_size)
         )
 
     def __call__(self, action):
         x = self.embed(Variable(np.asarray([np.int32(action + 1)])))
-        y = self.out(self.lstm1(x))
+        y = self.lstm1(x)
         return y
 
     def reset_state(self):
         self.lstm1.reset_state()
 
-def compute_loss(model, x_list):
+def compute_loss(model, x_list, batch_size):
     loss = 0
-    x_list_t = x_list[0].tolist()
-    for cur_word, next_word in zip(x_list_t, x_list_t[1:]):
-        loss += model(cur_word, next_word)
 
-    print "************ok************"
+
+    for j in range(batch_size):
+
+        i = random.randint(0, len(x_list)-1)
+        #print i#, ":" , cur_word, " " , next_word
+        for cur_word, next_word in zip(x_list[i], x_list[i][1:]):
+            loss += model(cur_word, np.asarray([np.int32(next_word+1)]))
 
     return loss
 
@@ -74,7 +76,8 @@ class ActionValue_pretrained(Chain):
 class ActionValue(Chain):
 
     # n_act + 1 to incorporate initial state -1 without actions
-
+    def __init__(self, n_history, n_act):
+        embedding_size = n_act + 1
         super(ActionValue, self).__init__(
             embed=L.EmbedID(n_act + 1, embedding_size),
             lstm1=L.LSTM(in_size=embedding_size, out_size=30),
@@ -137,30 +140,41 @@ class DQN:
         pass
 
     def __init__(self, actions, max_steps, n_history=1):
+
+        print "Prepare Data for pretraining..."
+        #websc.code_extraction("onehot_rep/webpage_list.txt", "onehot_rep/output.pkl")
+        _ , data_index , codebook = websc.convert2onehot("onehot_rep/output.pkl")
+        self.actions = codebook       
+        print "Data Size : ", len(data_index)
+
+
         print "Initializing DQN..."
-        self.actions = actions
-        self.n_act = len(actions)
+        self.n_act = len(self.actions)
         self.code_idx_size = self.n_act
         self.n_history = n_history
         self.max_steps = max_steps
         self.time_stamp = 0
+        print "vector length : ", self.n_act
 
-        print "LSTM pretraining...(Data not prepared yet...)"
-        websc.code_extraction("onehot_rep/webpage_list.txt", "onehot_rep/output.pkl")
-        data_onehot = websc.convert2onehot("onehot_rep/output.pkl")
-        self.n_act = data_onehot[0].shape[1]
-        print "vector length : ", self.n_act       
-
-
+        print "LSTM pretraining..."
         self.Pretrained.lstm = simple_LSTM(self.n_history, self.n_act)
         self.Pretrained.model = L.Classifier(self.Pretrained.lstm)
         self.Pretrained.optimizer = optimizers.AdaGrad(lr=0.001)
         self.Pretrained.optimizer.setup(self.Pretrained.model)
-        self.Pretrained.lstm.reset_state()
-        self.Pretrained.model.cleargrads()
-        loss = compute_loss(self.Pretrained.model, data_onehot)
-        loss.backward()
-        self.Pretrained.optimizer.update()
+        self.Pretrained.batchsize = 10
+        self.Pretrained.epoch = 200
+
+        for epc in range(self.Pretrained.epoch):
+            self.Pretrained.lstm.reset_state()
+            self.Pretrained.model.zerograds()
+            loss = compute_loss(self.Pretrained.model, data_index, self.Pretrained.batchsize)
+            loss.backward()
+            self.Pretrained.optimizer.update()
+            
+            if(epc%10==0):
+                print "Epoch : " ,epc
+
+
         print "pretraining complete!!"
         raw_input()
 
