@@ -106,6 +106,6 @@ def convert2onehot(input_file):
 
     return data_onehot
 
-if __name__ == '__main__':
-    code_extraction("webpage_list.txt", "output.pkl")
-    data_onehot = convert2onehot("output.pkl")
+#if __name__ == '__main__':
+#    code_extraction("webpage_list.txt", "output.pkl")
+#    data_onehot = convert2onehot("output.pkl")

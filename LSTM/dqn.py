@@ -4,6 +4,7 @@ import copy
 import gym
 import random
 import gym_codegen
+import onehot_rep.webpage_scrape as websc
 
 import pickle
 import numpy as np
@@ -25,21 +26,28 @@ class simple_LSTM(Chain):
         embedding_size = n_act + 1
         super(simple_LSTM, self).__init__(
             embed=L.EmbedID(n_act + 1, embedding_size),
-            lstm1=L.LSTM(in_size=embedding_size, out_size=30)
+            lstm1=L.LSTM(in_size=embedding_size, out_size=30),
+            out=L.Linear(30, embedding_size)
         )
 
     def __call__(self, action):
         x = self.embed(Variable(np.asarray([np.int32(action + 1)])))
-        return self.lstm1(x)
+        y = self.out(self.lstm1(x))
+        return y
 
     def reset_state(self):
         self.lstm1.reset_state()
 
-    def compute_loss(self, x_list):
-        loss = 0
-        for cur_word, next_word in zip(x_list, x_list[1:]):
-            loss += model(cur_word, next_word)
-        return loss
+def compute_loss(model, x_list):
+    loss = 0
+    x_list_t = x_list[0].tolist()
+    for cur_word, next_word in zip(x_list_t, x_list_t[1:]):
+        loss += model(cur_word, next_word)
+
+    print "************ok************"
+
+    return loss
+
 
 class ActionValue_pretrained(Chain):
 
@@ -49,7 +57,7 @@ class ActionValue_pretrained(Chain):
         super(ActionValue_pretrained, self).__init__(
             embed = L.EmbedID(n_act + 1, embedding_size),
             lstm1 = pretrained_model.copy(), # Copy the pretrained model
-            q_value=L.Linear(30, n_act)
+            q_value=L.Linear(embedding_size, n_act)
         )
 
     def q_function(self, action):
@@ -66,8 +74,7 @@ class ActionValue_pretrained(Chain):
 class ActionValue(Chain):
 
     # n_act + 1 to incorporate initial state -1 without actions
-    def __init__(self, n_history, n_act):
-        embedding_size = n_act + 1
+
         super(ActionValue, self).__init__(
             embed=L.EmbedID(n_act + 1, embedding_size),
             lstm1=L.LSTM(in_size=embedding_size, out_size=30),
@@ -139,17 +146,27 @@ class DQN:
         self.time_stamp = 0
 
         print "LSTM pretraining...(Data not prepared yet...)"
-        self.Pretrained.model = simple_LSTM(self.n_history, self.n_act)
+        websc.code_extraction("onehot_rep/webpage_list.txt", "onehot_rep/output.pkl")
+        data_onehot = websc.convert2onehot("onehot_rep/output.pkl")
+        self.n_act = data_onehot[0].shape[1]
+        print "vector length : ", self.n_act       
+
+
+        self.Pretrained.lstm = simple_LSTM(self.n_history, self.n_act)
+        self.Pretrained.model = L.Classifier(self.Pretrained.lstm)
         self.Pretrained.optimizer = optimizers.AdaGrad(lr=0.001)
         self.Pretrained.optimizer.setup(self.Pretrained.model)
-        self.Pretrained.model.reset_state()
-        #self.Pretrained.optimizer.update(self.Pretrained.model.compute_loss, Data) #Put the data here!!!
+        self.Pretrained.lstm.reset_state()
+        self.Pretrained.model.cleargrads()
+        loss = compute_loss(self.Pretrained.model, data_onehot)
+        loss.backward()
+        self.Pretrained.optimizer.update()
         print "pretraining complete!!"
         raw_input()
 
 
         #self.model = ActionValue(self.n_history, self.n_act)
-        self.model = ActionValue_pretrained(self.n_history, self.n_act, self.Pretrained.model)
+        self.model = ActionValue_pretrained(self.n_history, self.n_act, self.Pretrained.model.predictor)
         self.model_target = copy.deepcopy(self.model)
 
         self.optimizer = optimizers.AdaGrad(lr=0.001)
