@@ -4,6 +4,8 @@ import numpy as np
 import dqn
 from dqn import DQNAgent
 
+import io
+import os
 import random
 import sys
 
@@ -33,6 +35,9 @@ def main():
 
     results = []
     policy_frozen = False
+    wins_file = "wins.txt"
+    with io.FileIO(wins_file, "w") as file:
+        file.write("Winning codes:\n")
 
     for iter in range(iters):
         print "\n\n::{}::".format(iter)
@@ -74,14 +79,12 @@ def main():
             state_prime = env.code_index_list[:]
             state_prime += np.zeros([max_steps - len(env.code_index_list), agent.dqn.code_idx_size], dtype=int).tolist()
 
-
-
+            agent.dqn.experience_replay(agent.dqn.time_stamp)
             if step_in_episode == max_steps-1 or terminal:
                 agent.dqn.stock_experience(agent.dqn.time_stamp, state, action_idx, reward, state_prime, True)
                 if terminal:
                     agent.dqn.goal_idx.append(agent.dqn.time_stamp)
                 agent.dqn.time_stamp += 1
-                agent.dqn.experience_replay(agent.dqn.time_stamp)
             else:
                 agent.dqn.stock_experience(agent.dqn.time_stamp, state, action_idx, reward, state_prime, False)
 
@@ -103,6 +106,10 @@ def main():
         if reward >= 1:
             print "WIN"
             results.append(1.0)
+            with io.FileIO(wins_file, "a") as f:
+                f.write("\n=====================\n{}\n=====================\n\n".format(code))
+                f.flush()
+                os.fsync(f)
         else:
             results.append(0.0)
         total_iters = 100 if iter >= 100 else iter + 1

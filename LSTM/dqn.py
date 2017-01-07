@@ -1,4 +1,4 @@
-# implemented according to https://github.com/ugo-nama-kun/DQN-chainer/blob/master/DQN-chainer-gym/dqn_agent.py
+# implementation is based on https://github.com/ugo-nama-kun/DQN-chainer/blob/master/DQN-chainer-gym/dqn_agent.py
 import chainer
 import copy
 import gym
@@ -15,101 +15,157 @@ from chainer import Chain
 import chainer.functions as F
 import chainer.links as L
 
+from copy import deepcopy
 import matplotlib.pyplot as plt
 
 #random.seed(42) # for reproducibility
     
 
-class simple_LSTM(Chain):
+class SimpleLSTM(Chain):
 
     def __init__(self, n_history, n_act):
         embedding_size = n_act + 1
-        super(simple_LSTM, self).__init__(
+        super(SimpleLSTM, self).__init__(
             embed=L.EmbedID(n_act + 1, embedding_size),
-            lstm1=L.LSTM(in_size=embedding_size, out_size=embedding_size)
+            lstm=L.LSTM(in_size=embedding_size, out_size=embedding_size)
         )
 
     def __call__(self, action):
         x = self.embed(Variable(np.asarray([np.int32(action + 1)])))
-        y = self.lstm1(x)
+        y = self.lstm(x)
         return y
 
     def reset_state(self):
-        self.lstm1.reset_state()
-
-def compute_loss(model, x_list, batch_size):
-    loss = 0
+        self.lstm.reset_state()
 
 
-    for j in range(batch_size):
+# Let it be here temporarily
+#######################################################################################
+# class MeanPoolingFunction(Function):
 
-        i = random.randint(0, len(x_list)-1)
-        #print i#, ":" , cur_word, " " , next_word
-        for cur_word, next_word in zip(x_list[i], x_list[i][1:]):
-            loss += model(cur_word, np.asarray([np.int32(next_word+1)]))
+#     def forward(self, inputs):
+#         x, len = inputs
+#         print "in forward, h_sum: {}, len: {}".format(x, len)
+#         return np.divide(x, len, dtype=np.float32),
 
-    return loss
+#     def backward(self, inputs):
+#         print "Backward in MeanPoolingFunction"
+#         raw_input()
+
+    # def backward(self, inputs, grad_outputs):
+    #     x, len = inputs
+    #     print x
+    #     print len
+    #     return Variable(np.divide(x, len, dtype=np.float32)).backward(),
 
 
-class ActionValue_pretrained(Chain):
+# def mean_pool(x, len):
+#     res = x / len
+#     return res
+#     # return MeanPoolingFunction()(x, len)
 
-    # n_act + 1 to incorporate initial state -1 without actions
-    def __init__(self, n_history, n_act, pretrained_model):
-        embedding_size = n_act + 1
-        super(ActionValue_pretrained, self).__init__(
-            embed = L.EmbedID(n_act + 1, embedding_size),
-            lstm1 = pretrained_model.copy(), # Copy the pretrained model
-            q_value=L.Linear(embedding_size, n_act)
-        )
 
-    def q_function(self, action):
-        #x = self.embed(Variable(np.asarray([np.int32(action + 1)])))  #Already done in LSTM function
-        x = action
-        h_lstm1 = self.lstm1(x)
-        res  = self.q_value(h_lstm1)
-        return res
+# class MeanPooling(Link):
 
-    def reset_state(self):
-        self.lstm1.reset_state()
+#     def __init__(self):
+#         super(MeanPooling, self).__init__()
+
+#     def __call__(self, x, len):
+#         # print "inside call, h_sum: {}, len: {}".format(x, len)
+#         return mean_pool(x, len)
+#######################################################################################
 
 
 class ActionValue(Chain):
 
     # n_act + 1 to incorporate initial state -1 without actions
-    def __init__(self, n_history, n_act):
+    def __init__(self, n_history, n_act, pretrained_model):
         embedding_size = n_act + 1
         super(ActionValue, self).__init__(
             embed=L.EmbedID(n_act + 1, embedding_size),
-            lstm1=L.LSTM(in_size=embedding_size, out_size=30),
-            q_value=L.Linear(30, n_act)
+            lstm=L.LSTM(in_size=embedding_size, out_size=30),
+            fc=L.Linear(in_size=30, out_size=10),
+            q_value=L.Linear(10, n_act)
+
+            # #######################################################################################
+            # lstm = pretrained_model.copy(), # Copy the pretrained model
+            # q_value=L.Linear(embedding_size, n_act)
+            # #######################################################################################
         )
 
     def q_function(self, action):
+        # In parallel universe...
+        # #######################################################################################
+        # # Embedding is already done in LSTM function
+        # x = action
+        # #######################################################################################
+
         x = self.embed(Variable(np.asarray([np.int32(action + 1)])))
-        h_lstm1 = self.lstm1(x)
-        res  = self.q_value(h_lstm1)
-        return res 
+
+        lstm_res = self.lstm(x)
+        fc_res = F.relu(self.fc(lstm_res))
+        res = self.q_value(fc_res)
+        return res
 
     def reset_state(self):
-        self.lstm1.reset_state()
+        self.lstm.reset_state()
 
+    def set_state(self, actions):
+        self.reset_state()
+        for action in actions:
+            self.q_function(action)
+
+
+# Let it be here temporarily
+#######################################################################################
 # class ActionValue(Chain):
-#     def __init__(self, n_history, n_act):
+
+#     # n_act + 1 to incorporate initial state -1 without actions
+#     def __init__(self, n_history, n_act, pretrained_model):
 #         embedding_size = n_act + 1
 #         super(ActionValue, self).__init__(
-#             embed=L.EmbedID(n_act + 1, embedding_size),
-#             lstm=L.LSTM(in_size=embedding_size, out_size=30),
-#             q_value=L.Linear(30, n_act)
+#             # embed=L.EmbedID(n_act + 1, embedding_size),
+#             lstm1=pretrained_model.copy(), # Copy the pretrained model
+#             # pooling=MeanPooling(),
+#             # lstm2=L.LSTM(in_size=30, out_size=30),
+#             fc=L.Linear(in_size=30, out_size=10),
+#             q_value=L.Linear(10, n_act)
 #         )
+#         self.h_sum = None
+#         self.seq_len = np.asarray([0])
 
 #     def q_function(self, action):
-#         x = self.embed(Variable(np.asarray([np.int32(action + 1)])))
-#         h_lstm = self.lstm(x)
-#         res  = self.q_value(h_lstm)
-#         return res 
+#         # Embedding is already done in LSTM function
+#         x = action
+#         lstm1_res = self.lstm1(x)
+
+#         if self.h_sum is None:
+#             self.h_sum = lstm1_res
+#         else:
+#             self.h_sum += lstm1_res
+#         self.seq_len[0] += 1
+
+#         # print "before pooling, h_sum: {}, len: {}".format(self.h_sum, self.seq_len)
+
+#         h = lstm1_res#self.pooling(self.h_sum, self.seq_len)
+#         # lstm2_res = self.lstm2(h)
+#         # h = self.h_sum / self.seq_len[0]
+
+#         fc_res = F.relu(self.fc(lstm1_res))
+#         res  = self.q_value(fc_res)
+#         return res
 
 #     def reset_state(self):
-#         self.lstm.reset_state()
+#         self.lstm1.reset_state()
+#         # self.lstm2.reset_state()
+#         self.h_sum = None
+#         self.seq_len = np.asarray([0])
+
+#     def set_state(self, actions):
+#         self.reset_state()
+#         for action in actions:
+#             self.q_function(action)
+#######################################################################################
 
 
 class DQN:
@@ -124,6 +180,7 @@ class DQN:
     goal_history_size = 200
     goal_idx = []
 
+
     class Episode:
 
         def __init__(self, actions=[], rewards=[], ended=False):
@@ -136,60 +193,72 @@ class DQN:
             print self.rewards
             print "Ended: {}".format(self.ended)
 
+
     class Pretrained:
-        pass
+
+        def __init__(self, n_history, n_act):
+            self.lstm = SimpleLSTM(n_history, n_act)
+            self.model = L.Classifier(self.lstm)
+            self.optimizer = optimizers.AdaGrad(lr=0.001)
+            self.optimizer.setup(self.model)
+            self.batchsize = 10
+            self.epoch = 10#200
 
     def __init__(self, actions, max_steps, n_history=1):
-
         print "Prepare Data for pretraining..."
         #websc.code_extraction("onehot_rep/webpage_list.txt", "onehot_rep/output.pkl")
         _ , data_index , codebook = websc.convert2onehot("onehot_rep/output.pkl")
-        self.actions = codebook       
+        self.actions = codebook  
+        self.n_act = len(self.actions)     
         print "Data Size : ", len(data_index)
+        print "codebook: {}".format(codebook)
 
+        print "LSTM pretraining..."
+        self.pretrained = self.Pretrained(n_history, self.n_act)
+        for epc in range(self.pretrained.epoch):
+            self.pretrained.lstm.reset_state()
+            self.pretrained.model.zerograds()
+            loss = self.compute_loss(self.pretrained.model, data_index, self.pretrained.batchsize)
+            loss.backward()
+            self.pretrained.optimizer.update()
+            
+            if epc % 10 == 0:
+                print "Epoch : {}".format(epc)
+
+        print "pretraining complete!!"
+        raw_input()
 
         print "Initializing DQN..."
+        # While pretraining is useless
+        #######################################################################################
+        self.actions = actions
+        #######################################################################################
         self.n_act = len(self.actions)
         self.code_idx_size = self.n_act
         self.n_history = n_history
         self.max_steps = max_steps
         self.time_stamp = 0
-        print "vector length : ", self.n_act
 
-        print "LSTM pretraining..."
-        self.Pretrained.lstm = simple_LSTM(self.n_history, self.n_act)
-        self.Pretrained.model = L.Classifier(self.Pretrained.lstm)
-        self.Pretrained.optimizer = optimizers.AdaGrad(lr=0.001)
-        self.Pretrained.optimizer.setup(self.Pretrained.model)
-        self.Pretrained.batchsize = 10
-        self.Pretrained.epoch = 200
-
-        for epc in range(self.Pretrained.epoch):
-            self.Pretrained.lstm.reset_state()
-            self.Pretrained.model.zerograds()
-            loss = compute_loss(self.Pretrained.model, data_index, self.Pretrained.batchsize)
-            loss.backward()
-            self.Pretrained.optimizer.update()
-            
-            if(epc%10==0):
-                print "Epoch : " ,epc
-
-
-        print "pretraining complete!!"
-        raw_input()
-
-
-        #self.model = ActionValue(self.n_history, self.n_act)
-        self.model = ActionValue_pretrained(self.n_history, self.n_act, self.Pretrained.model.predictor)
+        self.model = ActionValue(self.n_history, self.n_act, self.pretrained.model.predictor)
         self.model_target = copy.deepcopy(self.model)
 
         self.optimizer = optimizers.AdaGrad(lr=0.001)
         self.optimizer.setup(self.model)
 
-        hs = self.n_history
         self.history = []
         self.goal_history = []
         self.xp = self.model.xp
+        self.time = 0
+
+    def compute_loss(self, model, x_list, batch_size):
+        loss = 0
+        for j in range(batch_size):
+            i = random.randint(0, len(x_list)-1)
+            #print i#, ":" , cur_word, " " , next_word
+            for cur_word, next_word in zip(x_list[i], x_list[i][1:]):
+                loss += model(cur_word, np.asarray([np.int32(next_word+1)]))
+
+        return loss
 
     def action_sample_e_greedy(self, state, epsilon):
         action = [0] * self.n_act
@@ -203,9 +272,11 @@ class DQN:
             else:
                 break
 
-        q = self.model.q_function(self.get_action_id(action))
-        print "q for action {} is {}".format(self.get_action_id(action), q.data[0])
-        q = q.data[0]
+        q = [0] * self.n_act
+        if self.initial_exploration < self.time:
+            q = self.model.q_function(self.get_action_id(action))
+            print "q for action {} is {}".format(self.get_action_id(action), q.data[0])
+            q = q.data[0]
 
         if np.random.rand() < epsilon:
             print "RANDOM"
@@ -219,6 +290,7 @@ class DQN:
 
     # TODO: Use data size
     def stock_experience(self, time, state, action_idx, reward, state_prime, episode_end_flag):
+        self.time = time
         if self.history and not self.history[-1].ended:
             self.history[-1].actions.append(action_idx)
             self.history[-1].rewards.append(reward)
@@ -247,44 +319,30 @@ class DQN:
 
             replay_index = random.sample(range(len(self.history)), replay_all)
             goal_replay_index = random.sample(range(len(self.goal_history)), replay_goal)
-            r_episodes = [self.history[id] for id in replay_index] + [self.goal_history[id] for id in goal_replay_index]
+            r_episodes = [deepcopy(self.history[id]) for id in replay_index] + \
+                [deepcopy(self.goal_history[id]) for id in goal_replay_index]
+            
+            # Can be harmful
+            # randomly decide length of episodes
             for episode in r_episodes:
-                self.optimizer.zero_grads()
-                self.get_loss(episode).backward()
-                self.optimizer.update()
-                self.target_model_update(time, soft_update=False)
+                length = random.randint(1, len(episode.actions))
+                episode.actions = episode.actions[:length]
+                episode.rewards = episode.rewards[:length]
 
-    # def experience_replay(self, time):
-    #     if self.initial_exploration < time:
-    #         replay_goal = min(len(self.goal_idx), self.good_replay_size)
-    #         replay_all = min(replay_good, self.replay_size - self.good_replay_size)
-    #         print "REPLAYING {} good and {} all".format(replay_good, replay_all)
+            # update target model
+            self.optimizer.zero_grads()
+            loss = 0
+            for episode in r_episodes:
+                loss += self.get_loss(episode)
+            loss.backward()
+            self.optimizer.update()
+            self.target_model_update(time, soft_update=False)
 
-    #         replay_index = random.sample(range(len(self.history)), replay_all) + \
-    #             random.sample(self.goal_idx, replay_good)
-
-    #         r_episodes = [self.history[id] for id in replay_index]
-    #         for episode in r_episodes:
-    #             self.optimizer.zero_grads()
-    #             self.get_loss(episode).backward()
-    #             self.optimizer.update()
-    #             self.target_model_update(time, soft_update=False)
-
-    # def experience_replay(self, time):
-    #     if self.initial_exploration < time:
-    #         replay_all = max(self.replay_size - len(self.goal_idx), self.replay_size - self.good_replay_size)
-    #         replay_good = min(len(self.goal_idx), self.good_replay_size)
-
-    #         replay_index = random.sample(range(len(self.history)), replay_all) + \
-    #             random.sample(self.goal_idx, replay_good)
-
-    #         r_episodes = [self.history[id] for id in replay_index]
-    #         for episode in r_episodes:
-    #             self.optimizer.zero_grads()
-    #             self.get_loss(episode).backward()
-    #             self.optimizer.update()
-    #             self.target_model_update(time, soft_update=False)
-
+            # set model to original state
+            if self.history[-1].ended:
+                self.model.set_state([-1])
+            else:
+                self.model.set_state([-1] + self.history[-1].actions)
 
     def get_action_id(self, action):
         for i in range(len(action)):
@@ -375,16 +433,6 @@ class DQNAgent:
         else:  # Evaluation
             self.epsilon = 0.0
         print "EPSILON: {}".format(self.epsilon)
-        # # Exploration decays along the time sequence
-        # self.policy_frozen = policy_frozen
-        # if self.policy_frozen is False:  # Learning ON/OFF
-        #     print "initial exploration: {}, time_stamp: {}".format(self.dqn.initial_exploration, self.dqn.time_stamp)
-        #     if self.dqn.initial_exploration < self.dqn.time_stamp:
-        #         self.epsilon = 0.5
-        # else:  # Evaluation
-        #     # Freeze it harder :D
-        #     self.epsilon = 0.0
-        # print "EPSILON: {}".format(self.epsilon)
 
         action_idx, Q_now = self.dqn.action_sample_e_greedy(state, self.epsilon)
         self.last_action = self.dqn.actions[action_idx]
