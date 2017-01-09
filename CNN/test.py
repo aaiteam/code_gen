@@ -6,11 +6,24 @@ from dqn import DQNAgent
 import random
 import sys
 
+def set_debugger_org():
+    if not sys.excepthook == sys.__excepthook__:
+        from IPython.core import ultratb
+        sys.excepthook = ultratb.FormattedTB(call_pdb=True)
+
+def set_debugger_org_frc():
+    from IPython.core import ultratb
+    sys.excepthook = ultratb.FormattedTB(call_pdb=True)
+
+def set_trace():
+    from IPython.core.debugger import Pdb
+    Pdb(color_scheme='Linux').set_trace(sys._getframe().f_back)
+    
 
 def main():
     print "Creating DQN agent..."
     # env = gym.make("codegen-v0")
-
+    set_debugger_org_frc()
 
     iters = 5000
     n_goal = 0
