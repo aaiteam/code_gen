@@ -12,24 +12,24 @@ def main():
     # env = gym.make("codegen-v0")
 
 
-    iters = 5000
+    iters = 6300
     n_goal = 0
     n_goal_all = 0
     time_stamp = 0
 
     max_steps = 5
     agent = DQNAgent(max_steps)
-    agent.dqn.initial_exploration = iters*0.4
+    agent.dqn.initial_exploration = 6000*max_steps
 
     for iter in range(iters):
-
+        print "\n********Iteration # " , iter, "***********\n"
         # 1 iteration
         env = gym.make("codegen-v0")
         num = random.randrange(1,100)
-        print "Goal Number : ", num 
+        print "Goal Number : ", num+1 
         env.my_input = num
     	#env.goal = "['" + env.my_input + "']"
-        env.goal = str(num)
+        env.goal = str(num+1)
 
         code = env._reset()
         step_in_episode = 0
@@ -107,6 +107,8 @@ def main():
                 if iters-iter<=100:
                     n_goal +=1
 
+                break
+ 
             step_in_episode += 1
             agent.dqn.time_stamp += 1
 
