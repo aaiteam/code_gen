@@ -223,7 +223,7 @@ class DQNAgent:
 
 
     # Action is a string ~ codeword
-    ACTIONS = [" ", "print", "x", "x-1", "x+1"]
+    ACTIONS = [" ", "print", "x", "+", "1"]
 
     def __init__(self, max_stp, actions=ACTIONS):
         print "Initializing DQN agent..."
