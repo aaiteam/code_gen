@@ -12,6 +12,7 @@ import scipy.misc as spm
 
 from chainer import cuda, Function, Variable, optimizers, serializers
 from chainer import Chain
+from chainer import Link
 import chainer.functions as F
 import chainer.links as L
 
@@ -39,43 +40,6 @@ class SimpleLSTM(Chain):
         self.lstm.reset_state()
 
 
-# Let it be here temporarily
-#######################################################################################
-# class MeanPoolingFunction(Function):
-
-#     def forward(self, inputs):
-#         x, len = inputs
-#         print "in forward, h_sum: {}, len: {}".format(x, len)
-#         return np.divide(x, len, dtype=np.float32),
-
-#     def backward(self, inputs):
-#         print "Backward in MeanPoolingFunction"
-#         raw_input()
-
-    # def backward(self, inputs, grad_outputs):
-    #     x, len = inputs
-    #     print x
-    #     print len
-    #     return Variable(np.divide(x, len, dtype=np.float32)).backward(),
-
-
-# def mean_pool(x, len):
-#     res = x / len
-#     return res
-#     # return MeanPoolingFunction()(x, len)
-
-
-# class MeanPooling(Link):
-
-#     def __init__(self):
-#         super(MeanPooling, self).__init__()
-
-#     def __call__(self, x, len):
-#         # print "inside call, h_sum: {}, len: {}".format(x, len)
-#         return mean_pool(x, len)
-#######################################################################################
-
-
 class ActionValue(Chain):
 
     # n_act + 1 to incorporate initial state -1 without actions
@@ -83,89 +47,31 @@ class ActionValue(Chain):
         embedding_size = n_act + 1
         super(ActionValue, self).__init__(
             embed=L.EmbedID(n_act + 1, embedding_size),
-            lstm=L.LSTM(in_size=embedding_size, out_size=30),
-            fc=L.Linear(in_size=30, out_size=10),
+            lstm=L.LSTM(in_size=embedding_size, out_size=10),
+            # fc=L.Linear(in_size=10, out_size=10),
             q_value=L.Linear(10, n_act)
-
-            # #######################################################################################
-            # lstm = pretrained_model.copy(), # Copy the pretrained model
-            # q_value=L.Linear(embedding_size, n_act)
-            # #######################################################################################
         )
+        self.h_sum = None
+        self.seq_len = np.asarray([0])
 
     def q_function(self, action):
-        # In parallel universe...
-        # #######################################################################################
-        # # Embedding is already done in LSTM function
-        # x = action
-        # #######################################################################################
-
         x = self.embed(Variable(np.asarray([np.int32(action + 1)])))
-
         lstm_res = self.lstm(x)
-        fc_res = F.relu(self.fc(lstm_res))
-        res = self.q_value(fc_res)
+        res  = self.q_value(lstm_res)
+        # fc_res = F.relu(self.fc(lstm2_res))
         return res
 
     def reset_state(self):
         self.lstm.reset_state()
+        # self.lstm1.reset_state()
+        # self.lstm2.reset_state()
+        self.h_sum = None
+        self.seq_len = np.asarray([0])
 
     def set_state(self, actions):
         self.reset_state()
         for action in actions:
             self.q_function(action)
-
-
-# Let it be here temporarily
-#######################################################################################
-# class ActionValue(Chain):
-
-#     # n_act + 1 to incorporate initial state -1 without actions
-#     def __init__(self, n_history, n_act, pretrained_model):
-#         embedding_size = n_act + 1
-#         super(ActionValue, self).__init__(
-#             # embed=L.EmbedID(n_act + 1, embedding_size),
-#             lstm1=pretrained_model.copy(), # Copy the pretrained model
-#             # pooling=MeanPooling(),
-#             # lstm2=L.LSTM(in_size=30, out_size=30),
-#             fc=L.Linear(in_size=30, out_size=10),
-#             q_value=L.Linear(10, n_act)
-#         )
-#         self.h_sum = None
-#         self.seq_len = np.asarray([0])
-
-#     def q_function(self, action):
-#         # Embedding is already done in LSTM function
-#         x = action
-#         lstm1_res = self.lstm1(x)
-
-#         if self.h_sum is None:
-#             self.h_sum = lstm1_res
-#         else:
-#             self.h_sum += lstm1_res
-#         self.seq_len[0] += 1
-
-#         # print "before pooling, h_sum: {}, len: {}".format(self.h_sum, self.seq_len)
-
-#         h = lstm1_res#self.pooling(self.h_sum, self.seq_len)
-#         # lstm2_res = self.lstm2(h)
-#         # h = self.h_sum / self.seq_len[0]
-
-#         fc_res = F.relu(self.fc(lstm1_res))
-#         res  = self.q_value(fc_res)
-#         return res
-
-#     def reset_state(self):
-#         self.lstm1.reset_state()
-#         # self.lstm2.reset_state()
-#         self.h_sum = None
-#         self.seq_len = np.asarray([0])
-
-#     def set_state(self, actions):
-#         self.reset_state()
-#         for action in actions:
-#             self.q_function(action)
-#######################################################################################
 
 
 class DQN:
@@ -322,12 +228,12 @@ class DQN:
             r_episodes = [deepcopy(self.history[id]) for id in replay_index] + \
                 [deepcopy(self.goal_history[id]) for id in goal_replay_index]
             
-            # Can be harmful
-            # randomly decide length of episodes
-            for episode in r_episodes:
-                length = random.randint(1, len(episode.actions))
-                episode.actions = episode.actions[:length]
-                episode.rewards = episode.rewards[:length]
+            # # Can be harmful
+            # # randomly decide length of episodes
+            # for episode in r_episodes:
+            #     length = random.randint(1, len(episode.actions))
+            #     episode.actions = episode.actions[:length]
+            #     episode.rewards = episode.rewards[:length]
 
             # update target model
             self.optimizer.zero_grads()
@@ -363,23 +269,31 @@ class DQN:
             q_prime = self.model_target.q_function(next_action) # Q(s',*)
 
             max_q_prime = q_prime.data.max(axis=1)
-            reward = episode.rewards[i]
+            # reward = episode.rewards[i]
 
             tmp = list(map(np.max, q_prime.data))  # max_a Q(s',a)
             max_q_prime = np.asanyarray(tmp, dtype=np.float32)
             target = np.asanyarray(copy.deepcopy(q.data), dtype=np.float32)
 
             reward = np.sign(episode.rewards[i])
+            # reward = np.sign(episode.rewards[len(episode.actions)-1])
 
             tmp_ = reward + self.gamma * max_q_prime[0]
             action = next_action
             target[0, action] = tmp_
+            # print "target: {}".format(target)
+            # raw_input()
             td = Variable(target) - q
             td_tmp = td.data + 1000.0 * (abs(td.data) <= 1)  # Avoid zero division
             td_clip = td * (abs(td.data) <= 1) + td/abs(td_tmp) * (abs(td.data) > 1)
 
             zero_val = Variable(np.zeros((1, self.n_act), dtype=np.float32))
+            # loss += F.mean_squared_error(td_clip, zero_val) * (i+1)
             loss += F.mean_squared_error(td_clip, zero_val)
+            # loss += F.mean_squared_error(td_clip, zero_val)
+
+        # print "last reward: {}, loss: {}".format(reward, loss.data)
+        # raw_input()
 
         return loss
 
@@ -427,7 +341,7 @@ class DQNAgent:
             if len(self.dqn.goal_idx) < 5: #20:
                 self.epsilon = 1.0
             elif len(self.dqn.goal_idx) < 10: #40:
-                self.epsilon = 0.5
+                self.epsilon = 0.2
             else:
                 self.epsilon = 0.1
         else:  # Evaluation
