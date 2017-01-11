@@ -107,7 +107,7 @@ class DQN:
             self.optimizer = optimizers.AdaGrad(lr=0.001)
             self.optimizer.setup(self.model)
             self.batchsize = 30
-            self.epoch = 500
+            self.epoch = 100
 
     def __init__(self, actions, max_steps, n_history=1):
         print "Prepare Data for pretraining..."
@@ -118,7 +118,7 @@ class DQN:
         #raw_input()
 
         # 2 : Synthetic Data
-        data_index, _  = data_gen.Generator().generate_codes(actions)
+        data_index  = data_gen.Generator(actions).generate_codes(max_steps, False)
         print data_index[0]
         codebook = actions
 
@@ -167,8 +167,8 @@ class DQN:
         self.max_steps = max_steps
         self.time_stamp = 0
 
-        #self.model = ActionValue(self.n_history, self.n_act)
-        self.model = self.pretrained.model
+        self.model = ActionValue(self.n_history, self.n_act)
+        #self.model = self.pretrained.model ##Uncomment this if pretraied work!!
         self.model_target = copy.deepcopy(self.model)
 
         self.optimizer = optimizers.AdaGrad(lr=0.001)
