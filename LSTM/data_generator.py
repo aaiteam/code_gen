@@ -25,6 +25,9 @@ x = int(sys.argv[1])
 # desired code starts here
 """
 
+    def __init__(self, word_dict=["print", " ", "x", "+", "1"]):
+        self.word_dict = word_dict
+
     def raises_exception(self, code):
         with open(self.FILENAME, "w") as f:
             f.write(self.INITIAL_CODE)
@@ -40,47 +43,36 @@ x = int(sys.argv[1])
    
         return False
 
-    def generate_codes(self, word_dict):
-        good_codes = []
-        good_codes_idx = []
-        code = []
-        code_idx = []
-        for i in range(len(word_dict)):
-            code.append(word_dict[i])
-            code_idx.append(i)
-            for j in range(len(word_dict)):
-                code.append(word_dict[j])
-                code_idx.append(j)
-                for k in range(len(word_dict)):
-                    code.append(word_dict[k])
-                    code_idx.append(k)
-                    for l in range(len(word_dict)):
-                        code.append(word_dict[l])
-                        code_idx.append(l)
-                        for m in range(len(word_dict)):
-                            code.append(word_dict[m])
-                            code_idx.append(m)
-                            code_str = ''.join(code)
-                            if not self.raises_exception(code_str):
-                                good_codes.append(code_str)
-                                good_codes_idx.append(deepcopy(code_idx))
-                            del code[-1]
-                            del code_idx[-1]
-                        del code[-1]
-                        del code_idx[-1]
-                    del code[-1]
-                    del code_idx[-1]
+    def check_and_add(self, code, good_codes):
+        if not self.raises_exception(''.join([self.word_dict[i] for i in code])):
+            good_codes.append(deepcopy(code))
+
+
+    def append_word(self, code, idx, max_len, good_codes, need_shorter):
+        if idx > 0 and need_shorter or idx == max_len:
+            self.check_and_add(code, good_codes)
+
+        if idx < max_len:
+            idx += 1
+            for i in range(len(self.word_dict)):
+                code.append(i)
+                self.append_word(code, idx, max_len, good_codes, need_shorter)
                 del code[-1]
-                del code_idx[-1]
-            del code[-1]
-            del code_idx[-1]
-        return good_codes_idx, good_codes
+
+    def generate_codes(self, max_len=5, need_shorter=True):
+        code = []
+        good_codes = []
+        self.append_word(code, 0, max_len, good_codes, need_shorter)
+        return good_codes
 
 
 def main():
     print "Generating examples..."
-    good_codes_idx, good_codes = Generator().generate_codes(["print", " ", "x", "+", "1"])    
-    print "Good codes indexies: {}\n, codes: {}".format(good_codes_idx, good_codes)
+    good_codes = Generator(["print", " ", "x", "+", "1"]).generate_codes(max_len=5, need_shorter=True) 
+    print "good codes: {}".format(good_codes) 
+    for code in good_codes:
+        code_str = ''.join([["print", " ", "x", "+", "1"][i] for i in code])
+        print code_str
 
 
 if __name__ == "__main__":
