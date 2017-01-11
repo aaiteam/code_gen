@@ -5,6 +5,7 @@ import gym
 import random
 import gym_codegen
 import onehot_rep.webpage_scrape as websc
+import data_generator as data_gen
 
 import pickle
 import numpy as np
@@ -43,7 +44,7 @@ class SimpleLSTM(Chain):
 class ActionValue(Chain):
 
     # n_act + 1 to incorporate initial state -1 without actions
-    def __init__(self, n_history, n_act, pretrained_model):
+    def __init__(self, n_history, n_act):
         embedding_size = n_act + 1
         super(ActionValue, self).__init__(
             embed=L.EmbedID(n_act + 1, embedding_size),
@@ -72,7 +73,6 @@ class ActionValue(Chain):
         self.reset_state()
         for action in actions:
             self.q_function(action)
-
 
 class DQN:
     
@@ -103,18 +103,26 @@ class DQN:
     class Pretrained:
 
         def __init__(self, n_history, n_act):
-            self.lstm = SimpleLSTM(n_history, n_act)
-            self.model = L.Classifier(self.lstm)
+            self.model = ActionValue(n_history, n_act)
             self.optimizer = optimizers.AdaGrad(lr=0.001)
             self.optimizer.setup(self.model)
-            self.batchsize = 10
-            self.epoch = 10#200
+            self.batchsize = 30
+            self.epoch = 500
 
     def __init__(self, actions, max_steps, n_history=1):
         print "Prepare Data for pretraining..."
+        # 1 : Data from websites
         #websc.code_extraction("onehot_rep/webpage_list.txt", "onehot_rep/output.pkl")
-        _ , data_index , codebook = websc.convert2onehot("onehot_rep/output.pkl")
-        self.actions = codebook  
+        #_ , data_index , codebook = websc.convert2onehot("onehot_rep/output.pkl")
+        #print data_index[0]
+        #raw_input()
+
+        # 2 : Synthetic Data
+        data_index, _  = data_gen.Generator().generate_codes(actions)
+        print data_index[0]
+        codebook = actions
+
+        self.actions = codebook
         self.n_act = len(self.actions)     
         print "Data Size : ", len(data_index)
         print "codebook: {}".format(codebook)
@@ -122,14 +130,28 @@ class DQN:
         print "LSTM pretraining..."
         self.pretrained = self.Pretrained(n_history, self.n_act)
         for epc in range(self.pretrained.epoch):
-            self.pretrained.lstm.reset_state()
-            self.pretrained.model.zerograds()
+            self.pretrained.model.reset_state()
+            self.pretrained.optimizer.zero_grads()
             loss = self.compute_loss(self.pretrained.model, data_index, self.pretrained.batchsize)
             loss.backward()
             self.pretrained.optimizer.update()
             
             if epc % 10 == 0:
                 print "Epoch : {}".format(epc)
+
+        self.pretrained.model.reset_state()        
+        test_pred = np.ones(5, dtype=np.int32)*100
+        test_pred[0] = 0
+        code = codebook[test_pred[0]]
+        for i in range(4):
+            pd = self.pretrained.model.q_function(test_pred[i])
+            test_pred[i+1] = np.argmax(pd.data)
+            code += codebook[test_pred[i+1]]
+
+        print  "****Examination****"
+        print "output code when input is : ", codebook[test_pred[0]] 
+        print code
+        print  "*******************"
 
         print "pretraining complete!!"
         raw_input()
@@ -145,7 +167,8 @@ class DQN:
         self.max_steps = max_steps
         self.time_stamp = 0
 
-        self.model = ActionValue(self.n_history, self.n_act, self.pretrained.model.predictor)
+        #self.model = ActionValue(self.n_history, self.n_act)
+        self.model = self.pretrained.model
         self.model_target = copy.deepcopy(self.model)
 
         self.optimizer = optimizers.AdaGrad(lr=0.001)
@@ -162,7 +185,14 @@ class DQN:
             i = random.randint(0, len(x_list)-1)
             #print i#, ":" , cur_word, " " , next_word
             for cur_word, next_word in zip(x_list[i], x_list[i][1:]):
-                loss += model(cur_word, np.asarray([np.int32(next_word+1)]))
+                pred = model.q_function(cur_word)
+                #print pred.data
+                gt = np.zeros(self.n_act, dtype=np.float32)
+                gt[next_word] = 1.
+                grdtru = Variable(np.asarray([gt]))
+                #print gt.data
+                err = F.mean_squared_error(pred, grdtru)
+                loss += err
 
         return loss
 
