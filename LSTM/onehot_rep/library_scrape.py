@@ -159,12 +159,12 @@ if __name__ == '__main__':
     _, data_index, codebook = convert2onehot(output_filename)
 
     res = {
-        'pretrain_library_name_list' : pretrain_library_name_list,
+        'pretrain_library_name_list': pretrain_library_name_list,
         'data_index': data_index,
         'codebook': codebook
     }
-    with open("python_corpus.pkl" ,' wb') as f:
-        pickle.dump(res, f )
+    with open("python_corpus.pkl", 'wb') as f:
+        pickle.dump(res, f)
 
     print 'data_index\n', data_index
     print 'codebook\n', codebook
