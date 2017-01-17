@@ -7,15 +7,14 @@ import re
 import pickle
 from progressbar import ProgressBar
 
-
-# all kinds of codeword to extract 
+# all kinds of codeword to extract
 builtin_func = dir(__builtins__)  # builtin functions
 keyword_list = keyword.kwlist  # builtin keywords
 arith_operator = ['+', '-', '*', '/', '%', '//', '**']
 comp_operator = ['>', '<', '!=', '==', '>=', '<=']
 logic_operator = ['or', 'and', 'not']
 assign_operator = ['=', '+=', '-=', '*=', '/=', '%=', '//=', '**=']
-bracket = ['{', '}', '[', ']', '(', ')'] 
+bracket = ['{', '}', '[', ']', '(', ')']
 special_symbol = [':']
 useful_delimiters = [' ', '\n']
 digit_expression = ['y']
@@ -23,13 +22,13 @@ digit_expression = ['y']
 # symbols to be omitted 
 omit_list = ['', ',', '"', ">>>", "...", "#", '.']
 
-filt = list(itertools.chain(builtin_func, keyword_list, arith_operator, 
-            comp_operator, logic_operator, assign_operator, bracket, special_symbol, useful_delimiters, digit_expression))
+filt = list(itertools.chain(builtin_func, keyword_list, arith_operator,
+                            comp_operator, logic_operator, assign_operator, bracket, special_symbol, useful_delimiters,
+                            digit_expression))
 
 # delimiters to split string into list 
-delimiters = [',',' ', '(', ')', '[', ']', '{', '}', ':', "...", '\n', '"', '.', '>>>']
-regexPattern = "(" + '|'.join(map(re.escape, delimiters)) + ")"  
-
+delimiters = [',', ' ', '(', ')', '[', ']', '{', '}', ':', "...", '\n', '"', '.', '>>>']
+regexPattern = "(" + '|'.join(map(re.escape, delimiters)) + ")"
 
 
 def find_all_files(directory):
@@ -39,9 +38,8 @@ def find_all_files(directory):
             yield os.path.join(root, file)
 
 
-
 def get_python_filenames_from_libraries(library_name):
-    exec("import " + library_name)
+    exec ("import " + library_name)
     library_path, _ = os.path.split(eval(library_name).__file__)
     py_fn_list = []
     for fn in find_all_files(library_path):
@@ -52,8 +50,7 @@ def get_python_filenames_from_libraries(library_name):
 
 
 def keywords_extraction_from_file(input_fn):
-    
-    """ read webpages from input_file, extract python codes from corresponding webpage and saved 
+    """ read webpages from input_file, extract python codes from corresponding webpage and saved
     the refined codeword into output_file
     
     Args:
@@ -65,27 +62,27 @@ def keywords_extraction_from_file(input_fn):
     code_refine_list = []
     for code_line in f:
         # extract only source code and omit substrings after # 
-        code_line = code_line.split("#",1)[0]
+        code_line = code_line.split("#", 1)[0]
         if code_line == '\n':
             continue
         # replace substring within "" with x
         code_line = re.sub(r'\"(.+?)\"', "x", code_line)
-        code_list = re.split(regexPattern, code_line) 
+        code_list = re.split(regexPattern, code_line)
 
-        for symbol in code_list:     
-            if symbol in filt: 
+        for symbol in code_list:
+            if symbol in filt:
                 code_refine_list.append(symbol)
             elif symbol.isdigit():
                 code_refine_list.append(digit_expression[0])
             elif symbol not in omit_list:
                 code_refine_list.append('x')
     f.close()
-    
+
     return code_refine_list
 
+
 def code_extraction(library_name_list, output_file):
-    
-    """ read webpages from input_file, extract python codes from corresponding webpage and saved 
+    """ read webpages from input_file, extract python codes from corresponding webpage and saved
     the refined codeword into output_file
     
     Args:
@@ -93,16 +90,16 @@ def code_extraction(library_name_list, output_file):
        output_file: to which csv file to write codeword into 
     """
     output_list = []
-    for library_name  in library_name_list:
-        py_fn_list = get_python_filenames_from_libraries(library_name )
+    for library_name in library_name_list:
+        py_fn_list = get_python_filenames_from_libraries(library_name)
         n_file = len(py_fn_list)
         p = ProgressBar(max_value=n_file)
         for i, py_fn in enumerate(py_fn_list):
             output_list.append(keywords_extraction_from_file(py_fn))
-            p.update(i+1)
+            p.update(i + 1)
 
-        print ("{}: {} python files have been processed! ".format(library_name , n_file))
-        
+        print ("{}: {} python files have been processed! ".format(library_name, n_file))
+
     with open(output_filename, 'wb') as f:
         pickle.dump(output_list, f)
 
@@ -120,9 +117,9 @@ def convert2onehot(input_file):
     """
     import pandas as pd
     import numpy as np
-    
+
     # load .pkl file 
-    with open(input_file,"rb") as f:
+    with open(input_file, "rb") as f:
         data = pickle.load(f)
     # flatten multi-level list into single-level list    
     data_list = [element for lst in data for element in lst]
@@ -132,21 +129,22 @@ def convert2onehot(input_file):
     codebook = list(onehot.columns.values)
     onehot = onehot.as_matrix()
     # save index of each codeword in index(list)
-    index = [int(np.nonzero(row)[0][0]) for row in onehot] 
+    index = [int(np.nonzero(row)[0][0]) for row in onehot]
     num_codeword = onehot.shape[1]
     data_onehot = []
     data_index = []
-    cnt = 0 
+    cnt = 0
     for lst in data:
-        lst_onehot = np.empty((0,num_codeword), dtype=int)
+        lst_onehot = np.empty((0, num_codeword), dtype=int)
         lst_index = []
         for element in lst:
-            lst_onehot = np.concatenate((lst_onehot, onehot[cnt,:][np.newaxis,:]), axis = 0)
+            lst_onehot = np.concatenate((lst_onehot, onehot[cnt, :][np.newaxis, :]), axis=0)
             lst_index.append(index[cnt])
             cnt += 1
-        data_onehot.append(lst_onehot) 
+        data_onehot.append(lst_onehot)
         data_index.append(lst_index)
     return data_onehot, data_index, codebook
+
 
 if __name__ == '__main__':
     ## before you kick this script, please exec this command
@@ -156,10 +154,9 @@ if __name__ == '__main__':
     pretrain_library_name_list = ['pandas', 'numpy', 'scipy', 'sklearn', 'chainer']
     output_filename = "lib_code_refined_list.pkl"
     ##############################
-    
+
     code_extraction(pretrain_library_name_list, output_filename)
     _, data_index, codebook = convert2onehot(output_filename)
     print 'data_index\n', data_index
     print 'codebook\n', codebook
     print 'max index', max([max(x) for x in data_index])
-
