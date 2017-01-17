@@ -103,8 +103,8 @@ def code_extraction(library_name_list, output_file):
 
         print ("{}: {} python files have been processed! ".format(library_name , n_file))
         
-    with open(output_filename,'wb') as f:
-        qpickle.dump(output_list,f)
+    with open(output_filename, 'wb') as f:
+        pickle.dump(output_list, f)
 
 
 def convert2onehot(input_file):
