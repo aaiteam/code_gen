@@ -104,10 +104,10 @@ class DQN:
 
         def __init__(self, n_history, n_act):
             self.model = ActionValue(n_history, n_act)
-            self.optimizer = optimizers.AdaGrad(lr=0.001)
+            self.optimizer = optimizers.AdaGrad(lr=0.008)
             self.optimizer.setup(self.model)
-            self.batchsize = 30
-            self.epoch = 100
+            self.batchsize = 10
+            self.epoch = 2000
 
     def __init__(self, actions, max_steps, n_history=1):
         print "Prepare Data for pretraining..."
@@ -119,8 +119,11 @@ class DQN:
 
         # 2 : Synthetic Data
         data_index  = data_gen.Generator(actions).generate_codes(max_steps, False)
-        print data_index[0]
         codebook = actions
+        for k in range(len(codebook)):
+            start_k = [x for x in data_index if x[0]==k]
+            print "number of Data start with '{}' : {}".format(codebook[k], len(start_k))
+        raw_input()
 
         self.actions = codebook
         self.n_act = len(self.actions)     
@@ -129,29 +132,43 @@ class DQN:
 
         print "LSTM pretraining..."
         self.pretrained = self.Pretrained(n_history, self.n_act)
+
+        loss_old = 1000
+        self.pretrained.optimizer.zero_grads()
         for epc in range(self.pretrained.epoch):
             self.pretrained.model.reset_state()
             self.pretrained.optimizer.zero_grads()
             loss = self.compute_loss(self.pretrained.model, data_index, self.pretrained.batchsize)
-            loss.backward()
-            self.pretrained.optimizer.update()
+            
+            if epc>=0 :  #or loss.data <= loss_old :
+                loss.backward()
+                self.pretrained.optimizer.update()
+                loss_old = loss.data
             
             if epc % 10 == 0:
-                print "Epoch : {}".format(epc)
+                print "Epoch : {} / loss : {}".format(epc, loss_old)
 
-        self.pretrained.model.reset_state()        
-        test_pred = np.ones(5, dtype=np.int32)*100
-        test_pred[0] = 0
-        code = codebook[test_pred[0]]
-        for i in range(4):
-            pd = self.pretrained.model.q_function(test_pred[i])
-            test_pred[i+1] = np.argmax(pd.data)
-            code += codebook[test_pred[i+1]]
+
 
         print  "****Examination****"
-        print "output code when input is : ", codebook[test_pred[0]] 
-        print code
-        print  "*******************"
+        self.pretrained.model.reset_state()        
+        test_pred = np.ones(5, dtype=np.int32)*100
+        
+        #for i in range(5):
+        if True:
+            test_pred[0] = -1
+            code = ""
+
+            for j in range(4):
+                pd = self.pretrained.model.q_function(test_pred[j])
+                print "pd for {} step : ".format(j)
+                print pd.data
+                test_pred[j+1] = np.argmax(pd.data)
+                code += codebook[test_pred[j+1]]
+
+            print "[output code]"
+            print code
+            print  "*******************"
 
         print "pretraining complete!!"
         raw_input()
@@ -167,8 +184,8 @@ class DQN:
         self.max_steps = max_steps
         self.time_stamp = 0
 
-        self.model = ActionValue(self.n_history, self.n_act)
-        #self.model = self.pretrained.model ##Uncomment this if pretraied work!!
+        #self.model = ActionValue(self.n_history, self.n_act)
+        self.model = self.pretrained.model ##Uncomment this if pretraied work!!
         self.model_target = copy.deepcopy(self.model)
 
         self.optimizer = optimizers.AdaGrad(lr=0.001)
@@ -181,19 +198,40 @@ class DQN:
 
     def compute_loss(self, model, x_list, batch_size):
         loss = 0
-        for j in range(batch_size):
-            i = random.randint(0, len(x_list)-1)
+        
+        minibatch_idx = random.sample(range(len(x_list)), batch_size)
+        for i in minibatch_idx:
             #print i#, ":" , cur_word, " " , next_word
-            for cur_word, next_word in zip(x_list[i], x_list[i][1:]):
+            #for cur_word, next_word in zip(x_list[i], x_list[i][1:]):
+            for k in range(0, len(x_list[i])):
+
+                if k==0 : 
+                    cur_word = -1
+                else : 
+                    cur_word = x_list[i][k-1]
+
+                next_word = x_list[i][k] 
+    
                 pred = model.q_function(cur_word)
                 #print pred.data
+                #pred = F.softmax(pred)
+                #print pred.data
+                #raw_input()
                 gt = np.zeros(self.n_act, dtype=np.float32)
-                gt[next_word] = 1.
+                if k>0:
+                    gt = gt-1
+                #print gt
+                #raw_input()
+                gt[next_word] = 1
                 grdtru = Variable(np.asarray([gt]))
-                #print gt.data
+                #grdtru = Variable(np.asarray(np.int32([next_word])))
+                #print grdtru.data
+                #raw_input()
+                #err = F.softmax_cross_entropy(pred, grdtru)
                 err = F.mean_squared_error(pred, grdtru)
                 loss += err
 
+        loss = loss/batch_size
         return loss
 
     def action_sample_e_greedy(self, state, epsilon):
@@ -266,8 +304,10 @@ class DQN:
             #     episode.rewards = episode.rewards[:length]
 
             # update target model
-            self.optimizer.zero_grads()
-            loss = 0
+            if self.initial_exploration == time+1 : 
+                self.optimizer.zero_grads()
+            
+            loss = Variable(np.asarray(np.float32(0.0)))
             for episode in r_episodes:
                 loss += self.get_loss(episode)
             loss.backward()
@@ -376,6 +416,7 @@ class DQNAgent:
                 self.epsilon = 0.1
         else:  # Evaluation
             self.epsilon = 0.0
+
         print "EPSILON: {}".format(self.epsilon)
 
         action_idx, Q_now = self.dqn.action_sample_e_greedy(state, self.epsilon)
