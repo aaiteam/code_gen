@@ -81,7 +81,7 @@ def keywords_extraction_from_file(input_fn):
     return code_refine_list
 
 
-def code_extraction(library_name_list, output_file):
+def code_extraction(library_name_list, output_filename):
     """ read webpages from input_file, extract python codes from corresponding webpage and saved
     the refined codeword into output_file
     
