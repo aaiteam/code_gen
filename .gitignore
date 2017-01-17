@@ -6,3 +6,4 @@ temp.py
 gym-codegen/gym_codegen.egg-info/*
 */gym-codegen/gym_codegen.egg-info/*
 */out
+*.pkl
