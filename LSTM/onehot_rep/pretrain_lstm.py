@@ -1,13 +1,5 @@
 # coding: utf-8
 
-# http://qiita.com/chachay/items/052406176c55dd5b9a6a
-#
-# http://www.monthly-hack.com/entry/2016/10/12/121613
-
-# Please download data below
-## https://drive.google.com/drive/u/2/folders/0B33vEXpXOGfmUmFFUVhsY3R2elU
-
-
 import argparse
 import pickle
 
