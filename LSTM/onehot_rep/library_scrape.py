@@ -5,31 +5,7 @@ import keyword
 import itertools
 import re
 import pickle
-from progressbar import ProgressBar
-
-# all kinds of codeword to extract
-builtin_func = dir(__builtins__)  # builtin functions
-keyword_list = keyword.kwlist  # builtin keywords
-arith_operator = ['+', '-', '*', '/', '%', '//', '**']
-comp_operator = ['>', '<', '!=', '==', '>=', '<=']
-logic_operator = ['or', 'and', 'not']
-assign_operator = ['=', '+=', '-=', '*=', '/=', '%=', '//=', '**=']
-bracket = ['{', '}', '[', ']', '(', ')']
-special_symbol = [':']
-useful_delimiters = [' ', '\n']
-digit_expression = ['y']
-
-# symbols to be omitted 
-omit_list = ['', ',', '"', ">>>", "...", "#", '.']
-
-filt = list(itertools.chain(builtin_func, keyword_list, arith_operator,
-                            comp_operator, logic_operator, assign_operator, bracket, special_symbol, useful_delimiters,
-                            digit_expression))
-
-# delimiters to split string into list 
-delimiters = [',', ' ', '(', ')', '[', ']', '{', '}', ':', "...", '\n', '"', '.', '>>>']
-regexPattern = "(" + '|'.join(map(re.escape, delimiters)) + ")"
-
+from progressbar import ProgressBar ## to use: $ pip install progressbar2
 
 def find_all_files(directory):
     for root, dirs, files in os.walk(directory):
@@ -50,14 +26,38 @@ def get_python_filenames_from_libraries(library_name):
 
 
 def keywords_extraction_from_file(input_fn):
-    """ read webpages from input_file, extract python codes from corresponding webpage and saved
-    the refined codeword into output_file
+    """ split the python code of input_fn to words and change them to keywords
     
     Args:
        input_fn: .py filename
     Return:
        code_refined_list: keyword list
     """
+
+    # all kinds of codeword to extract
+    builtin_func = dir(__builtins__)  # builtin functions
+    keyword_list = keyword.kwlist  # builtin keywords
+    arith_operator = ['+', '-', '*', '/', '%', '//', '**']
+    comp_operator = ['>', '<', '!=', '==', '>=', '<=']
+    logic_operator = ['or', 'and', 'not']
+    assign_operator = ['=', '+=', '-=', '*=', '/=', '%=', '//=', '**=']
+    bracket = ['{', '}', '[', ']', '(', ')']
+    special_symbol = [':']
+    useful_delimiters = [' ', '\n']
+    digit_expression = ['y']
+
+    # symbols to be omitted
+    omit_list = ['', ',', '"', ">>>", "...", "#", '.']
+
+    filt = list(itertools.chain(builtin_func, keyword_list, arith_operator,
+                                comp_operator, logic_operator, assign_operator, bracket, special_symbol,
+                                useful_delimiters,
+                                digit_expression))
+
+    # delimiters to split string into list
+    delimiters = [',', ' ', '(', ')', '[', ']', '{', '}', ':', "...", '\n', '"', '.', '>>>']
+    regexPattern = "(" + '|'.join(map(re.escape, delimiters)) + ")"
+
     f = open(input_fn, 'r')
     code_refine_list = []
     for code_line in f:
@@ -82,12 +82,11 @@ def keywords_extraction_from_file(input_fn):
 
 
 def code_extraction(library_name_list, output_filename):
-    """ read webpages from input_file, extract python codes from corresponding webpage and saved
-    the refined codeword into output_file
+    """ read python files from library_name and saved the refined codeword into output_filename
     
     Args:
-       library_list: from which txt file to read webpage list
-       output_file: to which csv file to write codeword into 
+       library_name_list: target library names like ['numpy', 'sklearn', ...]
+       output_filename: .pkl filename that processed list is written
     """
     output_list = []
     for library_name in library_name_list:
@@ -147,8 +146,6 @@ def convert2onehot(input_file):
 
 
 if __name__ == '__main__':
-    ## before you kick this script, please exec this command
-    ### pip install progressbar2
 
     ### Necessary to set these params ###
     pretrain_library_name_list = ['pandas', 'numpy', 'scipy', 'sklearn', 'chainer']
