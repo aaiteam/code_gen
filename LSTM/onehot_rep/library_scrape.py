@@ -137,10 +137,10 @@ def convert2onehot(input_file):
         lst_onehot = np.empty((0, num_codeword), dtype=int)
         lst_index = []
         for element in lst:
-            lst_onehot = np.concatenate((lst_onehot, onehot[cnt, :][np.newaxis, :]), axis=0)
+            # lst_onehot = np.concatenate((lst_onehot, onehot[cnt, :][np.newaxis, :]), axis=0)
             lst_index.append(index[cnt])
             cnt += 1
-        data_onehot.append(lst_onehot)
+        # data_onehot.append(lst_onehot)
         data_index.append(lst_index)
     return data_onehot, data_index, codebook
 
