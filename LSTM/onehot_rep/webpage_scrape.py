@@ -112,10 +112,10 @@ def convert2onehot(input_file):
         data_onehot.append(lst_onehot) 
         data_index.append(lst_index)
     return data_onehot, data_index, codebook
-
-#if __name__ == '__main__':
+#
+# if __name__ == '__main__':
 #    code_extraction("webpage_list.txt", "output.pkl")
-#    _, data_index, codebook = convert2onehot("output.pkl")
+#    _, data_index, codebook = convert2onehot("webpage_code_refined_list.pkl")
 #    print 'data_index\n', data_index
 #    print 'codebook\n', codebook
 #    print 'max index', max([max(x) for x in data_index])
