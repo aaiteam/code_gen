@@ -20,7 +20,7 @@ and
  
 Only "python_corpus.pkl"  will be used to train the LSTM Network.
  
-## Train
+## Train LSTM using python corpus
 Before you start training, please put the "python_corpus.pkl" in this directory and start training!
     python pretrain_lstm.py
  
@@ -33,6 +33,7 @@ If you download, please put the "lstm_model.npz" in "result" directory.
 You can check the model by using "play_lstm.py"
 
 If you use one lstm layer, results will be below
+
     $ python play_lstm.py
     
         loading the data...
