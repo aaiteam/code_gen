@@ -37,12 +37,13 @@ def code_extraction(input_file, output_file):
             assign_operator = ['=', '+=', '-=', '*=', '/=', '%=', '//=', '**=']
             bracket = ['{', '}', '[', ']', '(', ')'] 
             special_symbol = [':']
-
-            # symbols to be omitted 
-            omit_list = ['', ' ', ',', '\n', '"', ">>>", "...", "#", '.']
-
-            filt = list(itertools.chain(builtin_func, keyword_list, arith_operator, 
-                        comp_operator, logic_operator, assign_operator, bracket, special_symbol))
+            useful_delimiters = [' ', '\n']
+            digit_expression = ['y']
+            # symbols to be omitted
+            omit_list = ['', ',', '"', ">>>", "...", "#", '.']
+            filt = list(itertools.chain(builtin_func, keyword_list, arith_operator,
+                        comp_operator, logic_operator, assign_operator, bracket, special_symbol,
+                        useful_delimiters, digit_expression))
 
             # delimiters to split string into list 
             delimiters = [',',' ', '(', ')', '[', ']', '{', '}', ':', "...", '\n', '"', '.', '>>>']
@@ -68,7 +69,7 @@ def code_extraction(input_file, output_file):
                                 code_refine.append('x')
                 #  if code_refine is not empty
                 if len(code_refine) >= 2:
-#                     print code_refine
+                    print code_refine
                     output_list.append(code_refine)
 #     print output_list
     with open(output_file,'wb') as f:
@@ -112,10 +113,10 @@ def convert2onehot(input_file):
         data_onehot.append(lst_onehot) 
         data_index.append(lst_index)
     return data_onehot, data_index, codebook
-#
-# if __name__ == '__main__':
-#    code_extraction("webpage_list.txt", "output.pkl")
-#    _, data_index, codebook = convert2onehot("webpage_code_refined_list.pkl")
-#    print 'data_index\n', data_index
-#    print 'codebook\n', codebook
-#    print 'max index', max([max(x) for x in data_index])
+
+if __name__ == '__main__':
+    code_extraction("webpage_list.txt", "output.pkl")
+    _, data_index, codebook = convert2onehot("output.pkl")
+    print 'data_index\n', data_index
+    print 'codebook\n', codebook
+    print 'max index', max([max(x) for x in data_index])

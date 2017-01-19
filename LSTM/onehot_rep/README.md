@@ -26,7 +26,7 @@ Before you start training, please put the "python_corpus.pkl" in this directory 
  
 Output files are put in "result"(default) directory.
 
-You can download the model file from https://drive.google.com/open?id=0B33vEXpXOGfmYkJBRGRUdllBNGM 
+You can download the model (ActionValue(n_vocab, 650)) file from https://drive.google.com/open?id=0B33vEXpXOGfmYkJBRGRUdllBNGM 
 
 If you download, please put the "lstm_model.npz" in "result" directory.
 
@@ -61,5 +61,28 @@ If you use one lstm layer, results will be below
         >>
 
 These are not good results, but the relationship between "(" and ")" , "{" and "}" seems to be learned! 
+
+If I increase the number of lstm layers from one to two, better results can be obtained!
+
+The model is ActionValue2(n_vocab, 650) and can be downloaded from https://drive.google.com/open?id=0B33vEXpXOGfmbDlPNkNfSWVIZUk 
+
+    $ python play_lstm.py
+        loading the data...
+        Finished loading!
+        >> def
+        def x(x x x):
+            x x
+        >> print
+        print(x)
+        
+        >> [
+        [y] x x x x x x x x x
+        >> {
+        {x: x x: x}
+        
+        >> (
+        (x) x x x x x x x x
+        
+        >>
 
 
