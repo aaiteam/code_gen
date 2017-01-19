@@ -113,7 +113,7 @@ x = int(sys.argv[1])
         # remove newline added by print for convinience
         if len(ex_res.output) > 0:
             ex_res.output = ex_res.output[:-1]
-        print "Execution result: {}".format(ex_res)
+        # print "Execution result: {}".format(ex_res)
         return ex_res
 
     def _reset(self):
@@ -121,5 +121,5 @@ x = int(sys.argv[1])
         return self.code
 
     def _render(self, mode='human', close=False):
-        print "Rendering Codegen environment..."
+        # print "Rendering Codegen environment..."
         print "Code: \n=====================\n{}\n=====================\n".format(self.code)

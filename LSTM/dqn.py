@@ -118,17 +118,22 @@ class DQN:
         #raw_input()
 
         # 2 : Synthetic Data
-        data_index  = data_gen.Generator(actions).generate_codes(max_steps, False)
+        data_index  = data_gen.Generator(actions).generate_codes_random2(max_steps, False)
+        # data_index  = data_gen.Generator(actions).generate_codes_random(max_steps, False)
+        # data_index  = data_gen.Generator(actions).generate_codes(max_steps, False)
         codebook = actions
         for k in range(len(codebook)):
             start_k = [x for x in data_index if x[0]==k]
             print "number of Data start with '{}' : {}".format(codebook[k], len(start_k))
-        raw_input()
+        # raw_input()
 
         self.actions = codebook
         self.n_act = len(self.actions)     
         print "Data Size : ", len(data_index)
         print "codebook: {}".format(codebook)
+        print "Data index: "
+        for episode in data_index:
+            print "".join(actions[i] for i in episode)
 
         print "LSTM pretraining..."
         self.pretrained = self.Pretrained(n_history, self.n_act)
@@ -171,9 +176,9 @@ class DQN:
             print  "*******************"
 
         print "pretraining complete!!"
-        raw_input()
+        # raw_input()
 
-        print "Initializing DQN..."
+        # print "Initializing DQN..."
         # While pretraining is useless
         #######################################################################################
         self.actions = actions
@@ -249,17 +254,38 @@ class DQN:
         q = [0] * self.n_act
         if self.initial_exploration < self.time:
             q = self.model.q_function(self.get_action_id(action))
-            print "q for action {} is {}".format(self.get_action_id(action), q.data[0])
+            # print "q for action {} is {}".format(self.get_action_id(action), q.data[0])
             q = q.data[0]
 
-        if np.random.rand() < epsilon:
-            print "RANDOM"
-            action = np.random.randint(0, self.n_act)
+        # if np.random.rand() < epsilon:
+        #     print "RANDOM"
+        #     action = np.random.randint(0, self.n_act)
+
+        if np.random.rand() < epsilon or self.initial_exploration >= self.time:
+            # print "RANDOM"
+            ##############################################################################
+            action = self.get_action_id(action)
+            # print "Sampling action"
+            if self.initial_exploration >= self.time or epsilon >= 1.0:
+                # print "initial exploration for action {}".format(action)
+                if action == -1:
+                    # print "Resetting state"
+                    self.pretrained.model.reset_state()
+                q = self.pretrained.model.q_function(action).data[0]
+                if np.random.rand() < 0.5:
+                    action = np.argmax(q)
+                    # print "LSTM"
+                    # print "argmax of {}: {}".format(q, action)
+                else:
+                    action = np.random.randint(0, self.n_act)
+                    # print "random: {}".format(action)
+            ##############################################################################
+            # action = np.random.randint(0, self.n_act)
 
         else:
             a = np.argmax(q)
             action = a
-        print "next action = {}".format(action)
+        # print "next action = {}".format(action)
         return action, q
 
     # TODO: Use data size
@@ -283,13 +309,13 @@ class DQN:
         if len(self.goal_history) > self.goal_history_size:
             self.goal_history = self.goal_history[1:]
 
-        print "history size: {}, goal history size: {}".format(len(self.history), len(self.goal_history))
+        # print "history size: {}, goal history size: {}".format(len(self.history), len(self.goal_history))
 
     def experience_replay(self, time):
         if self.initial_exploration < time:
             replay_goal = min(len(self.goal_history), self.goal_replay_size)
             replay_all = min(replay_goal, self.replay_size - self.goal_replay_size)
-            print "REPLAYING {} good and {} all".format(replay_goal, replay_all)
+            # print "REPLAYING {} good and {} all".format(replay_goal, replay_all)
 
             replay_index = random.sample(range(len(self.history)), replay_all)
             goal_replay_index = random.sample(range(len(self.goal_history)), replay_goal)
@@ -417,7 +443,7 @@ class DQNAgent:
         else:  # Evaluation
             self.epsilon = 0.0
 
-        print "EPSILON: {}".format(self.epsilon)
+        # print "EPSILON: {}".format(self.epsilon)
 
         action_idx, Q_now = self.dqn.action_sample_e_greedy(state, self.epsilon)
         self.last_action = self.dqn.actions[action_idx]
@@ -446,6 +472,7 @@ class DQNAgent:
         self.state.append(self.State(code=code))
 
     def end(self, reward):
-        print "End in agent, episode terminated"
-        print "Episode REWARD: {}".format(reward)
+        pass
+        # print "End in agent, episode terminated"
+        # print "Episode REWARD: {}".format(reward)
 

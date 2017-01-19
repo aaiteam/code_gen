@@ -1,5 +1,6 @@
 from copy import deepcopy
 import contextlib
+import random
 import StringIO
 import sys
 
@@ -45,6 +46,7 @@ x = int(sys.argv[1])
 
     def check_and_add(self, code, good_codes):
         if not self.raises_exception(''.join([self.word_dict[i] for i in code])):
+            print "good code: \n{}\n".format(''.join([self.word_dict[i] for i in code]))
             good_codes.append(deepcopy(code))
 
 
@@ -65,10 +67,52 @@ x = int(sys.argv[1])
         self.append_word(code, 0, max_len, good_codes, need_shorter)
         return good_codes
 
+    def append_word_random(self, code, idx, max_len, good_codes, need_shorter, width):
+        if idx > 0 and need_shorter or idx == max_len:
+            self.check_and_add(code, good_codes)
+
+        if idx < max_len:
+            idx += 1
+            for i in random.sample(range(len(self.word_dict)), width):
+                # print "width: {}, append: {}".format(width, i)
+                code.append(i)
+                self.append_word_random(code, idx, max_len, good_codes, need_shorter, width)
+                del code[-1]
+
+    def generate_codes_random(self, max_len=5, need_shorter=True):
+        code = []
+        good_codes = []
+        width = 4
+        self.append_word_random(code, 0, max_len, good_codes, need_shorter, width)
+        return good_codes
+
+    def append_word_random2(self, code, idx, max_len, good_codes, need_shorter, width):
+        if idx > 0 and need_shorter or idx == max_len:
+            self.check_and_add(code, good_codes)
+
+        if idx < max_len:
+            idx += 1
+            # for i in random.sample(range(len(self.word_dict)), width):
+                # print "width: {}, append: {}".format(width, i)
+            code.append(random.randint(0, len(self.word_dict) - 1))
+            self.append_word_random2(code, idx, max_len, good_codes, need_shorter, width)
+            del code[-1]
+
+    def generate_codes_random2(self, max_len=5, need_shorter=True):
+        good_codes = []
+        width = 4
+        for i in range(500000):
+            code = []
+            self.append_word_random2(code, 0, max_len, good_codes, need_shorter, width)
+            if i % 10000 == 0:
+                print ":{}:".format(i)
+        return good_codes
+
 
 def main():
     print "Generating examples..."
-    good_codes = Generator(["print", " ", "x", "+", "1"]).generate_codes(max_len=5, need_shorter=True) 
+    good_codes = Generator(["print", " ", "x", "+", "1"]).generate_codes(max_len=5, need_shorter=True)
+    good_codes = Generator(["print", " ", "x", "+", "1"]).generate_codes_random(max_len=5, need_shorter=True) 
     print "good codes: {}".format(good_codes) 
     for code in good_codes:
         code_str = ''.join([["print", " ", "x", "+", "1"][i] for i in code])
