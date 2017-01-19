@@ -4,6 +4,7 @@ import argparse
 import pickle
 
 import chainer
+import chainer.functions as F
 import chainer.links as L
 import numpy as np
 from chainer import training, Chain, Variable
@@ -38,6 +39,43 @@ class ActionValue(Chain):
         self.lstm.reset_state()
         # self.lstm1.reset_state()
         # self.lstm2.reset_state()
+        self.h_sum = None
+        self.seq_len = np.asarray([0])
+
+    def set_state(self, actions):
+        self.reset_state()
+        for action in actions:
+            self.q_function(action)
+
+
+class ActionValue2(Chain):
+    def __init__(self, n_vocab, n_units):
+        super(ActionValue2, self).__init__(
+                embed=L.EmbedID(n_vocab, n_units),
+                lstm1=L.LSTM(in_size=n_units, out_size=n_units),
+                lstm2=L.LSTM(in_size=n_units, out_size=n_units),
+                q_value=L.Linear(n_units, n_vocab)
+        )
+        self.h_sum = None
+        self.seq_len = np.asarray([0])
+
+    def __call__(self, x, train=True):
+        h = self.embed(x)
+        h = self.lstm1(F.dropout(h, train=train))
+        h = self.lstm2(F.dropout(h, train=train))
+        h = self.q_value(F.dropout(h, train=train))
+        return h
+
+    def q_function(self, action):
+        h = self.embed(Variable(np.asarray([np.int32(action + 1)])))
+        h = self.lstm1(h)
+        h = self.lstm2(h)
+        h = self.q_value(h)
+        return h
+
+    def reset_state(self):
+        self.lstm1.reset_state()
+        self.lstm2.reset_state()
         self.h_sum = None
         self.seq_len = np.asarray([0])
 
@@ -123,7 +161,7 @@ def compute_perplexity(result):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--batchsize', '-b', type=int, default=100,
+    parser.add_argument('--batchsize', '-b', type=int, default=200,
                         help='Number of examples in each mini-batch')
     parser.add_argument('--bproplen', '-l', type=int, default=10,
                         help='Number of words in each mini-batch '
@@ -166,9 +204,9 @@ def main():
     print('#train =', n_train)
     train_iter = ParallelSequentialIterator(train_data, args.batchsize)
 
-    # Prepare an RNNLM model
-    # rnn = RNNForLM(n_vocab, args.unit)
-    rnn = ActionValue(n_vocab, args.unit)
+    # rnn = ActionValue(n_vocab, args.unit)
+    rnn = ActionValue2(n_vocab, args.unit)
+
     model = L.Classifier(rnn)
     model.compute_accuracy = True  # we only want the perplexity
     if args.gpu >= 0:
@@ -201,7 +239,7 @@ def main():
     @training.make_extension(trigger=(500, 'iteration'))
     def save_model(trainer):
         chainer.serializers.save_npz('{}/{}'.format(
-                args.out, 'lstm_model.npz'), model)
+                args.out, 'lstm_model2.npz'), model)
 
     trainer.extend(save_model)
 

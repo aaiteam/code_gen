@@ -18,9 +18,9 @@ index2vocab = {i: x for i, x in enumerate(vocab)}
 
 n_vocab = len(vocab)
 
-rnn = pretrain_lstm.ActionValue(n_vocab, 650)
+rnn = pretrain_lstm.ActionValue2(n_vocab, 650)
 model = L.Classifier(rnn)
-S.load_npz('./result/lstm_model.npz', model)
+S.load_npz('./result/lstm_model2.npz', model)
 
 print ("Finished loading!")
 
